@@ -1,0 +1,49 @@
+<!--=============================================================================
+#     FileName: editCourseDirection.html
+#         Desc: 添加课程分类
+#       Author: Wuyuanhang
+#        Email: QQ:2881319821
+#     HomePage:
+#      Version: 0.0.1
+#   LastChange: 2016-10-25 21:29:14
+#      History:
+=============================================================================-->
+<replace value="sd_description|sd_name|stateList|sd_id">
+<form method="post" action="/courseManage/editCourseDirection.json" id="formCourse" class="form-horizontal form-row-seperated">
+  <div class="form-body clearfix">
+    <div class="form-group">
+      <label class="control-label col-md-2">分类名(学习方向)</label>
+      <div class="col-md-10">
+        <input type="text" name="name" class="form-control" value="{sd_name}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">状态</label>
+      <div class="col-md-10">
+        <select name="state" class="form-control">
+          <option value="0">--状态--</option>
+          {stateList}
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">描述</label>
+      <div class="col-md-10">
+        <textarea class="form-control autosizeme" name="description" rows="3">{sd_description}</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <input type="hidden" name="id" class="form-control mask-date" value="{sd_id}">
+        <button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+        <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+      </div>
+    </div>
+  </div>
+</form>
+</replace>
+<script language="javascript" type="text/javascript">
+  courseDirection.courseDirectionForm();
+</script>

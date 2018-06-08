@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="zh" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    <head>
+        <meta charset="utf-8"/>
+        <title>系统登录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta content="" name="description"/>
+        <!-- 全局样式,这里的不要改动 -->
+        <!-- <link href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/> -->
+        <link href="{_TEMP_PUBLIC_}/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="{_TEMP_PUBLIC_}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="{_TEMP_PUBLIC_}/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+        <link href="{_TEMP_PUBLIC_}/css/components.css" rel="stylesheet" type="text/css"/>
+        <link href="{_TEMP_PUBLIC_}/css/plugins.css" rel="stylesheet" type="text/css"/>
+        <!-- 全局样式结束 -->
+
+        <!-- 加载样式,可改动 -->
+
+        <link href="{_TEMP_SHARE_}/assets/themes/default/css/layout.css" rel="stylesheet" type="text/css"/>
+        <link href="{_TEMP_SHARE_}/assets/themes/default/css/default.css" rel="stylesheet" type="text/css"/>
+        <link href="{_TEMP_SHARE_}/assets/themes/default/css/login.css" rel="stylesheet" type="text/css"/>
+
+        <!-- 加载样式end -->
+
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <!-- js都放在</body>之前,根据实际需求可将部分js(例如:jquery.min.js)放到到<head></head>中 -->
+    </head>
+    <body class="login">
+<!-- BEGIN LOGO -->
+
+<!-- END LOGO -->
+<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+<div class="menu-toggler sidebar-toggler">
+</div>
+<!-- END SIDEBAR TOGGLER BUTTON -->
+<!-- Wrap all page content here -->
+<div id="wrap" class="loginbox">
+  
+  <div class="header">
+  <div class="navbar">
+    <div class="container">
+      <div class="navbar-header">       
+		<div class="logo">
+			<a href="/login"><img src="{_TEMP_PUBLIC_}/images/logo-blue.png" alt="大唐天下ERP" class="logo-default"></a>
+		</div>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav pull-right">
+          <li class="active"><a href="/login">系统首页</a></li>          
+          <li><a href="/login">帮助中心</a></li>          
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+  </div>
+  <!-- Begin page content -->
+  <div class="center-container">
+    
+    <div class="work-con">
+                <div class="center-row">
+                    <!-- CONPUTER SHOW -->
+                    <div class="conputer-show">
+                        <img src="{_TEMP_SHARE_}/assets/themes/default/img/conputer-show.png" alt="">
+                    </div>
+                    <!-- CONPUTER SHOW -->
+                    <!-- BEGIN LOGIN -->
+                    <div class="content form-right">
+						<div class="tabbable-custom">
+						<ul class="nav nav-tabs">
+							<li class="active"> <a class="text-center" href="#tab_1_1" data-toggle="tab" aria-expanded="true"> 账户密码登录 </a> </li>
+							<!-- <li class="pull-right"> <a class="text-center" href="#tab_1_2" data-toggle="tab"> 二维码安全登录 </a> </li> -->
+						</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade active in" id="tab_1_1">
+							<!-- BEGIN LOGIN FORM -->
+							<form class="login-form" action="/login/loginAction.json" method="post" id="form_login">
+								<h3 class="form-title"> 大唐天下协同工作平台</h3>
+								<div class="alert-error-info"></div>
+								<div class="form-group">
+									<label class="control-label visible-ie8 visible-ie9"> 员工号</label>
+									<div class="input-icon">
+										<i class="fa fa-user login-icon login-icon"></i>
+										<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="员工号" name="username"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label visible-ie8 visible-ie9"> 密码 </label>
+									<div class="input-icon">
+										<i class="fa fa-lock login-icon login-icon"></i>
+										<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label visible-ie8 visible-ie9"> 验证码 </label>
+									<div class="input-icon">
+										<i class="icon-check fa fa-file-image-o login-icon login-icon"></i>
+										<input class="form-control placeholder-no-fix code-popover" type="text" autocomplete="off" placeholder="点击显示验证码" name="code" data-original-title="" title=""/>
+										<div id="html_verification_code" class="display-hide"><img id="img_verification_code" width="100" alt="" src=""></div>
+									</div>
+								</div>
+								<div class="form-actions">
+									<div class="clearfix margin-bottom-10 hide">
+										<a class="pull-left" href="javascript:;" id="forget-password">忘记密码? </a>
+										<a href="/register" class="pull-right">立即注册 <i class="fa fa-angle-double-right"></i></a>
+									</div>
+									<div class="clearfix">
+										<button type="submit" class="btn blue btn-block">
+										登录 <i class="m-icon-swapright m-icon-white"></i>
+										</button>
+									</div>
+								</div>
+								<div class="login-options hide">
+									<div class="clearfix">
+										<p class="social margin-bottom-20">
+											<span>合作网站账号登录&nbsp;&nbsp;</span>
+											<a href="/login" class="font-grey-silver"><i class="fa fa-wechat"></i> 微信</a> &nbsp; 
+											<a href="/login" class="font-grey-silver"><i class="fa fa-qq"></i> QQ</a>  &nbsp; 
+											<a href="/login" class="font-grey-silver"><i class="fa fa-weibo"></i> 微博</a> 
+										</p>
+									</div>
+								</div>
+						</div>
+<!-- 						<div class="tab-pane fade" id="tab_1_2"> -->
+<!-- 							<div class="login-options"> -->
+<!-- 								<div class="row"> -->
+<!-- 								  <div class="col-md-12 text-center"> -->
+<!-- 										<h5>扫码登录</h5> -->
+<!-- 										<center> -->
+<!-- 											<img src="https://qrapi.cli.im/qr?data=%25E5%258D%2583%25E5%25B6%2582%25E9%2587%258C%252C%25E9%2595%25BF%25E7%2583%259F%25E8%2590%25BD%25E6%2597%25A5%25E5%25AD%25A4%25E5%259F%258E%25E9%2597%25AD&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=120&kid=cliim&key=127ffc7c1557d70a44e6423a1c3fa93f" class="img-responsive" /> -->
+<!-- 										</center> -->
+<!-- 								  </div>	 -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!--                             <div id="html_verification_code"></div>		 -->
+<!-- 						</div> -->
+                            
+                            
+
+                        </form>
+                        <!-- 登录 end -->
+					</div>
+					</div>
+                    </div>
+                    <!-- END LOGIN -->    
+
+                </div>
+
+
+            </div>  
+    
+    </div>
+    
+    
+  </div>
+  
+</div>
+<!-- begin footer -->
+<div id="footer" class="clearfix">
+	<div class="container">
+		<replace value="abouturl|openurl|srvurl|mallurl|bbsurl">
+			<p class="hide">         
+				<a href="{abouturl}" target="_blank">关于我们</a> &nbsp; | &nbsp;
+				<a href="{openurl}" target="_blank">开放平台</a> &nbsp; | &nbsp;
+				<a href="{srvurl}" target="_blank">客服中心</a> &nbsp; | &nbsp;
+				<a href="{mallurl}" target="_blank">商城</a> &nbsp; | &nbsp;
+				<a href="{bbsurl}" target="_blank">论坛</a>
+			</p>
+		</replace>
+		<p class="copyright">
+        湖南大唐天下网络科技有限公司 湘ICP备16005109号-3  Datang,Inc.All rights reserved.Powered by Datang</p>
+	</div>
+</div>
+<!-- end footer --> 
+
+        <!-- 加载js,在这里加载为了提高页面打开速度;必要情况下可将js放到<head></head>之间,视实际情况而定 --> 
+        <!-- 核心js,不要修改 --> 
+        <!--[if lt IE 9]>
+        <script src="{_TEMP_PUBLIC_}/plugins/respond.min.js"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/excanvas.min.js"></script>
+        <![endif]--> 
+        <script src="{_TEMP_PUBLIC_}/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+        <script src="{_TEMP_PUBLIC_}/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- 核心js end --> 
+
+        <script type="text/javascript" src="{_TEMP_PUBLIC_}/plugins/bootbox/bootbox.min.js"></script><!-- 对话框 -->
+        <script src="{_TEMP_PUBLIC_}/plugins/jquery.pulsate.min.js" type="text/javascript"></script> <!-- 震动提示 -->
+        <script src="{_TEMP_PUBLIC_}/plugins/select2/select2.min.js" type="text/javascript"></script>
+
+        <!-- form表单必须加载项 -->
+        <script type="text/javascript" src="{_TEMP_PUBLIC_}/plugins/jquery-validation/js/jquery.validate.min.js"></script><!-- 表单验证 -->
+        <script type="text/javascript" src="{_TEMP_PUBLIC_}/plugins/jquery-validation/js/additional-methods.min.js"></script><!-- 表单验证 -->
+        <script type="text/javascript" src="{_TEMP_PUBLIC_}/plugins/jquery.form.js"></script><!-- 表单提交 -->
+        <!-- form表单必须加载项 end -->
+
+        <script src="{_TEMP_PUBLIC_}/scripts/submit.js" type="text/javascript"></script> <!-- 表单提交新方法 -->
+
+        <script src="{_TEMP_PUBLIC_}/scripts/global.js" type="text/javascript"></script>
+        <script src="{_TEMP_SHARE_}/assets/themes/default/scripts/layout.js" type="text/javascript"></script>
+        <script src="{_TEMP_SHARE_}/assets/themes/default/scripts/login.js" type="text/javascript"></script>
+        <script>
+            jQuery(document).ready(function () {
+                Global.init();
+                Layout.init();
+                Login.init();
+            });
+        </script> 
+        <!-- end js -->
+    </body>
+    <!-- end body -->
+</html>

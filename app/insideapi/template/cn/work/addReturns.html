@@ -1,0 +1,104 @@
+
+		<form method="post" action="/work/addReturns.json" id="form_addReturns">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">添加返回参数</h4><br>
+				<small style="font-size: 12px;color: red">带*号的为必填项</small>
+			</div>
+			<div class="form-body clearfix">
+				<table class="table responsive-form-table" id="lll">
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3 borderd"><small style="color: red">*</small>数据库字段名称</th>
+						<td class="col-sm-12 col-md-9 borderd" data-title="字段名称"><input type="text" name="irf_db_field[]" class="form-control" value=""></td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3 borderd"><small style="color: red">*</small>字段别名</th>
+						<td class="col-sm-12 col-md-9 borderd" data-title="字段名称"><input type="text" name="irf_as_name[]" class="form-control" value=""></td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3"><small style="color: red">*</small>字段格式</th>
+						<td class="col-sm-12 col-md-9" data-title="字段格式">
+							<select class="form-control form-filter input-sm" name="irf_type[]">
+								<option value="">--字段格式--</option>
+								<option value="string">String</option>
+								<option value="int">Int</option>
+								<option value="float">Float</option>
+							</select>
+						</td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">长度</th>
+						<td class="col-sm-12 col-md-9" data-title="长度"><input type="text" name="irf_lenght[]" class="form-control mask-date" value=""></td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">示例</th>
+						<td class="col-sm-12 col-md-9" data-title="示例">
+							<textarea class="form-control autosizeme" name="irf_example[]" rows="3"></textarea>
+						</td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3"><small style="color: red">*</small>描述</th>
+						<td class="col-sm-12 col-md-9" data-title="描述">
+							<textarea class="form-control autosizeme" name="irf_description[]" rows="3"></textarea>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="form-actions">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<replace value="irf_il_id">
+									<input type="hidden" name="irf_il_id" class="form-control mask-date" value="{irf_il_id}">
+								</replace>
+								<button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+								<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+								<button type="button" onclick="request()" class="btn default"><i class="fa fa-check"></i> 添加</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6"> </div>
+				</div>
+			</div>
+		</form>
+
+	<script type="text/javascript">
+		function request()
+		{
+			var request = document.getElementById('lll');
+			var nodeFather = request.parentNode;
+			var node_clone = request.cloneNode();
+			content = request.innerHTML;
+			node_clone.removeAttribute('id');
+			node_clone.innerHTML = content;
+			nodeFather.appendChild(node_clone);
+		}
+	</script>
+	<script>
+		$('#form_addReturns').handleForm(
+			function(data, statusText){
+				if(data.id == '1001'){
+					data.msg = '<p>添加成功!</p>';
+					bootbox.alert(data.msg, function() {
+						grid3.getDataTable().ajax.reload(null, false);
+						$('#addReturns').modal('hide');
+					});
+				}
+				else{
+					data.msg = data.info || data.msg;
+					Global.alert( {
+						"container": "#form_addReturns",
+						"place": "prepend",
+						"type": "warning",
+						"message": data.msg,
+						"close": true,
+						"reset": true,
+						"focus": true,
+						"closeInSeconds": "0",
+						"icon": "warning"
+					});
+				}
+			}
+		);
+	</script>

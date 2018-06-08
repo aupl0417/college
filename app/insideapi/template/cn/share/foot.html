@@ -1,0 +1,131 @@
+</div>
+</div>
+
+<!-- common结束 -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer wow fadeIn" data-wow-duration="1s">
+	<div class="container">
+		<ul class="">
+			<li><a href="https.//open.999qf.cn" title=""><i class="open-iconfont open-portal-icon-mail"></i>开放平台合作 open.999qf.cn</a></li>
+			<li><span>Copyright © 2016 湖南大唐天下网络科技有限公司  版权所有</span></li>
+		</ul>
+	</div>
+</div>
+<!-- END FOOTER -->
+
+<!-- 1 -->
+
+<nav class="navbar-example sidebar visible-lg-block">
+  <ul class="nav bs-docs-sidenav" role="tablist">
+    <li class="active"> <a href="#js-overview">公共参数</a> </li>
+    <li> <a href="#transitions">请求参数</a></li>
+    <li class=""> <a href="#modals">响应参数</a> </li>
+    <li class=""> <a href="#dropdowns">请求示例</a> </li>
+    <li class=""> <a href="#scrollspy">响应示例</a> </li>
+    <li> <a href="#tabs">异常示例</a> </li>
+  </ul>
+</nav>
+
+<!-- 1 --> 
+
+<script src="{_TEMP_ACTION_}/sjs/index.js"></script>
+<!--<script src="{_TEMP_SHARE_}/js/vendor/bootstrap.min-3.0.js"></script>-->
+<script src="{_TEMP_SHARE_}/js/plugins-3.0.js"></script>
+<script src="{_TEMP_SHARE_}/js/app-3.0.js"></script>
+<script type="text/javascript">
+
+//Navbar Box Shadow on Scroll 
+$(function(){
+    var sidebar = $('.sidebar');
+    $(window).scroll(function(){
+        if($(window).scrollTop() <= 340){
+       		sidebar.css('box-shadow', 'none');
+        } else {
+          sidebar.css('box-shadow', '2px 0px 10px rgba(0, 0, 0, 0.4)'); 
+        }
+    });  
+})
+//Function from Bluthemes, lets you add li elemants to affix object without having to alter and data attributes set out by bootstrap
+$(function(){
+	// name your elements here
+	var stickyElement   = '.sidebar';//,   // the element you want to make sticky
+		//bottomElement   = '#fake-footer'; // the bottom element where you want the sticky element to stop (usually the footer) 
+
+	// make sure the element exists on the page before trying to initalize
+	if($('.sidebar').length){
+		$('.sidebar').each(function(){
+
+			// let's save some messy code in clean variables
+			// when should we start affixing? (the amount of pixels to the top from the element)
+			var fromTop = $( this ).offset().top, 
+				// where is the bottom of the element?
+				fromBottom = $( document ).height()-($( this ).offset().top + $( this ).outerHeight()),
+				// where should we stop? (the amount of pixels from the top where the bottom element is)
+				// also add the outer height mismatch to the height of the element to account for padding and borders
+				stopOn = $( document ).height()-0+($( this ).outerHeight() - $( this ).height()); //( $( bottomElement ).offset().top)
+
+			// if the element doesn't need to get sticky, then skip it so it won't mess up your layout
+			if( (fromBottom-stopOn) > 200 ){
+				// let's put a sticky width on the element and assign it to the top
+				$( this ).css('width', $( this ).width()).css('top', 0).css('position', '');
+				// assign the affix to the element
+				$( this ).affix({
+					offset: { 
+						// make it stick where the top pixel of the element is
+						top: fromTop - 340,  
+						// make it stop where the top pixel of the bottom element is
+						bottom: stopOn
+					}
+				// when the affix get's called then make sure the position is the default (fixed) and it's at the top
+				}).on('affix.bs.affix', function(){ $( this ).css('top', '80px').css('position', ''); });
+			}
+			// trigger the scroll event so it always activates 
+			$( window ).trigger('scroll'); 
+		}); 
+	}
+
+});
+
+//Offset scrollspy height to highlight li elements at good window height
+$('body').scrollspy({
+	offset: 80
+});
+
+//Smooth Scrolling For Internal Page Links
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	  var target = $(this.hash);
+	  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	  if (target.length) {
+		$('html,body').animate({
+		  scrollTop: target.offset().top
+		}, 1000);
+		return false;
+	  }
+	}
+  });
+});
+
+//侧边栏选中效果脚本
+
+	var currentPage = $('#currentPage').val();
+	
+	if(currentPage != undefined){
+		$('.common-left li#page'+currentPage).addClass('active');
+	}
+	
+	
+//顶部导航选中效果脚本
+
+	var curPage = $('#curPage').val();
+	
+	if(curPage != undefined){
+		$('#nav'+currentPage).addClass('active');
+	}
+	
+	
+
+</script>
+</body></html>

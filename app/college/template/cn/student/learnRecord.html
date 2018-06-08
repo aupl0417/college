@@ -1,0 +1,31 @@
+<div class="portlet-body">
+  <div class="portlet-title">
+    <div class="caption"> <i class="fa fa-pencil"></i>学习情况</div>
+  </div>
+  <div class="dataTables_wrapper dataTables_extended_wrapper table-responsive no-footer">
+    <table aria-describedby="peopleList_info" id="attendDetail" class="table table-striped table-bordered table-hover dataTable no-footer">
+      <thead>
+      <tr>
+        <th data-dt="id">课时编号</th>
+        <th data-dt="courseName">课程</th>
+        <th data-dt="teacher">授课老师</th>
+        <th data-dt="attendTime">签到时间</th>
+        <th data-dt="trainSite">考试得分</th>
+        <th data-dt="trainSite">获得学分</th>
+        <th data-dt="state">操作</th>
+      </tr>
+      </thead>
+      <loop data="learnList">
+        <tr>
+          <td>{id}</td>
+          <td>{courseName}</td>
+          <td>{teacher}</td>
+          <td>{attendTime}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </loop>
+    </table>
+  </div>
+</div>

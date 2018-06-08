@@ -1,0 +1,54 @@
+
+<link rel="stylesheet" type="text/css" href="{_TEMP_SHARE_}/themes/default/css/lightgallery.css">
+<link rel="stylesheet" type="text/css" href="{_TEMP_SHARE_}/themes/default/css/swiper-3.3.1.min.css">
+
+<div class="cont12">
+    <div class="mt60 pb20">
+        <div class="over mb20">
+            <div class="pt20 lecturer-banner-title text-center">
+                <div class="over">
+                    <div class="solid-b-2a8-3 dinline">
+                        <img src="{_TEMP_SHARE_}/themes/default/images/kec-icon.png" alt="" class="mb5"><span class="fs16 pl10 pr10">唐人大学</span>
+                    </div>
+                </div>
+                <div class="over mb5">
+                    <div class="solid-b-2a8 dinline" style="width: 175px;height: 1px;">
+                    </div>
+                </div>
+                <strong class="fs14 c-black"><replace value="className">{className}</replace></strong>
+            </div>
+
+        </div>
+        <div class="row mg0 mien-cont">
+            <ul id="lightgallery" class="gallery list-unstyled over mien-cont-ul">
+				<loop data="glimpseList">
+                <li data-src="{filename}" class="col-xs-3">
+                    <div class=" demo-gallery">
+                        <div class="mien-cont-box">
+                            <div class="mien-cont-img">
+                                <img src="{filename}" alt="" width='278px;' height='199px;'>
+                                <div class="mien-cont-popup">
+                                    <span>
+                                      <img src="{_TEMP_SHARE_}/themes/default/images/mein-fd-img.png" alt="">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </loop>
+            </ul>
+        </div>
+
+    </div>
+    <div class="pt20 pb20 mt60">&nbsp;</div>
+</div>
+<!--内容结束-->
+
+<script src="{_TEMP_SHARE_}/themes/default/js/lightgallery.min.js"></script>
+<script src="{_TEMP_SHARE_}/themes/default/js/lg-zoom.min.js"></script>
+<script>
+    lightGallery(document.getElementById('lightgallery'),{mode: 'lg-slide', cssEasing: 'ease', speed: 500});
+</script>
+<!--图片预览js-->
+</html>

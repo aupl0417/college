@@ -1,0 +1,176 @@
+
+<div class="page-bar margin-bottom-20">
+	<!-- 导航 -->
+	<ul class="page-breadcrumb">
+		<li> <i class="fa fa-home"></i> <a href="/">管理控制台 </a> <i class="fa fa-angle-right"></i> </li>
+		<li> <a href="/open/interfaceList">开发平台</a> <i class="fa fa-angle-right"></i> </li>
+		<li> 应用列表 </li>
+	</ul>
+	<!-- end 导航 -->
+</div>
+
+
+<div class="portlet light">
+	<div class="portlet-title">
+		<div class="caption"> <i class="fa fa-search"></i>应用管理 </div>
+	</div>
+
+    <div class="portlet-body">
+		<form class="form-inline " action="#" data-action="/open/application.json" data-reload="false" name="filter-awardDetail" id="filter-detail">
+
+			<div class="form-group">
+				<input class="from-control form-filter input-sm" name="da_name" placeholder="应用名称">
+			</div>
+
+			<div class="form-group">
+				<label>用户ID</label>
+				<input class="from-control form-filter input-sm" name="da_dp_id" placeholder="用户ID">
+			</div>
+
+			<div class="form-group">
+				<label>状态</label>
+				<select class="form-control form-filter input-sm" name="da_status">
+					<option value="">--应用状态--</option>
+					<option value="1">审核中</option>
+					<option value="2">审核成功</option>
+					<option value="3">审核失败</option>
+					<option value="4">删除</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label></label>
+				<button class="btn btn-sm blue filter-submit margin-bottom"><i class="fa fa-search"></i> 查找</button>
+				<button class="btn btn-sm default filter-cancel"><i class="fa fa-times"></i> 重置</button>
+			</div>
+		</form>
+
+		<table class="table table-striped breakAll" id="detail">
+			<thead>
+				<tr>
+					<th data-dt="DT_RowId" data-sort="1" data-hide="1"></th>
+					<th data-dt="da_id" data-sort="1">编号</th>
+					<th data-dt="da_name" width="6%">应用名称</th>
+					<th data-dt="da_app_key">appid</th>
+					<th data-dt="da_secret_key">secrekey</th>
+					<th data-dt="da_dp_id">开发者</th>
+					<th data-dt="da_platform" width="15%">应用平台</th>
+					<th data-dt="da_class">类型</th>
+					<th data-dt="da_icon">图标</th>
+					<th data-dt="da_domain">域名</th>
+					<th data-dt="da_server_ip">服务器IP</th>
+					<th data-dt="da_callback">授权地址</th>
+					<th data-dt="da_status">状态</th>
+					<th data-dt="op" width="6%">操作</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+
+
+<!--添加新接口模态框-->
+<div class="modal fade modal-scroll bs-modal-lg" id="cheakApplication" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="temp-modal-power-title">应用审核</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer display-hide"></div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+</div>
+<!--添加新接口模态框-->
+<div class="modal fade modal-scroll bs-modal-lg" id="editApplication" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">应用详情</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer display-hide"></div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+</div>
+
+
+<script>
+	/**
+	 * @datatable 显示数据
+	 * @type {{initScoreList}}
+	 */
+
+	var Cash = function () {
+		var dataGrid = new Datatable();
+		return {
+			initScoreList: function () {
+				var table = $("#detail");
+				var columns = [];
+				$('thead > tr > th', table).each(function(){
+					!!$(this).data('dt') && columns.push({
+						"data" : $(this).data('dt'),
+						"sortable": !!$(this).data('sort'),
+						"visible": !$(this).data('hide')
+					});
+				});
+
+
+				dataGrid.init({
+					src : table,
+					dataTable : {
+						"ajax" : {
+							"type" : "POST",
+							"url" : "/open/application.json"
+						},
+						"columns" :columns,
+						"order" : [
+							[0, "desc"]
+						]
+					}
+				});
+				return dataGrid;
+			}
+
+		};
+	}();
+	var grid = Cash.initScoreList();
+</script>
+
+
+
+
+<script>
+	//删除
+	function complete(id){
+		if(!id){
+			return false;
+		}
+		bootbox.confirm('确定删除吗?',function(res){
+			if(res){
+				$.ajax({
+					'url' : '/open/deleteInterFace.json?id='+id,
+					'dataType' : 'JSON',
+					'success' : function(data){
+						if(data.id == '1001'){
+							/*bootbox.alert('操作成功!', function(){
+								grid.getDataTable().ajax.reload(null, false);
+							});*/
+							bootbox.alert(data.msg, function() {
+								grid.getDataTable().ajax.reload(null, false);
+							});
+						}else{
+							var msg = data.info || data.msg;
+							bootbox.alert(msg);
+						}
+					}
+				});
+			}
+		});
+	}
+
+</script>

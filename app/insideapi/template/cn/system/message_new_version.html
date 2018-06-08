@@ -1,0 +1,65 @@
+<flybug:replace value="sysname|msg|gourl|timeout">
+    <!DOCTYPE html">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>{sysname}</title>
+            <link type="text/css" rel="stylesheet" href="/template/share/css/main.css" />
+            <script src="/template/share/js/jquery-1.9.1.min.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('.gourl').bind('click', function() {
+                        this.blur();
+                    });
+                    setTimeout('goUrl()', $('#timeout').val());
+                });
+                function goUrl() {
+                    if ($('#gourl').val() == '') {
+                        history.go(-1);
+                    } else {
+                        window.location = $('#gourl').val();
+                    }
+                    return;
+                }
+
+            </script>
+            <style>
+                .pad_left_70 {padding-left: 70px;}
+                .pad_top_70 {padding-top:70px;}
+                .w1004{ width:1004px; margin:0 auto}
+                .content_box {}
+                .content_box .left_box {width:450px;}
+                .content_box .right_box {width:550px;}
+                .content_box .right_box .text_box { padding-top:130px;}
+                .content_box .right_box .text_box h1{ font-family:"微软雅黑"; font-size:20px; margin-bottom:15px;font-weight: normal}
+                .content_box .right_box .text_box h1 em{font-size: 14px;font-weight: normal;font-style: normal;color:#a20}
+                .content_box .right_box .text_box ul li{ float:left; margin-right:15px;}
+                .content_box .right_box .text_box ul li a{ color:#737373; font-size:14px;}
+                .content_box .right_box .text_box ul li a:hover{ color:#EB716E; text-decoration:underline}
+                .content_box .right_box span a{color:#4C9ED9};
+                .content_box .right_box span a:hover{ color:#EB716E; text-decoration:underline}
+            </style>
+        </head>
+        <body>
+
+            <div class="w1004 clearfix content_box pad_top_70">
+                <div class="left_box left"><a href="###"><img src="/template/system/images/404logo.png" height="337" width="443" /></a></div>
+                <div class="right_box right">
+                    <div class="text_box pad_left_70">
+                        <h1>系统提示信息:  <em>{msg}</em></h1>
+                        <input name="timeout" id="timeout" type="hidden" value="{timeout}" />
+                        <input name="gourl" id="gourl" type="hidden" value="{gourl}" />
+                        <span> <a class="gourl" style="color:#4C9ED9;text-decoration: underline" href="javascript:goUrl();">如果您的浏览器没有自动跳转，点这里...</a></span>
+                        <ul class="clearfix">
+                            <!--        <li><a href="###">优品试用首页</a></li>
+                                    <li><a href="###">优品试用</a></li>
+                                    <li><a href="###">巨划算</a></li>
+                                    <li><a href="###">一站成名</a></li>
+                                    <li><a href="###">一折特卖</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+</flybug>

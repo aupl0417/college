@@ -1,0 +1,71 @@
+<!--=============================================================================
+#     FileName: editSite.html
+#         Desc:
+#       Author: Wuyuanhang
+#        Email: QQ:554119220
+#   LastChange: 2016-10-29 11:09:24
+#      History:
+#      Paramer:
+=============================================================================-->
+<replace value="tempId|jsData">
+<form method="post" action="/classRoomManage/addSite.json" id="form" class="form-horizontal form-row-seperated"></form>
+<script id="{tempId}" type="text/html">
+  <div class="form-body clearfix">
+    <div class="form-group">
+      <label class="control-label col-md-2">课室名</label>
+      <div class="col-md-10">
+        <input type="text" name="name" class="form-control" value="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">所在区域</label>
+      <div class="col-md-10">
+        <div id="region" class="row mcSelect region" data-type="region" data-select-class="form-control" data-select-name="area" data-wrap="div" data-wrap-class="col-xs-12 col-sm-3">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">详细地址</label>
+      <div class="col-md-10">
+        <input type="text" name="address" class="form-control" value="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">产权类型</label>
+      <div class="col-md-10">
+        <select name="property" class="form-control">
+          {{each property as value index}}
+          <option value="{{index}}">{{value}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课室类型</label>
+      <div class="col-md-10">
+        <select name="type" class="form-control">
+          {{each typeList as value index}}
+          <option value="{{index}}">{{value}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交修改</button>
+        <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+      </div>
+    </div>
+  </div>
+</script>
+<script>
+  var jsData = {jsData};
+  template.config('escape', false);
+  var html = template('{tempId}', jsData);
+  $('#form').html(html);
+  Global.initAjax();; 
+  trainingSite.trainingSite();
+</script>
+</replace>

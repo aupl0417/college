@@ -1,0 +1,84 @@
+<!-- common开始 -->
+<div class="container mt40" style="min-height: 790px">
+	<div class="row">
+		<!-- 左边这一块的模板开始 -->
+		<div class="col-xs-3">
+			<div class="common-left">
+				<h4>常见问题</h4>
+				<ul>
+					<!--<loop data="category">-->
+						<li><a href="/index/faq?qc_id={qc_id}"><i class="fa fa-caret-right"></i> {qc_name} <span class="pull-right text-muted">（{count}）</span></a></li>
+					<!--</loop>-->
+				</ul>
+			</div>
+		</div>
+		<!-- 右边这一块的模板开始 -->
+		<div class="col-xs-9">
+			<div class="portlet light">
+				<div class="portlet-title">
+					<!--<replace value="qc_name">-->
+						<div class="caption"> <i class="fa fa-cogs"></i>{qc_name} </div>
+					<!--</replace>-->
+				</div>
+				<div class="portlet-body">
+					<!--<loop data="data">-->
+					<div class="margin-bottom-30">
+						<div>
+							<div class="media-left">
+								<div style="width:40px;">
+									<button type="button" class="btn-circle btn-sm bg-default no-border bg-blue-sharp font-white">Q</button>
+								</div>
+							</div>
+							<div class="media-body">
+								<h5 class="help-block lead font-dark">{qa_question}</h5>
+							</div>
+						</div>
+						<div>
+							<div class="media-left">
+								<div style="width:40px;">
+									<button type="button" class="btn-circle btn-sm bg-default no-border">A</button>
+								</div>
+							</div>
+							<div class="media-body">
+								<h5 class="text-muted help-block lead">{qa_answer}</h5>
+							</div>
+						</div>
+					</div>
+					<!--</loop>-->
+				</div>
+			</div>
+		
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<!---->
+<!-- BEGIN FOOTER -->
+<div class="footer wow fadeIn" data-wow-duration="1s">
+	<div class="container">
+		<ul class="">
+			<li><a href="https.//open.999qf.cn" title=""><i class="open-iconfont open-portal-icon-mail"></i>开放平台合作 open.999qf.cn</a></li>
+			<li><span>Copyright © 2016 湖南大唐天下网络科技有限公司  版权所有</span></li>
+		</ul>
+	</div>
+</div>
+<!-- END FOOTER -->
+<script>
+	$(function() {
+		$('.common-left > ul li a').click(function() {
+			$(this).siblings('ul').stop(true, true).slideToggle(500);
+		});
+	});
+	var currentPage = $('#currentPage').val();
+	if (currentPage != undefined) {
+		$('.common-left a#page' + currentPage).addClass('active');
+	}
+	//顶部导航选中效果脚本
+	var curPage = $('#curPage').val();
+	if (curPage != undefined) {
+		$('#nav' + curPage).addClass('active');
+	}
+</script>

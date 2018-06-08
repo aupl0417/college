@@ -1,0 +1,26 @@
+<!-- t_reward_awards -->
+<table class="table table-bordered table-hover table-striped table-classic" data-source="ra">  
+  <tr>
+    <th>创业会员</th>
+    <th>被推荐合作伙伴</th>
+    <th>合作伙伴分成奖励嘉奖</th>
+  </tr>
+  <tr>
+    <td rowspan="2">自然人</td>
+    <td>自然人</td>
+    <td><a href="javascript:;" class="editable" name="ra_commendation" data-id="{{ra[0]['ra_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(ra[0]['ra_commendation'] - 0).mul(100)}}</a>%</td>
+  </tr>
+  <tr>
+    <td>法人</td>
+    <td><a href="javascript:;" class="editable" name="ra_commendation" data-id="{{ra[1]['ra_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(ra[1]['ra_commendation'] - 0).mul(100)}}</a>%</td>
+  </tr>
+  <tr>
+    <td rowspan="2">法人</td>
+    <td>自然人</td>
+    <td><a href="javascript:;" class="editable" name="ra_commendation" data-id="{{ra[2]['ra_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(ra[2]['ra_commendation'] - 0).mul(100)}}</a>%</td>
+  </tr>
+  <tr>
+    <td>法人</td>
+    <td><a href="javascript:;" class="editable" name="ra_commendation" data-id="{{ra[3]['ra_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(ra[3]['ra_commendation'] - 0).mul(100)}}</a>%</td>
+  </tr>
+</table>

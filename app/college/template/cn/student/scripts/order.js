@@ -1,0 +1,30 @@
+
+var list = function() {
+	var dataGrid = new Datatable();
+	return {
+		initList: function() {
+			var table = $("#detail");
+			var columns = [];
+			$('thead > tr > th', table).each(function() { !! $(this).data('dt') && columns.push({
+				"data": $(this).data('dt'),
+				"sortable": !! $(this).data('sort'),
+				"visible": ! $(this).data('hide')
+			});
+			});
+			dataGrid.init({
+				src: table,
+				dataTable: {
+					"ajax": {
+						"type": "POST",
+						"url": "/student/order.json"
+					},
+					"columns": columns,
+					"order": [[1, "desc"]]
+				}
+			});
+			return dataGrid;
+		}
+	};
+} ();
+
+var grid = list.initList();

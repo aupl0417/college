@@ -1,0 +1,166 @@
+      
+      <!-- end 内容--> 
+    </div>
+    </div>
+  </div>
+  <!-- end 模块内容区域 --> 
+  
+</div>
+<!-- end 内容区域 -->
+<div></div>
+<!-- begin footer -->
+<div class="page-footer">
+  <div class="page-footer-inner">
+	 <div class="copyright">湖南大唐天下网络科技有限公司 湘ICP备16005109号-3  Datang,Inc.All rights reserved.Powered by Datang</div>
+ </div>
+  <div class="scroll-to-top"> <i class="icon-arrow-up"></i> </div>
+</div>
+<!-- end footer --> 
+
+      <!-- 模态框预加载-->
+      <div class="modal fade modal-scroll" id="global-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+	  
+        <div class="modal-dialog">
+          <div class="modal-content" id="global-modal-content"></div>
+          <!-- /.modal-content --> 
+        </div>
+        <!-- /.modal-dialog --> 
+      </div>
+      <!-- /.modal --> 
+      <!-- end 模态框预加载 -->
+      <!--模态框用于多个模态框调用-->
+      <div class="modal fade modal-scroll bs-modal-lg" id="another-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer display-hide">
+              <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 加载js,在这里加载为了提高页面打开速度;必要情况下可将js放到<head></head>之间,视实际情况而定 --> 
+    </body>
+    <!-- end body -->
+
+
+    <script id="sitemsg-modal-temp" type="text/html">
+      <div class="panel-body">
+        <div class="portlet">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-comment-o"></i>{{title}}
+            </div>
+            <div class="tools">
+              <a href="javascript:;" class="remove" data-dismiss="modal" aria-hidden="true"> </a>
+            </div>
+          </div>
+          <div class="portlet-body">
+            <p>{{content}}</p>
+
+            <div class="clearfix">
+              <span class="pull-right">
+                <small>时间： <cite title="Source Title"> {{ctime}}</cite></small>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+        </div>
+      </div>
+    </script>
+
+    <script>
+      $.ajax({
+        'dataType': 'JSON',
+        'url': '/public/menu.json',
+        'async': false,
+        'success': function(data){
+          if(data.id == '1001'){
+            var topMenu = '', sidebar = '';
+            for(var i=0, l=data.info.menu.length;i<l;i++){
+              var subdomain = data.info.menu[i].url;
+              var active = (data.info.menu[i].root == reRoot) ? 'active' : '';
+              var selected = (data.info.menu[i].root == reRoot) ? '<span class="selected"> </span>' : '';
+              topMenu += '<li class="classic-menu-dropdown '+active+'"> <a href="'+ subdomain +'"> '+data.info.menu[i].name+ selected + '  </a> ';
+
+              if(data.info.menu[i].root == reRoot && data.info.menu[i].children){//当前站点
+                //$('#currentSubdomain').html(data.info.menu[i].name);
+                var sidebarData = data.info.menu[i].children;
+                for(var k=0, len=sidebarData.length;k<len;k++){
+                  var start = k == 0 ? 'menustart' : '';
+                  var last = (k == (len - 1)) ? 'last' : '';
+                  sidebar += '<li class="'+start+last+'" id="menu_'+sidebarData[k].id+'">';
+                  if(sidebarData[k].children){//有子菜单
+                    var children = sidebarData[k].children;							
+                    sidebar += '<a href="javascript:void(0);"> <i class="fa fa-map-marker"></i> <span class="title"> '+sidebarData[k].name+' </span> <span class="selected "> </span> <span class="arrow "> </span> </a>';
+                    sidebar += '<ul class="sub-menu">';
+                      for(var j=0, jen=children.length;j<jen;j++){
+                        sidebar += '<li class="'+start+last+'" id="menu_'+children[j].id+'"> <a href="'+children[j].url+'" class="ajaxify"> <i class="fa fa-angle-right"></i> <span class="title"> '+children[j].name+' </span> </a> </li>';
+                      }
+                      sidebar += '</ul>';
+
+                    }else{//没有子菜单
+                    sidebar += ' <a href="'+sidebarData[k].url+'" class="ajaxify"> <i class="fa fa-user"></i> <span class="title"> '+sidebarData[k].name+' </span> </a>';
+                  }
+                  sidebar += '</li>';
+                }					
+              }				
+            };
+            $('.page-sidebar-menu').append($(sidebar));			
+            $('#topMenu').html($(topMenu));
+            }else{
+
+          }
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+
+      //未读站内信显示
+		function get_unrear_msg(){
+			setTimeout("unread()",1000);
+		}
+		get_unrear_msg();
+//请求未读信息
+		function unread(){
+		  $.ajax({
+			  url: "/public/unread.json",
+			  data:{},
+			  type: "get",
+			  cache:false,
+			  dataType:'json',
+			  success: function (message) {
+				  if (message.id == '1001') {
+					  var num = message.info.length;
+					  if(num > 0){
+						  $('#header_notification_bar').find("span.badge-default").html(num).removeClass('hidden');
+						  var unread_msg = '';
+						  var pay_url = '';
+						  for(var i=0, l=message.info.length;i<l;i++){
+							  if(i==0){
+								  pay_url = message.info[i]['url']+'/?return=/sitemsg/mynews/&root=3';
+							  }
+							  unread_msg += '<li> <a href="javascript:;" onclick="javascript:Global.viewSiteMsg('+message.info[i]['mbr_mbID']+');get_unrear_msg();" > <span class="time"> '+message.info[i]['mb_ctime']+'</span> <span class="details">  '+message.info[i]['mb_title']+' </span> </a> </li>';
+						  }
+						  $('#header_notification_bar').find('ul.dropdown-menu').removeClass('hidden');
+						  $('#unread_num').html(num);
+						  $('#check_url').attr('href',pay_url);
+						  $('#header_notification_bar').find('ul.dropdown-menu-list').html(unread_msg);
+					  }else{
+						  $('#header_notification_bar').find("span.badge-default").addClass('hidden');
+						  $('#header_notification_bar').find('ul.dropdown-menu').addClass('hidden');
+					  }
+				  }
+			  }
+		  });
+		}
+	  </script>
+</html>

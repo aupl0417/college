@@ -1,0 +1,29 @@
+<?php
+
+class interfaceList extends guest {
+    private $db;
+    function __construct($options) {        		
+        parent::__construct($options, [8]);
+        $this->db = new MySql();
+    }
+
+    function run() {
+        if(!isset($_SESSION['userID'])){
+            echo '<script>alert("请先登录！",location.href="http://'.INSIDEAPI.'")</script>';
+        }
+        //获取接口分类数据
+        $sql = "select * from t_interface_category where ic_father_id = '0' order by ic_order ASC";
+        $categoryData = $this->db->getAll($sql);
+
+        //获取全部接口数据
+        $sql = "select * from t_interface_list";
+        $apiList = $this->db->getAll($sql);
+
+        $this->setLoopData('apilist',$apiList);
+        $this->setLoopData('categoryData',$categoryData);
+        $this->setTempAndData();
+        $this->show();
+
+    }
+
+}

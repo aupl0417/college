@@ -1,0 +1,82 @@
+
+    <link rel="stylesheet" type="text/css" href="{_TEMP_SHARE_}/themes/default/css/lightgallery.css">
+    <link rel="stylesheet" type="text/css" href="{_TEMP_SHARE_}/themes/default/css/swiper-3.3.1.min.css">
+
+<div class="cont12">
+    <div class="mt60 pb20">
+        <div class="row mg0" id="videoList">
+            <loop data="videoList">
+            <div class="col-xs-4 mb20">
+                <a href="{videoUrl}">
+                    <div class="mien-box">
+                        <div class="mien-img">
+                            <img src="{videoImage}" alt="{name}" width="393px;" height="259px;">
+                        </div>
+                        <div class="mien-text">
+                            {name}
+                        </div>
+                    </div>
+                </a>
+            </div>
+            </loop>
+        </div>
+
+    </div>
+    <div class="pt20 pb20 mt60 text-center">
+        <div class="dataTables_paginate paging_simple_numbers" id="dynamic-table_paginate">
+            <ul class="pagination">
+                <replace value="vpagelist">
+                    {vpagelist}
+                </replace>
+            </ul>
+        </div>
+    </div>
+
+
+
+</div>
+
+<!--内容结束-->
+
+<script src="{_TEMP_SHARE_}/themes/default/js/lightgallery.min.js"></script>
+<script src="{_TEMP_SHARE_}/themes/default/js/lg-zoom.min.js"></script>
+<script>
+    lightGallery(document.getElementById('lightgallery'),{mode: 'lg-slide', cssEasing: 'ease', speed: 500});
+    function go(id){
+    	var url = '{:U("public/getDownLoadList.json")}?type=1&page=' + id;
+    	$.ajax({
+    		url: url,
+    		dataType: 'json',
+    		success: function(res) {
+    			console.log(res);
+    			var html = '';
+    			if (1001 == res.id) {
+    				var info = res.info
+    				if(info && info.length > 0){
+    					for(var i=0; i<info.length;i++){
+    						html += '<div class="col-xs-4 mb20">';
+    						html +=     '<a href="' + info[i]['videoUrl'] + '">';
+    						html +=         '<div class="mien-box">';
+    						html +=             '<div class="mien-img">';
+    						html +=                 '<img src="' + info[i]['videoImage'] + '" alt="' + info[i]['name'] + '" width="393px;" height="259px;">';
+    						html +=             '</div>';
+    						html +=             '<div class="mien-text">';
+    						html +=                 info[i]['name']
+    						html +=             '</div>';
+    						html +=         '</div>';
+    						html +=     '</a>';
+    						html += '</div>';
+    					}
+    				}else {
+    					html += '　　　暂无数据';
+    				}
+    			}else {
+					html += '　　' + res.info;
+    			}
+    			$('#videoList').html('');
+    			$('#videoList').html(html);
+    		}
+    	});
+    }
+</script>
+<!--图片预览js-->

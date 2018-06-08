@@ -1,0 +1,133 @@
+
+		<form method="post" action="/work/addInterFace.json" id="form_cashout">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="temp-modal-power-title">发布接口</h4>
+			</div>
+			<div class="form-body clearfix">
+				<table class="table responsive-form-table">
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3 borderd">标题</th>
+						<td class="col-sm-12 col-md-9 borderd" data-title="标题"><input type="text" name="il_title" class="form-control" value=""></td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">	接口名称</th>
+						<td class="col-sm-12 col-md-9" data-title="接口名称"><input type="text" name="il_name" class="form-control mask-date" value=""></td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">路径</th>
+						<td class="col-sm-12 col-md-9" data-title="路径"><input type="text" name="il_interface_url" class="form-control mask-date" value=""></td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">分类</th>
+						<td class="col-sm-12 col-md-9" data-title="分类">
+							<select class="form-control form-filter input-sm" name="il_ic_id">
+								<option value="">--接口分类--</option>
+								<!-- <loop data="categoryData"> -->
+								<option value="{ic_id}">{ic_name}</option>
+								<!-- </loop> -->
+							</select>
+						</td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">示例</th>
+						<td class="col-sm-12 col-md-9" data-title="示例">
+							<textarea class="form-control autosizeme" name="il_example" rows="3"></textarea>
+						</td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">描述</th>
+						<td class="col-sm-12 col-md-9" data-title="描述">
+							<textarea class="form-control autosizeme" name="il_description" rows="3"></textarea>
+						</td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">发布人</th>
+						<td class="col-sm-12 col-md-9" data-title="发布人">
+							<!--<replace value="nick">-->
+							<input type="text" name="il_author" class="form-control mask-date" value="{nick}" readonly="true">
+							<!--</replace>-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="form-actions">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+								<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6"> </div>
+				</div>
+			</div>
+		</form>
+
+
+	<script>
+		$('#form_cashout').handleForm(
+			{
+				rules: {
+					'il_title':{
+						required: true,
+					},
+					'il_name': {
+						required: true,
+					},
+					'il_interface_url': {
+						required: true
+					},
+					'il_ic_id': {
+						required: true
+					},
+					'il_description': {
+						required: true
+					},
+				},
+				messages: {
+					'il_title':{
+						required: "标题必须填写",
+					},
+					'il_name': {
+						required: "名称必须填写",
+					},
+					'il_interface_url': {
+						required: "路径必须填写"
+					},
+					'il_ic_id': {
+						required: "必须选择分类"
+					},
+					'il_description': {
+						required: "必填描述"
+					}
+				},
+				closest: 'td',
+			},
+			function(data, statusText){
+				if(data.id == '1001'){
+					data.msg = '<p>接口发布成功!</p>';
+					bootbox.alert(data.msg, function() {
+						grid.getDataTable().ajax.reload(null, false);
+						$('#add_interface').modal('hide');
+					});
+				}
+				else{
+					data.msg = data.info || data.msg;
+					Global.alert( {
+						"container": "#form_cashout",
+						"place": "prepend",
+						"type": "warning",
+						"message": data.msg,
+						"close": true,
+						"reset": true,
+						"focus": true,
+						"closeInSeconds": "0",
+						"icon": "warning"
+					});
+				}
+			}
+		);
+	</script>

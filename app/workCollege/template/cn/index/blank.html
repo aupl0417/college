@@ -1,0 +1,19 @@
+
+<script>
+<!-- <replace value="reUrl|reRoot"> -->
+var reUrl = '{reUrl}'; 
+reRoot = '{reRoot}';
+
+$(function(){
+	if(reUrl != ''){
+		if(reUrl.matchs('isDomID')){
+			Global.ajaxify($('#'+reUrl+' > a.ajaxify'));
+		}else{
+			reUrl = reUrl.replace(/&amp;/g, '&');
+			Global.ajaxify(reUrl);
+		}
+	}
+});
+
+<!-- </replace> -->
+</script>

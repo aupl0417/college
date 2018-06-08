@@ -1,0 +1,98 @@
+<!--=============================================================================
+#     FileName: getStudentInfoInTime.html
+#         Desc: 雇员手动报到 
+#       Author: Wuyuanhang
+#        Email: QQ:554119220
+#   LastChange: 2016-11-15 16:29:22
+#      History:
+#      Paramer: 
+=============================================================================-->
+<div id="employeeDealArrival"></div>
+<replace value="tempId|jsData">
+<script id="{tempId}" type="text/html">
+  <form action="/classManage/certainStudent.json" method="post" class="form-horizontal form-row-seperated" id="formEmployeeCheckIn">
+    <div class="form-body clearfix">
+      <table class="table responsive-form-table table-responsive">
+        <tbody>
+          <tr class="table-row">
+            <th class="hidden-sm col-md-2 borderd">等级</th>
+            <td class="col-sm-12 col-md-4 borderd" data-title="等级">
+              <input type="text" class="form-control" value="{{level}}" readonly>
+            </td>
+            <th class="hidden-sm col-md-2 borderd">认证状态</th>
+            <td class="col-sm-12 col-md-4 borderd" data-title="认证状态">
+              <input type="text" class="form-control" value="{{auth}}" readonly>
+            </td>
+          </tr>
+          <tr class="table-row">
+            <th class="hidden-sm col-md-2 borderd">会员名</th>
+            <td class="col-sm-12 col-md-4 borderd" data-title="会员名">
+              <input type="text" class="form-control" value="{{username}}" readonly>
+            </td>
+            <th class="hidden-sm col-md-2 borderd">手机</th>
+            <td class="col-sm-12 col-md-4 borderd" data-title="手机">
+              <input type="text" class="form-control" value="{{mobile}}" name="mobile" readonly>
+            </td>
+          </tr>
+          <tr class="table-row">
+            <th class="hidden-sm col-md-2 borderd">真实姓名</th>
+            <td class="col-sm-12 col-md-4 borderd" data-title="真实姓名">
+              <input type="text" class="form-control" value="{{trueName}}" name="trueName">
+            </td>
+            <th class="hidden-sm col-md-2 borderd">身份证</th>
+            <td class="col-sm-12 col-md-4 borderd" data-title="身份证">
+              <input type="text" class="form-control" value="{{certNum}}" name="certNum">
+            </td>
+          </tr>
+          <tr class="table-row">
+            <th class="hidden-sm col-md-2 borderd">身份类型</th>
+            <td class="col-sm-12 col-md-4 borderd" data-title="身份类型">
+              <input type="text" class="form-control" value="{{type}}" readonly>
+            </td>
+            <th class="hidden-sm col-md-2 borderd">所属分组</th>
+            <td class="col-sm-12 col-md-4 borderd" data-title="所属分组">
+              <select class="form-control form-filter input-sm" name="team">
+                <option value="0">--未分组--</option>
+                {{each teamList as value index}}
+                <option value="{{value}}" {{if value == team}}selected{{/if}}>第{{value}}组</option>
+                {{/each}}
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="blackLogDiv" style="display:none">
+      <table class="table table-striped table-bordered table-hover dataTable no-footer">
+        <caption><span class="font-red-thunderbird">有影响记录, 不允许报到</span></caption>
+        <thead>
+          <th>班级</th>
+          <th>报名时间</th>
+          <th>状态</th>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="form-actions">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+              <input type="hidden" value="{{id}}" name="id">
+              <input type="hidden" value="{{clID}}" name="clID">
+              <button type="submit" class="btn blue"><i class="fa fa-check"></i>确认报到</button>
+              <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 返回</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</script>
+<script language="javascript" type="text/javascript">
+  var html = template("{tempId}", {jsData});
+$("#employeeDealArrival").html(html); 
+</script>
+</replace>
+<script src="{_TEMP_ACTION_}/scripts/certainStudent.js" type="text/javascript"></script>

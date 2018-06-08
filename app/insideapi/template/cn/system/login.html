@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>优品试用独享 - 登录</title>
+        <link href="/template/share/css/main.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/template/system/css/login.css?t=20150128" />
+        <script src="/template/share/js/jquery-1.7.2.min.js"></script>
+        <script src="/template/share/js/confirm_box.js?v=1219"></script>
+        <script src="/template/share/js/jquery.urldecode.js"></script>
+        <!--<flybug:replace value="rurl">-->
+        <script>
+            var fromurl = '{rurl}';
+        </script>
+        <!--</flybug>-->
+    </head>
+    <body>
+        <div class="login_box w1004">
+            <div class="logo margin_top_30"> <img src="/template/share/images/logo.png" height="63" width="301"> </div>
+            <div class="left_box"> <img src="/template/system/images/banner_left.jpg" height="290" width="590"> </div>
+            <!--/left_box-->
+            <div class="right_box">
+                <div class="log_form">
+                    <div class="switch_code"></div>
+                    <form action="/?model=login&do=login" method="post" id="loginform">
+                        <ul>
+                            <li class="t_box">
+                                <input type="text" class="username" value="" name="nick" id="nick" />
+                            </li>
+                            <li class="t_box  ">
+                                <input type="password" class="password" value=""   name="pwd" id="pwd" />
+                            </li>
+                            <li class="t_box">
+                                <input type="text" class="validCode" value="" id="validate" name="validate" />
+                                <!--<flybug:replace value="time">-->
+                                <img src="/?model=validate&do=img&_{time}" id="codeImage" onclick="renew_code();"  title="验证码" height="20" width="50" />
+                                <!--</flybug>-->
+                            </li>
+                            <li class="submit_box"><a class="submit_btn" id="loginsys"  href="javascript:void();">登录</a>
+                            </li>
+                        </ul>
+                    </form>
+                    <div class="regist_forgetpass"> <a href="/register">注册帐号</a> <a href="/resetpwd">忘记密码？</a> </div>
+                </div>
+                <!--/log_form-->
+                <div class="log_code">
+                    <div class="switch_form"></div>
+                    <div class="code">
+
+                    </div>
+                    <div class="info">
+                        <span>扫一扫<b>尽享</b>一块天下邮</span>
+                        <p class="clearfix"><a class="refresh_QRcode" href="#">刷新二维码</a><em>关注优品试用服务号</em></p>
+                    </div>
+                </div>
+            </div>
+            <!--/right_box-->
+            <div class="clear"></div>
+        </div>
+        <!--login_box结束-->
+
+        <!-- footer -->
+        <!--<flybug:replace value="foot">-->
+        {foot}
+        <!--</flybug>-->
+        <!-- footer end -->
+        <script>
+            $(document).ready(function () {
+                //登录方式点击切换
+                $('.switch_code').click(function () {
+                    $('.log_form').hide(0);
+                    $('.log_code').fadeIn('slow');
+                    $(".code").val("");
+                    $('.code').load("/?model=validate&show=QRcode");
+                });
+
+                $(".refresh_QRcode").click(function () {
+                    $(".code").val("");
+                    $('.code').load("/?model=validate&show=QRcode");
+                });
+
+                $('.switch_form').click(function () {
+                    $('.log_code').hide(0);
+                    $('.log_form').fadeIn('slow');
+
+                });
+                //帐号框
+                if ($('.username').val() == '') {
+                    $('.username').addClass('un_bubble');
+                }
+                $('.username').focus(function () {
+                    $(this).removeClass('un_bubble');
+                }).blur(function () {
+                    if ($(this).val() == '')
+                        $(this).addClass('un_bubble');
+                });
+                //密码框
+                if ($('.password').val() == '') {
+                    $('.password').addClass('pw_bubble');
+                }
+                $('.password').focus(function () {
+                    $(this).removeClass('pw_bubble');
+                }).blur(function () {
+                    if ($(this).val() == '')
+                        $(this).addClass('pw_bubble');
+                })
+                //验证码框
+                if ($('.validCode').val() == '') {
+                    $('.validCode').addClass('vc_bubble');
+                }
+                $('.validCode').focus(function () {
+                    $(this).removeClass('vc_bubble');
+                }).blur(function () {
+                    if ($(this).val() == '')
+                        $(this).addClass('vc_bubble');
+                });
+            });
+
+
+            //登录
+            $('#loginsys').on('click', function () {
+                var $btn = $(this).html('登录系统...')
+                // business logic start...
+                var form = $("#loginform");
+                var uid = form.find('#nick');
+                var pass = form.find('#pwd');
+                var validate = form.find('#validate');
+                if (!uid.val() || uid.val().length < 1) {
+                    uid.val('').focus();
+                    message('请输入您的优品试用帐号', 4);
+                    $btn.html('登录');
+                    return;
+                }
+                if (!pass.val() || pass.val().length < 1) {
+                    pass.val('').focus();
+                    message('请输入您的优品试用密码', 4);
+                    $btn.html('登录');
+                    return;
+                }
+                if (!validate.val() || validate.val().length < 4) {
+                    validate.val('').focus();
+                    message('请输入验证码', 4);
+                    $btn.html('登录');
+                    return;
+                }
+                var lognData = {
+                    nick: uid.val(),
+                    pwd: pass.val(),
+                    validate: validate.val()
+                };
+                post('/?model=login&do=login', lognData, function (data) {
+                    if (data.id != '0001') {
+                        message(data.msg, 4);
+                        if (data.id == '0022') {
+                            renew_code();
+                            validate.focus();
+                        }
+                        $btn.html('登录');
+                        return;
+                    } else {
+//                        <flybug:replace value="from">
+                        window.location.href = 'http://user.youpinshiyong.com/?model=user&show=crossself{from}';
+//                        </flybug>
+                        return;
+                    }
+                });
+
+            });
+            //刷新验证码
+            function renew_code() {
+                $('#codeImage').attr('src', function (i, oldsrc) {
+                    return oldsrc + '&t=' + Math.random();
+                });
+            }
+            //回车登陆
+            $(document).keyup(function (event) {
+                if (event.keyCode == 13) {
+                    $("#loginsys").trigger("click");
+                }
+            });
+        </script>
+    </body>
+</html>

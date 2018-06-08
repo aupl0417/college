@@ -1,0 +1,59 @@
+<div class="portlet light">
+  <div class="portlet-body">
+    <div id="table" class="dataTables_wrapper dataTables_extended_wrapper table-responsive no-footer">
+    </div>
+  </div>
+</div>
+<replace value="jsData">
+<script id="tempID" type="text/html">
+  <input id="classId" type="text" readonly value="{{id}}">
+  <table aria-describedby="peopleList_info" id="field-detail" class="table table-striped table-bordered table-hover dataTable no-footer">
+    <thead>
+      <tr>
+        <th>序列</th>
+        <th>手机号</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{each mobile as value index}}
+      <tr>
+        <td>{{index +1}}</td>  
+        <td>{{value}}</td>  
+        <td>
+          <button id="btn_{{index}}" data-mobile="{{value}}" data-id="{{index}}" class="btn btn-sm blue filter-submit margin-bottom"><i class="fa fa-search"></i> 导入</button>
+        </td>  
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</script>
+
+
+<script language="javascript" type="text/javascript">
+  var jsData = {jsData};
+var html = template('tempID', jsData);
+$("#table").html(html);
+$(".filter-submit").click(
+function (){
+var value = $(this).data('mobile');
+var btnId = $(this).data('id');
+$.post(
+'import.json', 
+{
+mobile:value,
+ classId:$("#classId").val(),
+}, 
+
+function(res){
+if (res.id == 1001) {
+$(`#btn_${btnId}`).attr('disabled', true);
+}else{
+  alert(res.info||res.msg);
+}
+}, 'JSON'
+);
+}
+); 
+</script>
+</replace>

@@ -1,0 +1,69 @@
+
+<form method="post" action="/open/editDocumentCategory.json" id="form_cashout">
+    <div class="form-body clearfix">
+        <table class="table responsive-form-table">
+            <tr class="table-row">
+                <th class="hidden-sm col-md-3 borderd">顺序</th>
+                <replace value="dc_order">
+                    <td class="col-sm-12 col-md-9 borderd" data-title="顺序"><input type="text" name="dc_order" class="form-control" value="{dc_order}"></td>
+                </replace>
+            </tr>
+        </table>
+    </div>
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <replace value="dc_id">
+                            <input type="hidden" name="dc_id" value="{dc_id}">
+                        </replace>
+                        <button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+                        <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"> </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $('#form_cashout').handleForm(
+            {
+                rules: {
+                    'dc_order': {
+                        required: true
+                    },
+                },
+                messages: {
+                    'dc_order': {
+                        required: "请填写标题"
+                    },
+                },
+            },
+            function(data, statusText){
+                if(data.id == '1001'){
+                    data.msg = '<p>修改成功!</p>';
+                    bootbox.alert(data.msg, function() {
+                        grid.getDataTable().ajax.reload(null, false);
+                        $('#editDocumentCategory').modal('hide');
+                    });
+                }
+                else{
+                    data.msg = data.info || data.msg;
+                    Global.alert( {
+                        "container": "#form_cashout",
+                        "place": "prepend",
+                        "type": "warning",
+                        "message": data.msg,
+                        "close": true,
+                        "reset": true,
+                        "focus": true,
+                        "closeInSeconds": "0",
+                        "icon": "warning"
+                    });
+                }
+            }
+    );
+</script>

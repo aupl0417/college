@@ -1,0 +1,71 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="margin-top: 180px">
+        <div class="modal-content" style="width: 500px; height: 100%;">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    大唐开放平台登录
+                </h4>
+            </div>
+            <form action="/index/login.json" method="post" id="form_login">
+
+                <div class="alert-error-info margin-bottom-10">
+
+                </div>
+                <div class="form-group" style="margin: 20px 30px;">
+
+                    <label class="control-label visible-ie8 visible-ie9">用户名</label>
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="username"/>
+                    </div>
+                </div>
+                <div class="form-group" style="margin: 20px 30px;">
+                    <label class="control-label visible-ie8 visible-ie9">密码</label>
+                    <div class="input-icon">
+                        <i class="fa fa-lock"></i>
+                        <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password"/>
+                    </div>
+                </div>
+                <!--<replace value="play">-->
+                <!--<div class="form-group {play}" id="loginCode">-->
+                <!--<label class="control-label visible-ie8 visible-ie9">验证码</label>-->
+                <!--<div class="input-icon">-->
+                <!--<i class="icon-check fa fa-file-image-o"></i>-->
+                <!--<input class="form-control placeholder-no-fix code-popover" type="text" autocomplete="off" placeholder="点击显示验证码，请输入计算题的答案" name="code"/>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</replace>-->
+                <div class="form-actions" style="margin: 20px 30px;">
+                    <div class="clearfix">
+                        <button type="submit" class="btn blue btn-block" style="width: 100px;margin: 0 auto;">
+                            登录 <i class="m-icon-swapright m-icon-white"></i>
+                        </button>
+                    </div>
+                </div>
+                <a href="/open/editInterFace_ajax=1&id='. $v['il_id'] .'" data-target="#edit_interface" data-toggle="modal" class="btn-xs blue"><i class="fa fa-edit"></i> 登录</a>
+                <!--<div class="login-options">-->
+                <!--<div class="clearfix">-->
+
+
+                <!--<p class="social margin-bottom-20">-->
+                <!--<span>合作网站账号登录&nbsp;&nbsp;</span>-->
+                <!--<a href="/login" class="font-grey-silver"><i class="fa fa-wechat"></i> 微信</a> &nbsp;-->
+                <!--<a href="/login" class="font-grey-silver"><i class="fa fa-qq"></i> QQ</a>  &nbsp;-->
+                <!--<a href="/login" class="font-grey-silver"><i class="fa fa-weibo"></i> 微博</a>-->
+                <!--</p>-->
+
+                <!--</div>-->
+
+                <!--</div>-->
+                <!-- <div id="html_verification_code"></div> -->
+                <!--<div id="html_verification_code" class="display-hide"><img id="img_verification_code" width="100" alt="" src=""></div>-->
+
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

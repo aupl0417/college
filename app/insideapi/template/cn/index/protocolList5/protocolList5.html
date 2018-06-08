@@ -1,0 +1,141 @@
+<!-- common开始 -->
+<div class="container mt40">
+  <div class="row">
+    <!-- 左边这一块的模板开始 -->
+    <div class="col-xs-3">
+      <div class="common-left">
+        <h4>所有类目</h4>
+        <ul>
+          <li> <a href="javascript:;"><i class="fa fa-caret-right"></i> 规则中心</a>
+            <ul>
+              <li> <a href="javascript:;"><i class="fa fa-caret-right"></i> 平台协议</a>
+                <ul>
+                  <li><a id="page1" href="/index/protocolList">合作伙伴开发协议</a></li>
+                  <li><a id="page2" href="/index/protocolList2">技术服务协议</a></li>
+                  <li><a id="page3" href="/index/protocolList3">合作伙伴行为准则</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:;"><i class="fa fa-caret-right"></i> 开发入门</a>
+                <ul>
+                  <li><a id="page" href="/index/protocolList11">新手指南</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:;"><i class="fa fa-caret-right"></i> 开放平台基础规范</a>
+                <ul>
+                  <li><a id="page4" href="/index/protocolList4">应用接入规范</a></li>
+                  <li><a id="page5" href="/index/protocolList5">应用API流量规则</a></li>
+                  <li><a id="page6" href="/index/protocolList6">应用授权规则</a></li>
+                  <li><a id="page7" href="/index/protocolList7">开放平台违规处理规范</a></li>
+                  <li><a id="page8" href="/index/protocolList8">技术服务费规则</a></li>
+                  <li><a id="page9" href="/index/protocolList9">服务费欠费处理规则</a></li>
+                  <li><a id="page10" href="/index/protocolList10">订单全链路优惠政策</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:;"><i class="fa fa-caret-right"></i> 卖家服务商规则</a>
+                <ul>
+                  <!--                      <li><a id="page" href="/api/protocolList/?id=11">合作伙伴开发协议</a></li>
+                      -->
+                </ul>
+              </li>
+              <li><a href="javascript:;"><i class="fa fa-caret-right"></i> 后服务市场服务商规则</a>
+                <ul>
+                  <!--
+                      <li><a id="page" href="/api/protocolList/?id=12">合作伙伴开发协议</a></li>
+                      -->
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 右边这一块的模板开始 -->
+    <div class="col-xs-9" style="min-height: 820px">
+      <div class="common-right-page">
+        <!---->
+        <div class="content-header">
+          <div class="header-section">
+            <h2> 应用API流量规则<br>
+              <small>更新日期：2016年4月15日</small> </h2>
+          </div>
+          <div class="block">
+            <div class="block-title" style="border-bottom: solid 1px #dedede;margin-bottom: 5px">
+              <h4>1、应用默认流量规则</h4>
+            </div>
+            <h5 class="sub-header" style="line-height: 25px">
+              <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                <tbody>
+                  <tr>
+                    <th width="20%"><strong>应用标签</strong></th>
+                    <th width="20%"><strong>正式环境（默认）</strong></th>
+                    <th width="20%"><strong>应用上线（默认）</strong></th>
+                    <th width="40%"><strong>可申请流量包</strong></th>
+                  </tr>
+                  <tr>
+                    <td>大唐天下服务</td>
+                    <td rowspan="5">5000次/天</td>
+                    <td>20万次/天</td>
+                    <td>50万次/天、100万次/天、200万次/天</td>
+                  </tr>
+                  <tr>
+                    <td>外部合作网站</td>
+                    <td rowspan="2">10万次/天</td>
+                    <td rowspan="2">20万次/天、50万次/天、100万次/天</td>
+                  </tr>
+                  <tr>
+                    <td>xxxx应用</td>
+                  </tr>
+                  <tr>
+                    <td>反欺诈风控</td>
+                    <td rowspan="2">20万次/天</td>
+                    <td>50万次/天、100万次/天、200万次/天</td>
+                  </tr>
+                  <tr>
+                    <td>xxxx安全</td>
+                    <td>50万次/天、100万次/天、200万次/天</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>1）除以上标签以外其他应用标签应用上线默认流量均为100万/天<br>
+
+              2）appkey处于正式环境测试中状态下每天API调用次数为5000次，无法调高，建议尽快将应用发布上线
+            </h5>
+          </div>
+          <div class="block" style="margin-top: 30px">
+            <div class="block-title" style="border-bottom: solid 1px #dedede;margin-bottom: 5px">
+              <h4>2、应用流量提升规则</h4>
+            </div>
+            <h5 class="sub-header" style="line-height: 25px">
+              <br>规则如下：
+
+              <br>1） 最近7天应用访问API的平均成功率达到98%及以上；
+
+              <br>2） 当前应用的有效访问总量未达到当前流量规则的50%，不允许提交申请；（比如您的应用当前流量阀值为2万次/天，如果您当前的有效访问总量在1万次/天以下，无法提交申请更高的流量）；
+
+              <br>3） 申请流程是逐级申请，只允许申请上一级别的流量。（比如您当前的流量规则为2万/天，更高的流量级别有10万和100万，那么您只能申请10万的流量包，不允许直接申请100万）。
+            </h5>
+          </div>
+          <div class="block" style="margin-top: 30px">
+            <div class="block-title" style="border-bottom: solid 1px #dedede;margin-bottom: 5px">
+              <h4>3、如何提升流程</h4>
+            </div>
+            <h5 class="sub-header" style="line-height: 25px">
+              <br>资料整理中：
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
+<!-- BEGIN FOOTER -->
+<div class="footer wow fadeIn" data-wow-duration="1s">
+  <div class="container">
+    <ul class="">
+      <li><a href="https.//open.999qf.cn" title=""><i class="open-iconfont open-portal-icon-mail"></i>开放平台合作 open.999qf.cn</a></li>
+      <li><span>Copyright © 2016 湖南大唐天下网络科技有限公司  版权所有</span></li>
+    </ul>
+  </div>
+</div>
+<!-- END FOOTER -->

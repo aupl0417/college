@@ -1,0 +1,100 @@
+<replace value="curPage">
+<input type="hidden" value="{curPage}" name="curPage" id="curPage">
+</replace>
+<!-- BANNER的代码开始 -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="carousel slide" id="example-carousel">
+      <div class="carousel-inner">
+        <div class="item active"> <img alt="image" src="{_TEMP_ACTION_}/images/banner.jpg"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- BANNER代码结束 -->
+
+<!-- API目录的东西开始 -->
+<div class="container">
+	<div class="row top-three-col">
+		<div class="col-xs-4">
+			<h3>基础技术文档</h3>
+			<ul>
+				<li><a href="javascript:void(0);">用户授权</a></li>
+				<li><a href="javascript:void(0);">SDK使用</a></li>
+				<li><a href="javascript:void(0);">API调用</a></li>
+				<li><a href="javascript:void(0);">更多 ></a></li>
+			</ul>
+		</div>
+		<div class="col-xs-4">
+			<h3>平台规则</h3>
+			<ul>
+				<li><a href="javascript:void(0);">合作伙伴开发协议</a></li>
+				<li><a href="javascript:void(0);">应用运营规则</a></li>
+				<li><a href="javascript:void(0);">技术服务规则</a></li>
+				<li><a href="javascript:void(0);">更多 ></a></li>
+			</ul>
+		</div>
+		<div class="col-xs-4">
+			<h3>接入指南</h3>
+			<ul>
+				<li><a href="javascript:void(0);">新手指南</a></li>
+				<li><a href="javascript:void(0);">应用环境说明</a></li>
+				<li><a href="javascript:void(0);">开发异常排查</a></li>
+				<li><a href="javascript:void(0);">更多 ></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- API目录的东西开始 -->
+<!-- 小图标列表 -->
+<div class="container">
+	<div class="row icolist">
+		<div class="col-xs-12">
+			<h3>平台高速通道</h3>
+		</div>
+		<ul>
+			<li><a href="/index/protocolList">
+				<i class="fa fa-file-text-o fa-5x"></i><br />
+				文档中心
+
+			</a></li>
+			<li><a href="/index/apilist">
+				<i class="fa fa-cubes fa-5x"></i><br />
+				API
+
+			</a></li>
+			<li><a href="/index/faq">
+				<i class="fa fa-share-alt-square fa-5x"></i><br />
+				支持中心
+
+			</a></li>
+			<li><a href="/work/interfaceList">
+				<i class="fa fa-gear fa-5x"></i><br />
+				控制台
+			</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- 小图标列表 -->
+<!-- BEGIN FOOTER -->
+<div class="footer wow fadeIn" data-wow-duration="1s">
+	<div class="container">
+		<ul class="">
+			<li><a href="https://open.999qf.cn" title=""><i class="open-iconfont open-portal-icon-mail"></i>开放平台合作 open.999qf.cn</a></li>
+			<li><span>Copyright © 2016 广东韵铭网络科技有限公司  版权所有</span></li>
+		</ul>
+	</div>
+</div>
+<!-- END FOOTER -->
+
+<script>
+	var curPage = $('#curPage').val();
+
+	if(curPage != undefined){
+		$('#nav'+curPage).addClass('active');
+	}
+</script>
+</body>
+</html>

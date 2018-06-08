@@ -1,0 +1,359 @@
+/*公共头部和底部开始*/
+.header-wrap{
+	background-color: #1866c8;
+	color: white;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+footer.bf100,header.bf100{
+	z-index: 999;
+}
+footer.bf100 .row .col-xs-3.active{
+	background: url(../images/foot-bg.png) center center no-repeat;
+}
+footer.bf100 .row .col-xs-3.active span{
+	color: white;
+}
+html,body{
+	height: 100%;
+	padding: 0;
+}
+
+/*公共头部和底部结束*/
+
+/*首页开始*/
+.mid-box{
+	background: url(../images/sy-banner-bg.png) top center no-repeat ;
+	padding-top: 20px;
+	position: relative;
+	overflow: hidden;
+}
+.title-h4-top{
+	background: url(../images/title-bg.png) center center repeat-x #fff;
+	overflow: hidden;
+}
+.index-slide .carousel-indicators{
+	bottom: -5px;
+}
+.index-slide .carousel-indicators .active{
+	background-color: #2a82db;
+}
+.index-slide .carousel-indicators li{
+	background-color: #dcdcdc;
+	border-color: #dcdcdc;
+}
+.btn.blue:not(.btn-outline) {
+    color: #FFFFFF;
+    background-color: #2a82db;
+    border-color: #2a82db;
+    padding: 6px 15px;
+}
+.btn.btn-warning:not(.btn-outline) {
+    color: #FFFFFF;
+    background-color: #ffae00;
+    border-color: #ffae00;
+	padding: 6px 15px;
+}
+.message-img {
+    width: 32%;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+.message-img .div1 {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.message-img .div2 {
+    width: 100%;
+    height: 100%;
+}
+.message-right {
+    width: 64%;
+    float: left;
+    margin-left: 10px;
+}
+.message-text {
+    width: 100%;
+    height: 53px;
+    font-size: 12px;
+    line-height: 17px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: #666666;
+}
+/*首页左侧菜单开始*/
+.pd15 .dropdown-toggle .badge{
+	position: absolute;
+	top: -12px;
+    right: -3px;
+    font-weight: 300;
+    padding: 0px 4px;
+    height: 11px;
+    background-color: #ffae00;
+}
+.avatar-bg-radius{
+    background-color: rgba(255,255,255,0.4);
+    overflow: hidden;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    max-width: 80px;
+    padding: 5px;
+}
+.avatar-bg{
+    background-color: rgba(255,255,255,0.4);
+    overflow: hidden;
+    padding: 5px;
+  	border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    max-width: 80px;
+} 
+/*首页左侧菜单结束*/
+.content{
+	max-width: 640px;
+	margin: auto;
+	position: relative;
+}
+/*首页结束*/
+
+/*财富开始*/
+.wealth-solid >div:nth-child(2n+1) {
+    border-right: 1px solid #ddd;
+}
+/*财富结束*/
+
+/*积分明细开始*/
+.integral .nav-tabs>li>a{
+	padding: 0;
+}
+.integral .nav-tabs>li a:hover{
+	background: none;
+	border: none;
+}
+.integral .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+	border: 0;
+	background-color: white;
+}
+.integral .col-xs-3.active .qb-icon{
+	background: url(../images/qb-logo-l.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.qb-icon{
+	background: url(../images/qb-logo-h.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.integral .col-xs-3.active .qb-icon{
+	background: url(../images/qb-logo-l.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.integral .col-xs-3.active .fh-icon{
+	background: url(../images/fh-logo-l.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.fh-icon{
+	background: url(../images/fh-logo-h.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.integral .col-xs-3.active .jj-icon{
+	background: url(../images/jj-logo-l.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.jj-icon{
+	background: url(../images/jj-logo-h.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.integral .col-xs-3.active .jj-icon{
+	background: url(../images/jj-logo-l.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.jj-icon{
+	background: url(../images/jj-logo-h.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.integral .col-xs-3.active .tc-icon{
+	background: url(../images/tc-logo-l.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.tc-icon{
+	background: url(../images/tc-logo-h.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.yhm-icon{
+	background: url(../images/yhm-logo.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.mima-icon{
+	background: url(../images/mima-logo.png) center center no-repeat;
+	background-size: 100%;
+	width: 24px;
+	height: 24px;
+	margin: auto;
+}
+.integral .col-xs-3 h5{
+	color: #777;
+}
+.integral .col-xs-3.active h5{
+	color: #2a82db;
+}
+.shu-right .col-xs-3:before{
+	content: '';
+	position: absolute;
+	top: 15px;
+	right: 0;
+	width: 1px;
+	height: 14px;
+	background-color: #dcdcdc;
+}
+.shu-right .col-xs-3:last-child:before{
+	display: none;
+}
+/*积分明细结束*/
+
+/*登录开始*/
+.login-mid .login-input{
+	background-color: white;
+	border: 0;
+	border-radius: 25px;
+	margin-bottom: 15px;
+}
+.input-icon > i {
+    color: #ccc;
+    display: block;
+    position: absolute;
+    margin:5px 2px 4px 10px;
+    z-index: 3;
+    width: 16px;
+    font-size: 16px;
+    text-align: center;
+}
+/*登录结束*/
+/*注册开始*/
+.register-border{
+	border:3px dashed #e8e8e8;
+}
+	/*复选按钮开始*/
+	.peoRegister-label .hidden-input {
+	    opacity: 0;
+	    position: absolute;
+	    z-index: -1;
+	}
+	.peoRegister-label label input[type=checkbox]+span {
+	    display: inline-block;
+	    position: relative;
+	    height: 1.3em;
+	    width: 1.3em;
+	    border-radius: 14px;
+	    border:1px solid #d9d9d9;    
+	    border-radius: 10px!important;
+	}
+	
+	.peoRegister-label label input[type=checkbox]:checked+span {
+	    background-color: #2a82db;
+	    border: 0px;
+	}
+	.peoRegister-label label input[type=checkbox]:checked+span:after {
+		opacity: 1;
+	    content: '';
+	    position: absolute;
+	    width: 10px;
+	    height: 6px;
+	    background: transparent;
+		top: 5px;
+	    left: 4px;
+	    border: 2px solid #fff;
+	    border-top: none;
+	    border-right: none;
+	    -webkit-transform: rotate(-45deg);
+	    -moz-transform: rotate(-45deg);
+	    -o-transform: rotate(-45deg);
+	    -ms-transform: rotate(-45deg);
+	    transform: rotate(-45deg);
+	}
+	/*复选按钮结束*/
+/*注册结束*/
+
+
+/*CSS common*/
+h5,h2,h3,h1,h4,h6,p,body{
+	font-family: "微软雅黑";
+}
+a,a:hover{
+	color: #2F2F2F;
+	text-decoration: none;
+}
+img{
+	max-width: 100%;
+}
+
+.img24{width: 24px;}
+.bf100{width: 100%;}
+.b0{bottom: 0;}
+.pt45{padding-top: 45px;}
+.mb60{margin-bottom: 60px;}
+.over-y{overflow-y: auto;}
+.h90{height: 90px;}
+.radius-4{border-radius: 4px;}
+.c-ffa{color: #ffae00;} /*金额颜色*/
+.c-2a8{color: #2a82db;} /*链接颜色*/
+.c-777{color: #777777;} /*灰色*/
+.bg-448{background-color: #4486bb;} /*左菜单底色*/
+.bg-237{background-color: #2371AF;} /*左菜单标题底色*/
+.bg-2a8{background-color: #2a82db;} /*主色调背景颜色*/
+.bg-186{background-color: #1866c8;} /*标题背景颜色*/
+.solid-b-menu{border-bottom: 1px solid #659cc7;}
+.solid-t-menu{border-top: 1px solid #659cc7;}
+.solid-bot-menu{border-bottom: 1px solid #215782;}
+.solid-b{border-bottom: 1px solid #dcdcdc;}
+.solid-r{border-right: 1px solid #dcdcdc;}
+.dotted-r{border-right: 1px dotted #dcdcdc;}
+.dotted-b{border-bottom: 1px dotted #dcdcdc;}
+.bg-color-f0f{background-color: #f0f0f0;}
+.inline-block{display: inline-block;}
+.btn-pay:not(.btn-outline) {
+    color: #FFFFFF;
+    background-color: #2a82db;
+    border-color: #2a82db;
+}

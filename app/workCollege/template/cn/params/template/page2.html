@@ -1,0 +1,60 @@
+<!-- t_company_struct/t_company_product -->
+<div class="tabbable-custom">
+	<ul class="nav nav-tabs">
+	  <li class="active"> <a href="#tab_1_0" data-toggle="tab" aria-expanded="true"> 一级代理 </a> </li>
+	  <li> <a href="#tab_1_1" data-toggle="tab" aria-expanded="true"> 二级代理 </a> </li>
+	  <li> <a href="#tab_1_2" data-toggle="tab" aria-expanded="true"> 三级代理 </a> </li>
+	  <li> <a href="#tab_1_3" data-toggle="tab" aria-expanded="true"> 四级代理 </a> </li>
+	  <li> <a href="#tab_1_4" data-toggle="tab" aria-expanded="true"> 五级代理 </a> </li>
+	  <li> <a href="#tab_1_5" data-toggle="tab" aria-expanded="true"> 六级代理 </a> </li>
+	  <li> <a href="#tab_1_6" data-toggle="tab" aria-expanded="true"> 七级代理 </a> </li>
+	</ul>
+	<div class="tab-content">
+	<!-- {{each cs as list i}} -->
+	  <div class="tab-pane fade{{if i==0}} active in{{/if}}" id="tab_1_{{i}}">
+		<table class="table table-bordered table-hover table-striped table-classic" data-source="cs">
+		  <tr>
+			<td colspan="2">代码</td>
+			<td>组成份数</td>
+			<td>合计</td>
+			<td>股东岗位、职责、权重</td>
+		  </tr>
+		  <tr>
+			<td>EA</td>
+			<td>E</td>
+			<td><a href="javascript:;" class="editable" name="cs_ENum1" data-id="{{list.cs_level}}" data-type="text" data-pk="1" data-title="修改">{{list.cs_ENum1}}</a></td>
+			<td>{{list.cs_ENum1}}</td>
+			<td><a href="javascript:;" class="editable" name="cs_EPosition1" data-id="{{list.cs_level}}" data-type="textarea" data-pk="1" data-title="修改">{{list.cs_EPosition1}}</a></td>
+		  </tr>
+		  <tr>
+			<td rowspan="5">GA</td>
+			<td>A</td>
+			<td><a href="javascript:;" class="editable" name="cs_ANum1" data-id="{{list.cs_level}}" data-type="text" data-pk="1" data-title="修改">{{list.cs_ANum1}}</a></td>
+			<td rowspan="5">{{list.cs_ANum1 - (0 - list.cs_BNum1) - (0 - list.cs_CNum1) - (0 - list.cs_DNum1) - (0 - list.cs_FNum1)}}</td>
+			<td><a href="javascript:;" class="editable" name="cs_APosition1" data-id="{{list.cs_level}}" data-type="textarea" data-pk="1" data-title="修改">{{list.cs_APosition1}}</a></td>
+		  </tr>
+		  <tr>
+			<td>B</td>
+			<td><a href="javascript:;" class="editable" name="cs_BNum1" data-id="{{list.cs_level}}" data-type="text" data-pk="1" data-title="修改">{{list.cs_BNum1}}</a></td>
+			<td><a href="javascript:;" class="editable" name="cs_BPosition1" data-id="{{list.cs_level}}" data-type="textarea" data-pk="1" data-title="修改">{{list.cs_BPosition1}}</a></td>
+		  </tr>
+		  <tr>
+			<td>C</td>
+			<td><a href="javascript:;" class="editable" name="cs_CNum1" data-id="{{list.cs_level}}" data-type="text" data-pk="1" data-title="修改">{{list.cs_CNum1}}</a></td>
+			<td><a href="javascript:;" class="editable" name="cs_CPosition1" data-id="{{list.cs_level}}" data-type="textarea" data-pk="1" data-title="修改">{{list.cs_CPosition1}}</a></td>
+		  </tr>
+		  <tr>
+			<td>D</td>
+			<td><a href="javascript:;" class="editable" name="cs_DNum1" data-id="{{list.cs_level}}" data-type="text" data-pk="1" data-title="修改">{{list.cs_DNum1}}</a></td>
+			<td><a href="javascript:;" class="editable" name="cs_DPosition1" data-id="{{list.cs_level}}" data-type="textarea" data-pk="1" data-title="修改">{{list.cs_DPosition1}}</a></td>
+		  </tr>
+		  <tr>
+			<td>F</td>
+			<td><a href="javascript:;" class="editable" name="cs_FNum1" data-id="{{list.cs_level}}" data-type="text" data-pk="1" data-title="修改">{{list.cs_FNum1}}</a></td>
+			<td><a href="javascript:;" class="editable" name="cs_FPosition1" data-id="{{list.cs_level}}" data-type="textarea" data-pk="1" data-title="修改">{{list.cs_FPosition1}}</a></td>
+		  </tr>
+		</table>
+	  </div>	
+	<!-- {{/each}} -->
+	</div>
+</div>

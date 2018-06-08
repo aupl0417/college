@@ -1,0 +1,124 @@
+.top-three-col
+{
+	
+}
+.top-three-col h3 
+{
+	font-weight: 500;
+    margin-top: 60px;
+	margin-right: 40px;
+    padding-bottom: 20px;
+}
+.top-three-col ul 
+{
+	padding-left: 0;
+	list-style-type: none;
+}
+.top-three-col ul li 
+{
+	padding-right: 15px;
+}
+.top-three-col ul li a 
+{
+	color: #3598DC;
+	display: block;
+	padding: 15px 0;
+	font-size: 14px;
+	border-bottom: 1px solid #ddd;
+}
+.top-three-col ul li a:hover 
+{
+	color: #3598DC;
+	text-decoration: none;
+}
+.top-three-col a:hover
+{
+	color:#3598DC;
+}
+.text-primary 
+{
+	color:#3598DC;
+}
+
+.icolist
+{
+	overflow:hidden;
+}
+.icolist h3
+{
+	margin-top: 60px;
+	margin-bottom: 40px;
+}
+.icolist ul
+{
+	width: 1300px;
+	padding-left: 15px;
+	padding-right: 15px;
+	list-style: none;
+	margin-bottom: 50px;
+}
+.icolist ul li
+{
+	text-align:center;
+	margin-right: 29px;
+	display: inline-block;
+}
+.icolist ul li a:hover 
+{
+	border: 1px solid #3598DC;
+	color: #3598DC;
+}
+.icolist ul li a{
+	width: 200px;
+	height: 200px;
+	display:block;
+	border: 1px solid #ddd;
+	text-decoration: none;
+	transition: 0.2s all;
+}
+.icolist ul li a i{
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

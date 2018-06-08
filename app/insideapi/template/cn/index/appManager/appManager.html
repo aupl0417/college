@@ -1,0 +1,211 @@
+<script type="text/javascript" src="{_TEMP_PUBLIC_}/assets/global/plugins/bootbox/bootbox.min.js"></script><!-- 对话框 -->
+<script src="{_TEMP_PUBLIC_}/assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script> <!-- 震动提示 -->
+<script src="{_TEMP_SHARE_}/assets/themes/default/scripts/datatable.js" type="text/javascript"></script>
+
+<!-- common开始 -->
+<div class="container-fluid pb20 margin-bottom-30" style="min-height: 790px;min-width: 1200px;">
+	<div class="row no-space">
+		<!-- 左边这一块的模板开始 -->
+		<div class="col-xs-2 input-fixed">
+			<div class="common-left">
+				<h4>所有类目</h4>
+				<ul>
+					<li id="page{ic_id}">
+						<a href="javascript:;"><i class="fa fa-caret-right"></i>应用管理</a>
+						<ul>
+							<li>
+								<a href="/index/appManager/"> 应用列表</a>
+							</li>
+							<li>
+								<a href="/index/appAccretion/">添加应用</a>
+							</li>
+						</ul>
+						<!--<a href="javascript:;"><i class="fa fa-caret-right"></i>API收费管理</a>-->
+						<!--<ul>-->
+							<!--<li>-->
+								<!--<a href=""> 收费说明</a>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a href="/index/check/">本月账单</a>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<a href="javascript:;">我的订单</a>-->
+							<!--</li>-->
+						<!--</ul>-->
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 左边这一块的模板结束 -->
+
+		<!-- 右边这一块的模板开始 -->
+		<div class="col-xs-10">
+			<div class="portlet light">
+				<div class="page-bar margin-bottom-20">
+					<!-- 导航 -->
+					<ul class="page-breadcrumb">
+						<li> <i class="fa fa-home"></i> <a href="">控制台</a> <i class="fa fa-angle-right"></i> </li>
+						<li> 应用列表</li>
+					</ul>
+				</div>
+				<div class="row">
+					<!--<replace value="u_logo|dp_contact|dp_email|dp_tel|count">-->
+					<div class="col-xs-6 tabs-left nav-tabs">
+						<div class="pull-left margin-right-10">
+							<div class="img-circle input-fixed" style="width: 100px;height: 100px;">
+								<img src="{u_logo}" alt="头像" class="img-responsive">
+							</div>
+						</div>
+						<div class="input-fixed">
+							<h4><b>{dp_contact}</b></h4>
+							<h5>资料完整度：<span class="font-yellow-gold">{count}%</span></h5>
+							<div class="progress progress-striped active" style="height: 15px;">
+								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {count}%;line-height: 16px;">{count}%</div>
+								<span class="pull-right bg-white recent-case-item"><a href="" class="font-blue">完善资料</a></span>
+							</div>
+							<div class="padding-top-15">
+								<a href="/index/developerDetail" type="button" class="btn btn-default margin-right-20">开发者</a>
+								<!--<button type="button" class="btn btn-default margin-right-20">&nbsp;我的应用&nbsp;</button>-->
+								<!--<button type="button" class="btn btn-default ">&nbsp;我的账单&nbsp;</button>-->
+							</div>
+						</div>
+					</div>
+					<!--</replace>-->
+					<div class="col-xs-6">
+						<div class="row">
+							<div class="col-xs-3 padding-right-0">
+								<h5>我的应用</h5>
+								<replace value="applicationCount">
+									<h4><b>{applicationCount}</b></h4>
+								</replace>
+							</div>
+							<div class="col-xs-3 padding-right-0">
+								<a href="/index/myApi">
+									<h5>我的API接口</h5>
+									<replace value="apicount">
+										<h4><b>{apicount}</b></h4>
+									</replace>
+								</a>
+							</div>
+							<!--<div class="col-xs-3 padding-right-0">-->
+								<!--<h5>本月调用次数</h5>-->
+								<!--<h4><b>同步中...</b></h4>-->
+							<!--</div>-->
+							<!--<div class="col-xs-3 padding-right-0">-->
+								<!--<h5>本月账单费用</h5>-->
+								<!--<h4><b>同步中...</b></h4>-->
+							<!--</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption padding-top-25"><i class="fa fa-cube"></i>应用管理</div>
+					<div class="caption pull-right">
+						<a href="/index/appAccretion/" class="btn btn-sm blue table-group-action-submit ajaxify">添加应用</a>
+					</div>
+				</div>
+				<div class="portlet-body">
+
+					<div class="dataTables_extended_wrapper table-responsive no-footer">
+						<table aria-describedby="peopleList_info" class="table table-striped table-bordered table-hover dataTable no-footer ">
+							<thead>
+								<tr role="row" class="heading">
+									<th class="col-xs-1">应用名称 </th>
+									<th class="col-xs-1"> 分类 </th>
+									<th class="col-xs-2"> 版本介绍 </th>
+									<th class="col-xs-1"> 创建时间 </th>
+									<th class="col-xs-2"> 运营联系方式 </th>
+									<th class="col-xs-1"> 状态 </th>
+									<th class="col-xs-2"> 备注 </th>
+									<th class="col-xs-1"> 操作 </th>
+								</tr>
+							</thead>
+							<tbody>
+							<if $check == 1002>
+							<!--<loop data="data">-->
+								<tr class="odd" role="row">
+									<td>{da_name}</td>
+									<td>{da_class_text}</td>
+									<td>{da_platform}</td>
+									<td>{da_createtime}</td>
+									<td>{da_contact}<br /> {da_tel}<br /> {da_email}</td>
+									<td>{da_status_text}</td>
+									<td>{da_mome}</td>
+									<td>
+										<a href="/index/appDetails?id={da_id}" class="font-blue margin-right-10">查看</a>
+										<a href="/index/editDetails?id={da_id}" class="font-blue margin-right-10">编辑</a>
+										<a href="javascript:void(0);" onclick="javascript:complete({da_id});" class="font-blue margin-right-10">删除</a>
+										{add_api}
+									</td>
+								</tr>
+							<!--</loop>-->
+							</if>
+							</tbody>
+						</table>
+						<if $check == 1001>
+							<br />
+							<br />
+							<br />
+							<br />
+							<br />
+							<h4 class="text-center">你还没有创建应用，您可以</h4>
+							<h4 class="text-center block"><a href="/index/appAccretion" class="btn blue btn-lg">添加应用</a></h4>
+						</if>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<script>
+	$(function() {
+		$('.common-left > ul li a').click(function() {
+			$(this).siblings('ul').stop(true, true).slideToggle(500);
+		});
+	});
+	var currentPage = $('#currentPage').val();
+	if (currentPage != undefined) {
+		$('.common-left a#page' + currentPage).addClass('active');
+	}
+	//顶部导航选中效果脚本
+	var curPage = $('#curPage').val();
+	if (curPage != undefined) {
+		$('#nav' + curPage).addClass('active');
+	}
+</script>
+
+<script>
+	//删除
+	function complete(id){
+		if(!id){
+			return false;
+		}
+		bootbox.confirm('确定删除吗?',function(res){
+			if(res){
+				$.ajax({
+					'url' : '/index/deleteApplication.json?id='+id,
+					'dataType' : 'JSON',
+					'success' : function(data){
+						if(data.id == '1001'){
+							/*bootbox.alert('操作成功!', function(){
+							 grid.getDataTable().ajax.reload(null, false);
+							 });*/
+							bootbox.alert(data.msg, function() {
+								window.location.reload();
+							});
+						}else{
+							var msg = data.info || data.msg;
+							bootbox.alert(msg);
+						}
+					}
+				});
+			}
+		});
+	}
+</script>
+<!--右边这一块的模板结束-->

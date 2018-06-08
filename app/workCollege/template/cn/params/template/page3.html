@@ -1,0 +1,40 @@
+<!-- t_company_product -->
+<table class="table table-bordered table-hover table-striped table-classic" data-source="cp">
+  <tr>
+    <th rowspan="2" class="text-center" width="20%">级别</th>
+    <th rowspan="2">社会消费品零售总额</th>
+    <th rowspan="2">基准值</th>
+    <th rowspan="2">相对级别</th>
+    <th rowspan="2">相对系数(万)</th>
+    <th rowspan="2">基价金额(万)</th>
+    <th rowspan="2">相对基价金额(万)</th>
+    <th colspan="6" class="text-center">各级实际金额(万)</th>
+  </tr>
+  <tr>
+    <th>E</th>
+    <th>D</th>
+    <th>C</th>
+    <th>B</th>
+    <th>A</th>
+    <th>F</th>
+  </tr>
+<!-- {{each cp as list i}} -->
+  <tr>
+    <td class="text-center"><a href="javascript:;" class="editable" name="cp_level" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_level}}</a>级</td>
+    <td><a href="javascript:;" class="editable" name="cp_minValue" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_minValue}}</a>&nbsp;~&nbsp;<a href="javascript:;" class="editable" name="cp_maxValue" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_maxValue}}</a>亿</td>
+    <td><a href="javascript:;" class="editable" name="cp_baseValue" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_baseValue}}</a>亿</td>
+    <td class="text-center"><a href="javascript:;" class="editable" name="cp_relativeLevel" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_relativeLevel}}</a>级</td>
+    <td><a href="javascript:;" class="editable" name="cp_relativeCoefficient" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_relativeCoefficient}}</a></td>
+    <td><a href="javascript:;" class="editable" name="cp_baseMomeny" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_baseMomeny}}</a></td>
+    <td><a href="javascript:;" class="editable" name="cp_relativeBaseMomeny" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_relativeBaseMomeny}}</a></td>
+    <td><a href="javascript:;" class="editable" name="cp_EPrice1" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_EPrice1}}</a></td>
+    <td><a href="javascript:;" class="editable" name="cp_DPrice1" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_DPrice1}}</a></td>
+    <td><a href="javascript:;" class="editable" name="cp_CPrice1" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_CPrice1}}</a></td>
+    <td><a href="javascript:;" class="editable" name="cp_BPrice1" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_BPrice1}}</a></td>
+    <td><a href="javascript:;" class="editable" name="cp_APrice1" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_APrice1}}</a></td>
+    <td><a href="javascript:;" class="editable" name="cp_FPrice1" data-id="{{list.cp_id}}" data-type="text" data-pk="1" data-title="修改">{{list.cp_FPrice1}}</a></td>
+  </tr>
+<!-- {{/each}} -->	 
+
+	
+</table>

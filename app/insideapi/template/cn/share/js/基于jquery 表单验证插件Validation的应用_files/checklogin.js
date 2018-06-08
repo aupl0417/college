@@ -1,0 +1,1 @@
+$(function(){$(".ico").load("http://www.php100.com/login_rewrite.php",function(data){if(data=="0"){$(".ico").html('<a href="http://bbs.php100.com/login.php">µÇÂ½</a> | <a href="http://bbs.php100.com/zhuce.php">×¢²á</a>');}else{$(".ico").html(data);}})})

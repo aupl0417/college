@@ -1,0 +1,103 @@
+<!--=============================================================================
+#     FileName: schStudentInfo.html
+#         Desc: 查询学员
+#       Author: Wuyuanhang
+#        Email: QQ:2881319821
+#     HomePage:
+#      Version: 0.0.1
+#   LastChange: 2016-10-26 16:09:55
+#      History:
+
+=============================================================================-->
+<!--内容-->
+<!-- <replace value="tempId|jsData"> -->
+<script id="{tempId}" type="text/html">
+  <table class="table responsive-form-table table-responsive">
+    <tbody>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">名称 </th>
+        <td class="col-sm-12 col-md-4 borderd" colspan="5" data-title = "名称">
+          {{cl_name}}
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd"> 报名开始时间 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "报名开始时间">
+          {{cl_enrollStartTime}}
+        </td>
+        <th class="hidden-sm col-md-2 borderd"> 报名结束时间 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "报名结束时间">
+          {{cl_enrollEndTime}}
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd"> 课程开始时间 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "课程开始时间">
+          {{cl_startTime}}
+        </td>
+        <th class="hidden-sm col-md-2 borderd"> 课程结束时间 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "课程结束时间">
+          {{cl_endTime}}
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">班级logo</th>
+        <td class="col-sm-12 col-md-1 borderd" data-title="班级logo">
+          <div class="input-small">
+            <div class="thumbnail">
+              <a href="{{cl_logo}}" target="_blank" title="点击在新的页面打开">
+                <img src="{{cl_logo}}">
+              </a>
+            </div>
+          </div>
+        </td>
+        <td  colspan="3" class="col-sm-12 col-md-3 borderd" colspan="2"></td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd"> 本学期学员总数 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "本学期学员总数">
+          {{cl_allowableNumber}}
+        </td>
+        <th class="hidden-sm col-md-2 borderd"> 报名费 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "报名费">
+          {{cl_cost}}
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">学习前置条件 </th>
+        <td class="col-sm-12 col-md-4 borderd" colspan="5" data-title = "学习前置条件">
+          {{condition}}
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">模板内容 </th>
+        <td class="col-sm-12 col-md-4 borderd" colspan="5" data-title = "模板内容">
+          {{cl_description}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-bordered table-hover table-striped table-classic">
+    <tbody>
+      <tr>
+        <th>课程</th> <th>课时(小时)</th> <th>学分</th>
+      </tr>
+      {{each course as value index}}
+      <tr>
+        <td>{{value.courseName}}</td>
+        <td>{{value.hour}}</td>
+        <td>{{value.credit}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</script>
+
+<script type="text/javascript">
+  var tempId = "{tempId}";
+var jsData = {jsData};
+var html = template(tempId,jsData);
+$('.modal-body').html(html);
+</script>
+<!--</replace>-->
+

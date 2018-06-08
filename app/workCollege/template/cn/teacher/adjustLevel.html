@@ -1,0 +1,108 @@
+<link href="{_TEMP_PUBLIC_}/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+<script src="{_TEMP_PUBLIC_}/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+<div class="portlet-body">
+	<h3>等级调整</h3>
+</div>
+
+<form action="/teacher/adjustLevel.json" class="form-horizontal form-row-seperated" id="transfer_detail">
+	<replace value="id|username|teacherLevel|teachHours|tl_name">
+	<div class="form-body clearfix">
+		<div class="form-group form-md-line-input">
+          <label class="control-label col-md-2">会员名</label>
+          <div class="col-md-9">
+            <input type="text" readonly class="form-control" value='{username}'>
+            <div class="form-control-focus"></div>
+          </div>
+        </div>
+        <div class="form-group form-md-line-input">
+          <label class="control-label col-md-2">当前等级</label>
+          <div class="col-md-9">
+            <input type="text" readonly class="form-control" value='{tl_name}'>
+            <div class="form-control-focus"></div>
+          </div>
+        </div>
+        <div class="form-group form-md-line-input">
+          <label class="control-label col-md-2">授课总时长（H）</label>
+          <div class="col-md-9">
+            <input type="text" readonly class="form-control" value='{teachHours}'>
+            <div class="form-control-focus"></div>
+          </div>
+        </div>
+        <div class="form-group form-md-line-input">
+          <label class="control-label col-md-2">调整等级</label>
+          <div class="col-md-9">
+          		<select name='teacherLevel' class="form-control">
+					<option value=''>--请选择--</option>
+					{teacherLevel}
+				</select>
+            <div class="form-control-focus"></div>
+          </div>
+        </div>
+        <div class="form-group form-md-line-input">
+          <label class="control-label col-md-2">调整原因</label>
+          <div class="col-md-9">
+            <textarea class="form-control autosizeme" name="reason" rows="3"  cols='3'></textarea>
+            <div class="form-control-focus"></div>
+          </div>
+        </div>
+        <div class="form-group form-md-line-input">
+        	<label class="control-label col-md-2"></label>
+        	<div class="col-md-9">
+	        	<input type="hidden" name="id" value="{id}">
+	          	<button type="submit" class="btn blue"><i class="fa fa-check"></i> 确认 </button>
+				<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+        	</div>
+        </div>
+	</div>
+	</replace>
+</form>
+
+<script>+
+	$(function () {
+		$('#transfer_detail').handleForm(
+			{
+				rules: {
+					teacherLevel:{
+						required: true
+					},
+					reason:{
+						required: true
+					},
+				},
+				messages: {
+					teacherLevel:{
+						required: '请选择讲师等级'
+					},
+					reason:{
+						required: '请添加调整原因'
+					},
+				},
+				closest: 'td',
+				ass: {
+
+				}
+			},
+			function(data, statusText){
+				if(data.id == '1001'){
+					bootbox.alert('操作成功', function() {
+						$('#temp-modal-power').modal('hide');
+						Grid.getDataTable().ajax.reload(null, false);
+					});
+				}else{
+					Global.alert( {
+						"container": "#transfer_detail",
+						"place": "prepend",
+						"type": "warning",
+						"message": data.info,
+						"close": true,
+						"reset": true,
+						"focus": true,
+						"closeInSeconds": "0",
+						"icon": "warning"
+					});
+				}
+			}
+		);
+	});
+	
+</script>

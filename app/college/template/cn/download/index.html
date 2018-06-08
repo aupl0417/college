@@ -1,0 +1,174 @@
+
+<!--内容开始-->
+<div class="cont12">
+	<div class="row">
+		<div class="col-xs-8">
+			<div class="hot-class mb20 mt30">
+
+				<div class="row" id='videoList'>
+					<loop data="videoList">
+					<div class="col-xs-6 re video">
+						<a data-href="{videoUrl}" data-id="{id}">
+							<div class="mb20 students-class">
+								<div class="students-class-img">
+									<img src="{videoImage}" alt="{name}" width="393px;" height="259px;">
+								</div>
+								<div class="students-class-text c-gray text_over">
+									{name}
+								</div>
+							</div>
+						</a>
+					</div>
+					</loop>
+				</div>
+				<div class="pt20 pb20 mt60 text-center">
+			        <div class="dataTables_paginate paging_simple_numbers" id="dynamic-table_paginate">
+			            <ul class="pagination">
+			                <replace value="vpagelist">
+			                    {vpagelist}
+			                </replace>
+			            </ul>
+			        </div>
+			    </div>
+			</div>
+		</div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-3">
+			<div class="solid-b-999 fs16 pb10 mb10">
+				课件下载
+			</div>
+			<div class="over" id='fileList'>
+				<loop data="fileList">
+				<div class="fs14 c-gray mb15 text_over">
+					<img src="{_TEMP_SHARE_}/themes/default/images/ppt.png" alt="" class="mr10">
+					<a data-key='{key}' data-id="{id}" class="filedownload" data-href="{fileUrl}">{filename}</a>
+				</div>
+				</loop>
+			</div>
+			<div class="pt20 pb20 mt60 text-center">
+		        <div class="dataTables_paginate paging_simple_numbers" id="dynamic-table_paginate">
+		            <ul class="pagination">
+		                <replace value="fpagelist">
+		                    {fpagelist}
+		                </replace>
+		            </ul>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	
+	<!--遮罩层开始-->
+    <div class="zhez-popoup"></div>
+    <!--遮罩层结束-->
+    
+<script src="{_TEMP_SHARE_}/themes/default/js/swiper.min.js"></script><!--轮播js-->
+<script src="{_TEMP_SHARE_}/themes/default/layer/layer.js"></script><!--轮播js-->
+<script src="{_TEMP_SHARE_}/themes/default/js/bootstrap-datetimepicker.min.js"></script>
+
+</div>
+<!--内容结束-->
+<script>
+    $('.video').click(function(){
+		var $obj = $(this).find('a');
+    	var videoUrl   = $obj.data('href');
+    	var videoTitle = $obj.data('title');
+		var id         = $obj.data('id');
+
+		var url = '{:U("download/getCount.json")}?id=' + id;
+		console.log(url);
+		$.ajax({
+			url : url,
+			dataType : 'json',
+			success : function(data){
+				console.log(data);
+			}
+		});
+		var top  = ($(window).height() - 540) / 2;
+		var left = ($(window).width()  - 960) / 2;
+		window.open(videoUrl, 'name=' + videoTitle, 'left=' + left + ', top=' + top + ',location=0, width=960, height=540');
+	});
+
+	$('.filedownload').mouseover(function(){
+		$(this).css('cursor', 'pointer');
+	});
+
+	$('.filedownload').on('click', function(){
+		var key = $(this).data('key');
+		var id  = $(this).data('id');
+		var url = '{:U("public/download")}?type=3&key=' + key + '&file_id=' + id;
+		window.location.href = url;
+	});
+    
+    function go(id){
+    	var url = '{:U("public/getDownLoadList.json")}?type=1&page=' + id;
+    	$.ajax({
+    		url: url,
+    		dataType: 'json',
+    		success: function(res) {
+    			var html = '';
+    			if (1001 == res.id) {
+    				var info = res.info
+					console.log(info.length);
+    				if(info && info.length > 0){
+    					for(var i=0; i<info.length;i++){
+    						
+    						html += '<div class="col-xs-6 re video">';
+    						html += 	'<a data-href="' + info[i]['videoUrl'] + '">';
+    						html += 		'<div class="mb20 students-class">';
+    						html += 			'<div class="students-class-img">';
+    						html += 				'<img src="' + info[i]['videoImage'] + '" alt="{name}" width="393px;" height="259px;">';
+    						html += 			'</div>'
+    						html += 			'<div class="students-class-text c-gray text_over">';
+    						html += 				info[i]['name']
+    						html += 			'</div>';
+    						html += 		'</div>';
+    						html += 	'</a>';
+    						html += '</div>';
+    					}
+    				}else {
+    					html += '　　　暂无数据';
+    				}
+    			}else {
+					html += '　　' + res.info;
+    			}
+    			$('#videoList').html('');
+    			$('#videoList').html(html);
+    		}
+    	});
+    }
+    
+    
+    function getFileList(id){
+    	var url = '{:U("public/getDownLoadList.json")}?type=0&page=' + id;
+    	$.ajax({
+    		url: url,
+    		dataType: 'json',
+    		success: function(res) {
+    			var html = '';
+    			if (1001 == res.id) {
+    				var info = res.info
+    				if(info && info.length > 0){
+    					for(var i=0; i<info.length;i++){
+    						html += '<div class="fs14 c-gray mb15 text_over">';
+	    					html += 	'<img src="{_TEMP_SHARE_}/themes/default/images/ppt.png" alt="" class="mr10">';
+	    					html += 	' <a href="' + info[i]['fileUrl'] + '">' + info[i]['filename'] + '</a>';
+	    					html += '</div>';
+    					}
+    				}else {
+    					html += '　　　暂无数据';
+    				}
+    			}else {
+					html += '　　' + res.info;
+    			}
+    			$('#fileList').html('');
+    			$('#fileList').html(html);
+    		}
+    	});
+    }
+</script>
+
+
+
+
+
+

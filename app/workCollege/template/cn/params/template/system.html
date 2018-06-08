@@ -1,0 +1,123 @@
+<!-- t_system -->
+<div class="panel-group accordion" id="systemBlock">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#systemBlock" href="#systemBox_1" aria-expanded="true"> <i class="fa fa-cog"></i> 全局参数 </a> </h4>
+    </div>
+    <div id="systemBox_1" class="panel-collapse collapse in" aria-expanded="true">
+      <div class="panel-body">
+		<table class="table table-bordered table-striped table-responsive">
+			<tbody>
+				<!-- {{each data[0] as param i}} -->
+				<tr>
+					<td>{{param.memo}}</td>
+					<td><a href="javascript:;" class="editable" name="param[]" data-id="{{i}}" data-name="sys_value" data-type="text" data-title="修改">{{param.value}}</a></td>
+				</tr>
+				<!-- {{/each}} -->
+			</tbody>
+		</table>
+		
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#systemBlock" href="#systemBox_2" aria-expanded="false"> <i class="fa fa-mobile"></i> 发送短信 </a> </h4>
+    </div>
+    <div id="systemBox_2" class="panel-collapse collapse" aria-expanded="false">
+      <div class="panel-body">   
+		<table class="table table-bordered table-striped table-responsive">
+			<tbody>
+				<!-- {{each data[1] as param i}} -->
+				<tr>
+					<td>{{param.memo}}</td>
+					<td><input type="checkbox" {{if param.value == 1}} checked{{/if}} name="param[]" data-id="{{i}}" data-name="sys_value" class="make-switch" data-size="small" data-on-text="是" data-off-text="否" /></td>
+				</tr>
+				<!-- {{/each}} -->
+			</tbody>
+		</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#systemBlock" href="#systemBox_4" aria-expanded="false"> <i class="fa fa-cog"></i> 商家设定相关 </a> </h4>
+    </div>
+    <div id="systemBox_4" class="panel-collapse collapse" aria-expanded="false">
+      <div class="panel-body">
+		<table class="table table-bordered table-striped table-responsive">
+			<tbody>
+				<!-- {{each data[4] as param i}} -->
+				<tr>
+					<td>{{param.memo}}</td>
+					<td><a href="javascript:;" class="editable" name="param[]" data-id="{{i}}" data-name="sys_value" data-type="text" data-title="修改">{{param.value}}</a></td>
+				</tr>
+				<!-- {{/each}} -->
+			</tbody>
+		</table>
+		
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#systemBlock" href="#systemBox_5" aria-expanded="false"> <i class="fa fa-cog"></i> 会员相关设置 </a> </h4>
+    </div>
+    <div id="systemBox_5" class="panel-collapse collapse" aria-expanded="false">
+      <div class="panel-body">
+		<table class="table table-bordered table-striped table-responsive">
+			<tbody>
+				<!-- {{each data[5] as param i}} -->
+				<tr>
+					<td>{{param.memo}}</td>
+					<td><a href="javascript:;" class="editable" name="param[]" data-id="{{i}}" data-name="sys_value" data-type="text" data-title="修改">{{param.value}}</a></td>
+				</tr>
+				<!-- {{/each}} -->
+			</tbody>
+		</table>
+		
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#systemBlock" href="#systemBox_6" aria-expanded="false"> <i class="fa fa-cog"></i> 代理公司相关设置 </a> </h4>
+    </div>
+    <div id="systemBox_6" class="panel-collapse collapse" aria-expanded="false">
+      <div class="panel-body">
+		<table class="table table-bordered table-striped table-responsive">
+			<tbody>
+				<!-- {{each data[6] as param i}} -->
+				<tr>
+					<td>{{param.memo}}</td>
+					<td><input type="checkbox" {{if param.value == 1}} checked{{/if}} name="param[]" data-id="{{i}}" data-name="sys_value" class="make-switch" data-size="small" data-on-text="是" data-off-text="否" /></td>
+				</tr>
+				<!-- {{/each}} -->
+			</tbody>
+		</table>
+		
+      </div>
+    </div>
+  </div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#systemBlock" href="#systemBox_7" aria-expanded="false"> <i class="fa fa-cog"></i> 会员升级相关设置 </a> </h4>
+		</div>
+		<div id="systemBox_7" class="panel-collapse collapse" aria-expanded="false">
+			<div class="panel-body">
+				<table class="table table-bordered table-striped table-responsive">
+					<tbody>
+						<!-- {{each data[7] as param i}} -->
+						<tr>
+							<td>{{param.memo}}</td>
+							<td><a href="javascript:;" class="editable" name="param[]" data-id="{{i}}" data-name="sys_value" data-type="text" data-title="修改">{{param.value}}</a></td>
+						</tr>
+						<!-- {{/each}} -->
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!-- temp end -->

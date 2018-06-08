@@ -1,0 +1,79 @@
+</div></div></div>
+			</div><!-- /.main-content -->
+			<div class="footer">
+				<div class="footer-inner">
+					<!-- #section:basics/footer -->
+					<div class="footer-content">
+						
+							<span class="blue bolder">大唐天下网络科技有限公司</span>
+							 &copy; 湘ICP备16005109号-3  Datang,Inc.All rights reserved.Powered by Datang
+						
+					</div>
+					<!-- /section:basics/footer -->
+				</div>
+			</div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="{_TEMP_PUBLIC_}/plugins/ExplorerCanvas/excanvas.js"></script>
+		<![endif]-->
+
+      <!-- 页面加载时,公共处理部分 -->
+      <script src="{_TEMP_PUBLIC_}/scripts/load.js"></script>	
+
+      <!-- 模态框预加载-->
+      <div class="modal fade modal-scroll" id="global-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+        <div class="modal-dialog">
+          <div class="modal-content" id="global-modal-content"></div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+      <!-- end 模态框预加载 -->
+    <!--查看站内信-->
+    <script id="sitemsg-modal-temp" type="text/html">
+      <div class="panel-body">
+        <div class="portlet">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-comment-o"></i>{{title}}
+            </div>
+            <div class="tools">
+              <a href="javascript:;" class="remove" data-dismiss="modal" aria-hidden="true"> </a>
+            </div>
+          </div>
+          <div class="portlet-body">
+            <p>{{content}}</p>
+
+            <div class="clearfix">
+              <span class="pull-right">
+                <small>时间： <cite title="Source Title"> {{ctime}}</cite></small>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+        </div>
+      </div>
+    </script>
+    <!--查看站内信 end-->
+	
+	<script>
+		jQuery(document).ready(function() {    
+			Global.init(); 		
+		});
+	</script>
+    </body>
+
+
+</html>
+

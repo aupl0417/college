@@ -1,0 +1,111 @@
+<!--=============================================================================
+#     FileName: editCourse.html
+#         Desc:
+#       Author: Wuyuanhang
+#        Email: QQ:554119220
+#   LastChange: 2016-10-14 17:39:33
+#      History:
+#      Paramer:
+=============================================================================-->
+<replace value="tempId|studyDirection|jsData|stateList|grade">
+<form method="post" action="/courseManage/editCourse.json" id="formCourse" class="form-horizontal form-row-seperated"></form>
+<script id="{tempId}" type="text/html">
+  <div class="form-body clearfix">
+    <div class="form-group">
+      <label class="control-label col-md-2">课程名</label>
+      <div class="col-md-10">
+        <input type="text" name="name" class="form-control" value="{{co_name}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课程分类</label>
+      <div class="col-md-10">
+        <select name="studyDirectionId" class="form-control">
+          <option value="0">--课程分类--</option>
+          {studyDirection}
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课程等级</label>
+      <div class="col-md-10">
+        <select name="gradeID" class="form-control">
+          <option value="0">--课程等级--</option>
+          {grade}
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课程描述</label>
+      <div class="col-md-10">
+        <textarea class="form-control autosizeme" name="description" rows="3">{{co_description}}</textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课程说明</label>
+      <div class="col-md-10">
+        <textarea class="form-control autosizeme" name="content" rows="3">{{co_content}}</textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">学分</label>
+      <div class="col-md-10">
+        <input type="text" name="credit" class="form-control" value="{{co_credit}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">学时</label>
+      <div class="col-md-10">
+        <input type="text" name="hour" class="form-control" value="{{co_hour}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">状态</label>
+      <div class="col-md-10">
+        <select name="state" class="form-control"> {stateList} </select>
+      </div>
+    </div>
+    <div class="form-group form-md-line-input"><!--行 begin-->
+      <label class="col-md-2 control-label">上传课程LOGO</label>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 hiduploader">
+            <div data-provides="fileinput" class="fileinput">
+              <div class="thumbnail">
+                <img alt="课程Logo" src="{{logoUrl}}" class="img-reponsetive">
+                <input type="hidden" value="{{co_logo}}" name="courseLogo">
+              </div>
+            </div>
+            <div class="input-group modalUpload" data-savename="1" data-url="/public/uploadPhoto.json">
+              <span class="input-group-btn">
+                <button type="button" class="btn blue start btn-block">
+                  <i class="fa fa-upload"></i>
+                  课程Logo
+                </button>
+              </span>
+            </div>
+          </div>
+        </div> <!--上传end-->
+      </div>
+    </div><!--行end-->
+  </div>
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <input type="hidden" name="coID" class="form-control mask-date" value="{{co_id}}">
+        <button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交修改</button>
+        <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+      </div>
+    </div>
+  </div>
+</script>
+<script>
+  var jsData = {jsData};
+  var tempId = {tempId};
+  template.config('escape', false);
+  var html = template('{tempId}', jsData);
+  $('#formCourse').html(html);
+</script>
+</replace>
+<script src="{_TEMP_ACTION_}/scripts/course.js" type="text/javascript"></script>
+

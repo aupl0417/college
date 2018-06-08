@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>大唐开放平台-文档中心</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="">
+    <!--proui-->
+    <link rel="stylesheet" href="{_TEMP_SHARE_}/css/bootstrap.min-3.0.css">
+    <link rel="stylesheet" href="{_TEMP_SHARE_}/css/plugins-3.0.css">
+    <link href="{_TEMP_PUBLIC_}/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{_TEMP_PUBLIC_}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="{_TEMP_PUBLIC_}/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="{_TEMP_PUBLIC_}/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="{_TEMP_PUBLIC_}/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+    <link href="{_TEMP_SHARE_}/assets/themes/default/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="{_TEMP_SHARE_}/assets/themes/default/css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="{_TEMP_SHARE_}/assets/themes/default/css/login.css" rel="stylesheet" type="text/css"/>
+    <!--proui-->
+    <link rel="stylesheet" href="{_TEMP_SHARE_}/scss/css.css">
+    <link rel="stylesheet" href="{_TEMP_ACTION_}/scss/index.css">
+    <link rel="stylesheet" href="{_TEMP_ACTION_}/scss/index1.css">
+    <script src="{_TEMP_PUBLIC_}/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="{_TEMP_ACTION_}/sjs/index.js" type="text/javascript"></script>
+    <script src="{_TEMP_PUBLIC_}/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.ajax({
+            url: "/index/login",
+            type: "get",
+            cache:false,
+            dataType:'json',
+            success: function (message) {
+                console.log(message);
+                if (message.id == '1001') {
+                    document.getElementById('login').innerHTML = message.info['username'];
+                    document.getElementById('logout').innerHTML = message.info['logout'];
+                    document.getElementById('logout').setAttribute('href',message.info['register']);
+                    if(message.info['username'] == '请 登录'){
+                        document.getElementById('login').setAttribute('data-toggle','modal');
+                        document.getElementById('login').setAttribute('data-target','#myModal');
+                    }else{
+                        document.getElementById('login').setAttribute('href',message.info['mem']);
+                    }
+                    document.getElementById('nav4').setAttribute('href',message.info['webUrl']);
+                }
+            }
+        });
+    });
+</script>
+<body>
+<!-- 头部导航开始 -->
+<div class="container-fluid header-bg">
+    <div class="container">
+        <header class="row">
+
+            <div class="col-xs-2 left">
+                <h1 class="m0"><a href="/"><img class="logo" src="{_TEMP_SHARE_}/images/logo1.png" alt="" title="大唐开放平台"></a></h1>
+            </div>
+
+            <div class="col-xs-6 center">
+
+                <span><a class="fs16" id="nav0" href="/">首页</a></span>
+
+                <span><a class="fs16" id="nav1" href="/index/protocolList/">文档中心</a></span>
+
+                <span><a class="fs16" id="nav2" href="/index/apilist/">API</a></span>
+
+                <span><a class="fs16" id="nav3" href="/work/interfaceList">接口管理</a></span>
+
+            </div>
+
+            <div class="col-xs-4 right">
+
+                <!-- <a class="no-loginForPay" href="https://u.a.com/login/">登录</a> -->
+
+                <ul class="login">
+                    <li><a>你好,</a></li>
+                    <li class="plr10">
+                        <!--<a href="/index/denglu/?_ajax=1" data-target="#modal_login2" data-toggle="modal" class="btn-xs blue"><i class="fa fa-edit"></i> 登录</a>-->
+                        <a href="/index/denglu/?_ajax=1" data-toggle="" data-target="" id="login">上山打老虎　</a></li>
+                    <!--        	<li><a href="javascript:void(0);">用户中心　</a></li> -->
+                    <li class="plr10"><a href="javascript:void(0);" id="logout">注销</a></li>
+                </ul>
+
+            </div>
+        </header>
+    </div>
+</div>
+<!-- 头部导航结束 -->
+<!--[if lt IE 9]>
+<script src="{_TEMP_PUBLIC_}/plugins/respond.min.js"></script>
+<script src="{_TEMP_PUBLIC_}/plugins/excanvas.min.js"></script>
+<![endif]-->
+
+<!--修改接口模态框-->
+<div class="modal fade modal-scroll bs-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+    <div class="modal-dialog" style="margin-top: 150px;">
+        <div class="modal-content" style="width: 500px; height: 100%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <!--<h4 class="modal-title">我是标题</h4>-->
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer display-hide"></div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>

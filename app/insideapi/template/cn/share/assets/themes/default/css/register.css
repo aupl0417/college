@@ -1,0 +1,117 @@
+/***
+Login page
+***/
+/* logo page */
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+  background-color: #fff;
+}
+
+.register #wrap{
+	background: url(../img/bg_login.jpg) center 0 no-repeat fixed;
+    background-size: cover;
+}
+.header .navbar{
+	border:0;
+	border-bottom:solid #e5e5e5 2px;
+	background-color:#ffffff/* rgba(255, 255, 255, 0.7) */;
+}
+.header .logo {
+    padding: 43px 0 30px 0;
+    text-align: center;
+}
+.header .nav{margin-top:45px;}
+.header .nav > li > a{
+	padding-top: 10px;
+    padding-bottom: 10px;
+	font-size:14px;
+	color:#666666;
+	}
+.header .nav > li:not(:first-child):before{
+	display:block;
+	position:absolute;
+	left:-1px;
+	top:12px;
+	width:1px;
+	height:16px;
+	background:#666666;
+	content:' ';
+}
+.content-register .nav li{
+	margin-right:0;
+}
+.content-register .nav li{
+	width:49%;
+	text-align:center;
+}
+.content-register .nav li a{
+	width:100%;
+	padding:10px 0px;
+	font-size:18px;
+}
+.content-register .control-label {
+    font-weight: normal;
+    padding-right: 5px;
+    margin-left: -15px;
+}
+.content-register .form-info {
+    padding: 0 10px 0 30px;
+    border-left: solid 1px #e4e6e8;
+    margin: 25px 0;
+}
+.content-register .form-info p.social a:hover, .content-register .form-info p.social a:focus{
+	color: #337ab7!important;
+}
+/* Set the fixed height of the footer here */
+#footer {
+	/* height: 135px; */
+	background-color: #f5f5f5;
+	
+}
+
+
+
+.border-bottom{border-bottom:solid #dddddd 1px;}
+#footer > .container {
+	
+	padding-top:10px;
+	text-align:center;
+}
+
+@media (max-width: 991px) {
+	.content-register .control-label {
+		margin-bottom: 5px;
+		margin-left: 5px;
+	}
+	.content-register .form-info {
+		padding: 0 10px 0 10px;
+		border-left-width: 0;		
+	}
+}
+@media (max-width: 767px) {
+	.register .logo {	 
+	  padding: 12px 0 10px 0;
+	}
+}
+@media (max-width: 480px) {
+
+	.register .logo {
+	  zoom:0.6;
+	  padding: 12px 0 10px 0;
+	  text-align: center;
+	}
+	.header .navbar{min-height:20px;}
+
+  #footer{height:auto;}
+  #footer > .container{padding-top:0;}
+  #footer .container p:not(.copyright){display:none;}
+  #footer .container p.copyright{margin-bottom:0;font-size:12px;}
+  
+}
+/***12.28注册***/
+.header .logo {
+    padding: 19px 0 24px 0;
+    text-align: center;
+}

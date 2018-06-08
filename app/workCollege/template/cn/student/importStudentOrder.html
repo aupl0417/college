@@ -1,0 +1,54 @@
+<!--=============================================================================
+#     FileName: importStudentOrder.html
+#         Desc: 导入学员订单
+#       Author: Wuyuanhang
+#        Email: QQ:554119220
+#   LastChange: 2016-10-27 08:45:45
+#      History:
+#      Paramer: 
+=============================================================================-->
+<div class="portlet light">
+  <div class="portlet-body">
+    <div id="table" class="dataTables_wrapper dataTables_extended_wrapper table-responsive no-footer">
+    </div>
+  </div>
+</div>
+<replace value="jsData">
+<script id="tempID" type="text/html">
+  <input id="classId" type="text" class="form-control" readonly value="{{id}}">
+  <button class="btn btn-sm blue filter-submit margin-bottom"><i class="fa fa-search"></i> 导入</button>
+  <table aria-describedby="peopleList_info" id="field-detail" class="table table-striped table-bordered table-hover dataTable no-footer">
+    <thead>
+      <tr>
+        <th>序列</th>
+        <th>手机号</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody> </tbody>
+  </table>
+</script>
+
+
+<script language="javascript" type="text/javascript">
+var html = template('tempID', {});
+$("#table").html(html);
+$(".filter-submit").click(
+function (){
+$.post(
+'importStudentOrder.json', 
+{
+}, 
+
+function(res){
+if (res.id == 1001) {
+$(`#btn_${btnId}`).attr('disabled', true);
+}else{
+console.log(res.msg); 
+}
+}, 'JSON'
+);
+}
+); 
+</script>
+</replace>

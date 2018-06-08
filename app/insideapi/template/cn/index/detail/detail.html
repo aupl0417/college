@@ -1,0 +1,146 @@
+<style type="text/css">
+  code{
+     border: 0px none ;
+    -webkit-box-shadow:0 0 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+    background-color:#f5f5f5 ;
+  }
+</style>
+
+<div class="container pb20 margin-bottom-30">
+  <div class="row">
+
+    <!-- 左边这一块的模板开始 -->
+    <div class="col-xs-3">
+      <div class="bg-F5F5F5" style="background: #F5F5F5;min-width: 260px;">
+        <h4>所有类目</h4>
+        <ul>
+          <loop data="category">
+            <li id="page{il_id}" style="line-height:6px;margin-bottom:10px"><a href="/index/detail/?c_id={il_ic_id}&id={il_id}">{il_name}
+              <p>{il_title}</p>
+            </a></li>
+          </loop>
+          <!--
+            <li id="page2"><a href="/api/detail/?id=2">taobao.user.buyer.get
+            <p>查询买家信息API</p>
+            </a></li>
+            -->
+
+        </ul>
+      </div>
+    </div>
+
+    <!-- 右边这一块的模板开始 -->
+    <div class="col-xs-9" style="min-height: 1000px">
+      <div class="common-right">
+        <replace value="name|title|description">
+          <h3>{name}<span>({title})</span></h3>
+          <p> {description} </p>
+        </replace>
+        <div id="bd">
+          <!-- 公共参数 -->
+
+          <div class="row" id="js-overview">
+            <div class="col-xs-12">
+              <h4 class="cap" data-target="jscon_1" data-expland="false"><i id="p" class="fa fa-caret-right"></i>请求地址</h4>
+              <div class="J_sCon" id="jscon_1">
+                <replace value="url">
+                <table cellspacing="0" cellpadding="0" border="1">
+                  <thead>
+                  <th width="20%">环境</th>
+                    <th width="40%">内部请求地址</th>
+                      </thead>
+                  <tbody>
+                  <tr>
+                    <td>内部</td>
+                    <td>http://mob.erptest.com{url}</td>
+                  </tr>
+                    </tbody>
+                </table>
+                </replace>
+              </div>
+            </div>
+          </div>
+          <!-- 请求参数 -->
+
+          <div class="row" id="transitions">
+            <div class="col-xs-12">
+              <h4 class="cap" data-target="jscon_2" data-expland="true"><i class="fa fa-caret-right"></i>请求参数</h4>
+              <div class="J_sCon" id="jscon_2">
+                <table cellspacing="0" cellpadding="0" border="1" class="table">
+
+                  <thead>
+                    <tr>
+                      <th width="18%">名称</th>
+                      <th width="10%">类型</th>
+                      <th width="10%">是否必须</th>
+                      <th width="10%">默认值</th>
+                      <th width="">描述</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <loop data="request_self">
+                    <tr class="   ">
+                      <td>{iqf_il_name}</td>
+                      <td>{iqf_il_type}</td>
+                      <td>{iqf_il_required_text}</td>
+                      <td>{iqf_il_default}</td>
+                      <td>{iqf_il_description}</td>
+                    </tr>
+                  </loop>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 响应参数 -->
+
+          <div class="row" id="modals">
+            <div class="col-xs-12">
+              <h4 class="cap" data-target="jscon_3" data-expland="true"><i class="fa fa-caret-right"></i>响应参数</h4>
+              <div class="J_sCon" id="jscon_3">
+                <table cellspacing="0" cellpadding="0" border="1" class="table">
+                  <thead>
+                    <tr>
+                      <th width="18%">名称</th>
+                      <th width="18%">类型</th>
+                      <th>示例</th>
+                      <th>描述</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <loop data="response">
+                    <tr class="  J_tableTr J_tableTrigger    ">
+                      <td>{irf_as_name}</td>
+                      <td>{irf_type}</td>
+                      <td>{irf_example}</td>
+                      <td>{irf_description}</td>
+                    </tr>
+                  </loop>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" id="scrollspy">
+            <div class="col-xs-12">
+              <h4 class="cap" data-target="jscon_5" data-expland="true"><i class="fa fa-caret-right"></i>响应示例(JSON格式)</h4>
+              <div class="nTab" id="jscon_5">
+                <div class="TabTitle" style="min-height: 500px">
+                  <!--<replace value="il_example">-->
+                  <p style="background-color: #dedede;line-height: 30px;display: block;font-size: 16px;padding-left: 5px;padding-right: 5px">{il_example}</p>
+                  <!--</replace>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 右边这一块的模板结束 -->
+
+  </div>
+</div>

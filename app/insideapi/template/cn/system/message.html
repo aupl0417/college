@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title><flybug:replace value="sysname">{sysname}</flybug></title> 
+        <script charset="utf-8" src="/template/manage/js/jquery-1.7.2.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('a').bind('click', function () {
+                    this.blur();
+                });
+                setTimeout('goUrl()', $('#timeout').val());
+            });
+
+            function goUrl() {
+                if ($('#gourl').val() == '') {
+                    history.go(-1);
+                } else {
+                    window.location = $('#gourl').val();
+                }
+                return;
+            }
+
+        </script>
+        <style>
+            .bg{
+                background:#FFF url(/template/syspage/images/message.jpg) no-repeat;
+                height:423px;
+                width:800px;
+            }
+            h3{
+                color:#6A6A6A;
+            }
+            a{
+                font-size:12px;
+                text-decoration:none;
+                color:#6A6A6A;
+            }
+            a:hover{
+                color:#C00;
+            }
+            ul{
+                position:relative;
+                list-style:none;
+                text-align:left;
+                top:100px;
+                left:300px;
+                font-size:14px;
+            }
+            li{
+                line-height:200%;
+                color:#6A6A6A;
+            }
+            .msg{
+                font-size:14px;
+                color:#900;
+                width:450px;
+            }
+
+        </style>
+    </head>
+    <body>
+    <center>
+        <br />
+        <br />
+        <br />
+        <br />
+        <flybug:replace value="msg|gourl|timeout">
+            <input name="timeout" id="timeout" type="hidden" value="{timeout}" />
+            <input name="gourl" id="gourl" type="hidden" value="{gourl}" />
+            <div class="bg">
+                <ul>
+                    <h3>优品试用系统提示信息：</h3>
+                    <li class="msg">{msg}</li>
+                    <br />
+                    <br />
+                    <li>
+                        全站导航：
+                        <a href="/">首页</a>
+                        |
+                        <a href="/">全部试用</a>
+                        |
+                        <a href="/">联系我们</a>
+                        |
+                        <a href="/">帮助</a>
+                    </li>
+                    <li>
+                        <a href="javascript:goUrl();">如果您的浏览器没有自动跳转，点这里...</a>
+                    </li>
+                </ul>
+            </div>
+            </flybug>
+    </center>
+</body>
+</html>

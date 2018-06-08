@@ -1,0 +1,170 @@
+      <div class="page-bar margin-bottom-20"> 
+        <!-- 导航 -->
+        <ul class="page-breadcrumb">
+        </ul>
+        <!-- end 导航 -->
+      </div>
+
+<!-- 内容-->
+<div class="portlet light">
+	<div class="portlet-title">
+		<div class="caption"> 添加雇员 </div>
+	</div>
+	<div class="portlet-body">
+		<div class="alert alert-info">添加新的雇员的初始化密码为：123456，请您注意！</div>
+		<div id="integral">
+			<div class="col-md-12">
+				<form action="/employee/addEmployee.json" id="form_cashout" class="form-horizontal form-row-seperated">
+					<table class="table responsive-form-table">
+						<tbody>
+						<div class="form-group">
+							<tr>
+								<th class="hidden-sm col-md-2 borderd">工号：</th>
+								<td class="col-sm-12 col-md-10 borderd" data-title = "工号">
+									<div class="radio-list">
+										<input name="num" type="text" class="form-control" placeholder="请按照正确的格式输入工号，并且不要重复已有的工号" value="" autocomplete="off">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="hidden-sm col-md-2 borderd">员工姓名：</th>
+								<td class="col-sm-12 col-md-10 borderd" data-title = "员工姓名">
+									<div class="radio-list">
+										<input name="name" type="text" class="form-control" placeholder="请输入员工的姓名" value="" autocomplete="off" onblur="checkUser(this);" >
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="hidden-sm col-md-2 borderd">姓名拼音：</th>
+								<td class="col-sm-12 col-md-10 borderd" data-title = "姓名拼音">
+									<div class="radio-list">
+										<input name="charName" type="text" class="form-control" placeholder="请输入员工的姓名" value="" autocomplete="off" id='charName'>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="hidden-sm col-md-2 borderd">手机号码：</th>
+								<td class="col-sm-12 col-md-10 borderd" data-title = "手机号码">
+									<div class="radio-list">
+										<input name="tel" type="text" class="form-control" placeholder="请输入手机号码" value="" autocomplete="off">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th class="hidden-sm col-md-2 borderd">身份证号：</th>
+								<td class="col-sm-12 col-md-10 borderd" data-title = "身份证号">
+									<div class="radio-list">
+										<input name="card" type="text" class="form-control" placeholder="身份证号" value="" autocomplete="off">
+									</div>
+								</td>
+							</tr>
+							<tr class="table-row">
+								<th class="hidden-sm col-md-2">雇员所属部门</th>
+								<td>		
+									<div class="row mcSelect" data-type="org" data-select-name="org" data-select-parent="true" data-wrap="div" data-wrap-class="col-xs-12 col-sm-3"></div>
+								</td>
+							</tr>
+							<tr>
+								<th class="hidden-sm col-md-2 borderd">雇员身份：</th>
+								<td col-sm-12 col-md-10 borderd" data-title = "身份">		
+									<select class="form-control form-filter input-sm" name="duty">
+										<replace value="duty">
+											{duty}
+										</replace>
+									</select>
+								</td>
+							</tr>
+						</div>
+						</tbody>
+					</table>
+					<button href="javascript:;" class="btn blue col-md-offset-2" id="submit" name="submit"> &nbsp;确&nbsp;定&nbsp; </button>
+				</form>
+			</div>
+		</div><div style="clear: both"></div>
+	</div>
+</div>
+
+
+<!-- end 内容-->
+
+<script>
+	function checkUser(obj){
+		var code = obj.value;
+		var data = {code:code};
+		if(code && code != "" && $("#charName").val()==""){
+			$.post('/employee/getInfoByCode',data,function(ret){
+				if(ret == 'false'){
+					$('#charName').val("用户ID错误！");
+				}else{
+					$('#charName').val(ret);
+				}
+			});
+		}else{
+// 			$('#charName').val('');
+		}
+	}
+	$(document).ready(function(){
+
+		$('#form_cashout').handleForm(
+				{
+					rules: {
+						'num': {
+							required: true,
+				            isworkname: true,
+	                        maxlength: 20
+						},
+// 						'tel': {
+// 							required: true,
+// 							ismobile: true
+// 						},
+					},
+					messages: {
+						'num': {
+							required: "账户类型必填",
+				            isworkname: true,
+	                        maxlength: 20
+						},
+// 						'tel': {
+// 							required: "请填写手机号码",
+// 							ismobile: "请填写正确的手机号码"
+// 						},
+					},
+					closest: 'td',
+					confirm: '确定添加此雇员？',
+					ass: {
+
+					}
+				},
+				function(data, statusText){
+					if(data.id == '1001'){
+						data.msg = '<p>操作成功!</p>';
+						bootbox.alert(data.msg, function() {
+							Global.ajaxclick('709');
+						});
+					}
+					else{
+						var msg = data.info || data.msg;
+						Global.alert( {
+							"container": "#form_cashout",
+							"place": "prepend",
+							"type": "warning",
+							"message": msg,
+							"close": true,
+							"reset": true,
+							"focus": true,
+							"closeInSeconds": "0",
+							"icon": "warning"
+						});
+					}
+				}
+		);
+	});
+</script>
+
+<replace value="code">
+	<script type="text/javascript">
+		$().ready(function(){
+			urhere({code});
+		});
+	</script>
+</replace>

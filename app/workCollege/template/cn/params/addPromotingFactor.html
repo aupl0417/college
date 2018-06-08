@@ -1,0 +1,89 @@
+<!--添加推广系数模态框-->
+<!-- <replace value="type|typeName|time"> -->
+<form action="/params/addPromotingFactor.json" method="post" class="form-horizontal form-row-seperated" id="formEdit">
+	<div class="form-body clearfix">  
+		<div class="form-group">
+			<label class="control-label col-md-2">系数</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control" name="val" value="1">
+			</div>
+		</div>	 
+		<div class="form-group">
+			<label class="control-label col-md-2">生效时间</label>
+			<div class="col-md-10">				
+				<div class="date datetime-picker input-group-sm">					
+					<input name="time" type="text" class="form-control form-filter" value="{time}" />					
+				</div>
+			</div>
+		</div>	
+  </div>
+  <div class="form-actions">				   
+	<div class="row">
+	  <div class="col-md-offset-2 col-md-10">
+		<button type="submit" class="btn blue"><i class="fa fa-check"></i> 确定</button>	
+		<input type="hidden" class="form-control" name="type" value="{type}">
+		<input type="hidden" class="form-control" name="typeName" value="{typeName}">
+		<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 取消</button>
+	  </div>
+	</div>	
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>
+	  <p>&nbsp;</p>			     
+  </div>
+</form>
+<script type="text/javascript">
+	$('#temp-modal-title').html('添加{typeName}');
+	$('#formEdit').handleForm(
+		{
+			rules: {
+				'val' :{
+					required: true,
+					number: true,
+					min: 0.001
+				},
+				'time' :{
+					required: true
+				}
+			},
+			messages: {	
+				'val': {
+					required: "请输入系数"
+				},
+				'val': {
+					required: "请输入生效时间"
+				}	
+			},
+			closest: 'td',
+			ass: {
+				
+			}
+		},
+		function(data, statusText){
+			if(data.id == '1001'){
+				bootbox.alert(data.msg, function() {
+					$('#temp-modal').modal('hide');
+					grid.getDataTable().ajax.reload(null, false);
+				});
+			}else{
+				var msg = data.info || data.msg;
+				Global.alert( {
+				  "container": "#formEdit",
+				  "place": "prepend",
+				  "type": "warning",
+				  "message": msg,
+				  "close": true,
+				  "reset": true,
+				  "focus": true,
+				  "closeInSeconds": "0",
+				  "icon": "warning"
+				});			
+			}				
+		}
+	);
+	$(function(){
+		Global.initAjax($('#temp-modal'));
+	});
+</script>
+<!-- </replace> -->

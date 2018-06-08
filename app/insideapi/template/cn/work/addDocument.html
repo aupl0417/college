@@ -1,0 +1,153 @@
+
+<div class="page-bar margin-bottom-20">
+    <!-- 导航 -->
+    <ul class="page-breadcrumb">
+        <li> <i class="fa fa-home"></i> <a href="/">管理控制台 </a> <i class="fa fa-angle-right"></i> </li>
+        <li> <a href="/open/faq">开发平台</a> <i class="fa fa-angle-right"></i> </li>
+        <li> 文档中心 </li>
+    </ul>
+    <!-- end 导航 -->
+</div>
+
+
+<div class="portlet light">
+
+    <div class="portlet-body">
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN ALERTS PORTLET-->
+                <div class="portlet light">
+                    <div class="portlet-body">
+                        <form novalidate action="/open/addDocument.json" class="form-horizontal form-row-seperated" id="addFaqfrom">
+                            <div class="form-body clearfix">
+                                <table class="table responsive-form-table">
+                                    <tbody>
+                                    <tr class="table-row">
+                                        <th class="hidden-sm col-md-2 borderd">分类 </th>
+                                        <td class="col-sm-12 col-md-10 borderd" data-title="分类">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-3">
+                                                    <select name="dl_dc_id" id="typeA" class="form-control">
+                                                        <option value="">--请选择--</option>
+                                                        <!-- <loop data="t_document_category"> -->
+                                                        <option value="{dc_id}">{dc_name}</option>
+                                                        <!-- </loop> -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <th class="hidden-sm col-md-2 borderd">标题 <span class="required"> * </span> </th>
+                                        <td class="col-sm-12 col-md-10 borderd" data-title="新闻标题"><input  type="text" class="form-control" name="dl_title"></td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <th class="hidden-sm col-md-2 borderd">版本号 <span class="required"> * </span> </th>
+                                        <td class="col-sm-12 col-md-10 borderd" data-title="版本号"><input type="text" class="form-control" name="dl_version"></td>
+                                    </tr>
+
+                                    <tr class="table-row">
+                                        <th class="hidden-sm col-md-2 borderd">内容 <span class="required"> * </span> </th>
+                                        <td class="col-sm-12 col-md-10 borderd" data-title="内容">
+                                            <textarea name="content" id="content" class="ueditor"></textarea>
+                                            <script type="text/javascript" src="{_TEMP_PUBLIC_}/assets/global/plugins/ueditor/ueditor.config.js"></script>
+                                            <script type="text/javascript" src="{_TEMP_PUBLIC_}/assets/global/plugins/ueditor/ueditor.all.js"></script>
+                                            <script type="text/javascript">
+                                                $(function(){
+                                                    if(typeof ueditors === 'undefined' ){
+                                                        ueditors = {};
+                                                    }
+                                                    ueditors.content = UE.getEditor('content', {
+                                                        UEDITOR_HOME_URL : '{_TEMP_PUBLIC_}/assets/global/plugins/ueditor/',
+                                                        serverUrl: "{_TEMP_PUBLIC_}/assets/global/plugins/ueditor/php/controller.php"
+                                                    });
+                                                });
+
+                                            </script>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <button type="submit" class="btn blue">发布</button>
+                                        <button type="reset" class="btn default">取消</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- END ALERTS PORTLET-->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    $(function(){
+        $('#addFaqfrom').handleForm(
+                {
+                    rules: {
+                        'dl_dc_id': {
+                            required: true
+                        },
+                        'content': {
+                            required: true
+                        },
+                        'dl_title': {
+                            required: true
+                        },
+                        'dl_version': {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        'dl_dc_id': {
+                            required: "请选择分类"
+                        },
+                        'content': {
+                            required: "请填写内容"
+                        },
+                        'dl_title': {
+                            required: "请填写标题"
+                        },
+                        'dl_version': {
+                            required: "请填写版本号"
+                        }
+                    },
+                    closest: 'td',
+                    ass: {
+
+                    }
+                },
+                function(data, statusText){
+                    console.log(data);
+                    if(data.id == '1001'){
+                        bootbox.alert(data.msg, function() {
+                            //grid.getDataTable().ajax.reload(null, false);
+                            //$('#addFaq').modal('hide');
+                            Global.ajaxify('/open/documentList');//或者使用这个方法跳转页面,参数为链接地址
+                        });
+                    }else{
+                        Global.alert({
+                            "type": "danger",
+                            "message": data.msg,
+                            "closeInSeconds": "10",
+                            "icon": "warning"
+                        });
+                    }
+
+                }
+        );
+
+    });
+</script>

@@ -1,0 +1,41 @@
+
+<!-- common开始 -->
+<div class="container pb20 margin-bottom-30" style="min-height: 1000px">
+  <div class="row">
+    <!-- 左边这一块的模板开始 -->
+    <div class="col-xs-3">
+      <div class="common-left bg-F5F5F5">
+        <h4>所有类目</h4>
+        <ul>
+          <!--<loop data="category">-->
+            <li id="page{ic_id}"><a href="/index/apilist/?id={ic_id}">{ic_name}</a></li>
+          <!--</loop>-->
+        </ul>
+      </div>
+    </div>
+    <!-- 左边这一块的模板结束 -->
+
+    <!-- 右边这一块的模板开始 -->
+    <div class="col-xs-9">
+      <div class="common-right">
+        <replace value="name">
+          <h3>{name}</h3>
+        </replace>
+        <!--<p>提供了用户基本信息查询功能 </p>-->
+        <div class="row">
+          <table cellspacing="0" cellpadding="0" border="1">
+            <!--<replace value="html_th|html_tr">-->
+            <thead>
+              {html_th}
+            </thead>
+            <tbody>
+              {html_tr}
+            </tbody>
+            <!--</replace>-->
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!--右边这一块的模板结束-->

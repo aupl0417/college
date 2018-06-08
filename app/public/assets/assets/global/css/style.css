@@ -1,0 +1,15 @@
+
+/****
+Boby
+****/
+body {
+  background-color: #ffffff;
+}
+
+/****
+ CSS3 Spinner Bar
+****/
+.page-spinner-bar > div,
+.block-spinner-bar > div {
+  background: #20c5ad;
+}

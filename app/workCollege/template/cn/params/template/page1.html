@@ -1,0 +1,99 @@
+<!-- t_company_reward_rule -->
+<table class="table table-bordered table-hover table-striped table-classic" data-source="crr">
+  <tr>
+	<th colspan="2" rowspan="2" class="text-center">代理</th>
+	<th>级别</th>
+	<th>一级代理</th>
+	<th>二级代理</th>
+	<th>三级代理</th>
+	<th>四级代理</th>
+	<th>五级代理</th>
+	<th>六级代理</th>
+	<th>七级代理</th>
+  </tr>
+  <tr>
+	<td>规模</td>
+	<td>4000亿</td>
+	<td>2000亿</td>
+	<td>800亿</td>
+	<td>300亿</td>
+	<td>100亿</td>
+	<td>30亿</td>
+	<td>3亿</td>
+  </tr>
+  <tr>
+	<th rowspan="7" class="text-center">代<br/>理<br/>投<br/>资<br/>权<br/>益</th>
+	<th rowspan="5" class="text-center">投资直接收益</th>
+	<td rowspan="2">代理费双返还</td>
+	<td colspan="8">代理会员个体：<a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[0]['ri_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[0]['ri_L1'] - 0).mul(100)}}</a>%代理费金额全返积分奖励（代理费含自然人和法人投入的）</td>
+  </tr>
+  <tr>
+	<td colspan="8">代理公司：<a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[1]['ri_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[1]['ri_L1'] - 0).mul(100)}}</a>%（标准代理费金额全返积分奖励，返还资金成为所在公司股本金）</td>
+  </tr>
+  <tr>
+	<td rowspan="3">代理销售奖励</td>
+	<td colspan="8">代理会员：<a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[2]['ri_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改" data-join="true" data-idx="0">{{((crr[2]['ri_L1']+'|').split('|')[0] - 0).mul(100)}}</a>%（所销售代理权金额的奖励<span class="font-red">积分</span>） &nbsp; &nbsp;<a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[2]['ri_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改" data-join="true" data-idx="1">{{((crr[2]['ri_L1']+'|').split('|')[1] - 0).mul(100)}}</a>%（所销售代理权金额的奖励<span class="font-red">现金</span>）</td>
+  </tr>
+  <tr>
+	<td colspan="8">代理公司：<a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[3]['ri_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改" data-join="true" data-idx="0">{{((crr[3]['ri_L1']+'|').split('|')[0] - 0).mul(100)}}</a>%（代理股东会员销售代理金额的奖励<span class="font-red">积分</span>） &nbsp; &nbsp;<a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[3]['ri_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改" data-join="true" data-idx="1">{{((crr[3]['ri_L1']+'|').split('|')[1] - 0).mul(100)}}</a>%（所销售代理权金额的奖励<span class="font-red">现金</span>）</td>
+  </tr>
+  <tr>
+	<td colspan="8">代理公司：<a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[4]['ri_id']}}" data-all="1" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[4]['ri_L1'] - 0).mul(100)}}</a>%（直接下辖级别所属代理权的拓展与管理奖励积分）</td>
+  </tr>
+  <tr>
+	<th rowspan="2" class="text-center">业绩奖励</th>
+	<td rowspan="2">代理公司</td>
+	<td colspan="8">代理所属下辖区域或者行业区域的业绩汇总，权益按时长五年计量。</td>
+  </tr>
+  <tr>
+	<td><a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[5]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[5]['ri_L1'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L2" data-id="{{crr[5]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[5]['ri_L2'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L3" data-id="{{crr[5]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[5]['ri_L3'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L4" data-id="{{crr[5]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[5]['ri_L4'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L5" data-id="{{crr[5]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[5]['ri_L5'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L6" data-id="{{crr[5]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[5]['ri_L6'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L7" data-id="{{crr[5]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[5]['ri_L7'] - 0).mul(100)}}</a>%</td>
+  </tr>
+  <tr>
+	<th colspan="2" class="text-center">积分返还提现<br />基数限定规则</th>
+	<td>代理公司</td>
+	<td><a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[6]['ri_id']}}" data-times="1" data-type="text" data-pk="1" data-title="修改">{{crr[6]['ri_L1']}}</a>万元</td>
+	<td><a href="javascript:;" class="editable" name="ri_L2" data-id="{{crr[6]['ri_id']}}" data-times="1" data-type="text" data-pk="1" data-title="修改">{{crr[6]['ri_L2']}}</a>万元</td>
+	<td><a href="javascript:;" class="editable" name="ri_L3" data-id="{{crr[6]['ri_id']}}" data-times="1" data-type="text" data-pk="1" data-title="修改">{{crr[6]['ri_L3']}}</a>万元</td>
+	<td><a href="javascript:;" class="editable" name="ri_L4" data-id="{{crr[6]['ri_id']}}" data-times="1" data-type="text" data-pk="1" data-title="修改">{{crr[6]['ri_L4']}}</a>万元</td>
+	<td><a href="javascript:;" class="editable" name="ri_L5" data-id="{{crr[6]['ri_id']}}" data-times="1" data-type="text" data-pk="1" data-title="修改">{{crr[6]['ri_L5']}}</a>万元</td>
+	<td><a href="javascript:;" class="editable" name="ri_L6" data-id="{{crr[6]['ri_id']}}" data-times="1" data-type="text" data-pk="1" data-title="修改">{{crr[6]['ri_L6']}}</a>万元</td>
+	<td><a href="javascript:;" class="editable" name="ri_L7" data-id="{{crr[6]['ri_id']}}" data-times="1" data-type="text" data-pk="1" data-title="修改">{{crr[6]['ri_L7']}}</a>万元</td>
+  </tr>
+  <tr>
+	<th colspan="2" rowspan="3" class="text-center">代理权增值<br />（初值起，每月涨一次）</th>
+	<td>三个月期</td>
+	<td><a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[7]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[7]['ri_L1'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L2" data-id="{{crr[7]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[7]['ri_L2'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L3" data-id="{{crr[7]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[7]['ri_L3'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L4" data-id="{{crr[7]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[7]['ri_L4'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L5" data-id="{{crr[7]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[7]['ri_L5'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L6" data-id="{{crr[7]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[7]['ri_L6'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L7" data-id="{{crr[7]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[7]['ri_L7'] - 0).mul(100)}}</a>%</td>
+  </tr>
+  <tr>
+	<td>六个月期</td>
+	<td><a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[8]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[8]['ri_L1'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L2" data-id="{{crr[8]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[8]['ri_L2'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L3" data-id="{{crr[8]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[8]['ri_L3'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L4" data-id="{{crr[8]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[8]['ri_L4'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L5" data-id="{{crr[8]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[8]['ri_L5'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L6" data-id="{{crr[8]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[8]['ri_L6'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L7" data-id="{{crr[8]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[8]['ri_L7'] - 0).mul(100)}}</a>%</td>
+  </tr>
+  <tr>
+	<td>12个月期</td>
+	<td><a href="javascript:;" class="editable" name="ri_L1" data-id="{{crr[9]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[9]['ri_L1'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L2" data-id="{{crr[9]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[9]['ri_L2'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L3" data-id="{{crr[9]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[9]['ri_L3'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L4" data-id="{{crr[9]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[9]['ri_L4'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L5" data-id="{{crr[9]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[9]['ri_L5'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L6" data-id="{{crr[9]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[9]['ri_L6'] - 0).mul(100)}}</a>%</td>
+	<td><a href="javascript:;" class="editable" name="ri_L7" data-id="{{crr[9]['ri_id']}}" data-times="0.01" data-type="text" data-pk="1" data-title="修改">{{(crr[9]['ri_L7'] - 0).mul(100)}}</a>%</td>
+  </tr>
+</table>

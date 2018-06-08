@@ -1,0 +1,89 @@
+<div class="page-bar margin-bottom-20">
+  <!-- 导航 -->
+  <ul class="page-breadcrumb">
+  </ul>
+  <!-- end 导航 -->
+</div>
+
+<!--内容-->
+<div class="portlet light">
+  <div class="portlet-title">
+  	<div class="caption"> <i class="fa fa-pencil"></i>添加学员风采</div>
+  </div>
+  <div class="portlet-body">
+      <div class="form-body clearfix">
+        <!--基本信息-->
+        <div class="form-group form-md-line-input">
+        	<label class="col-md-2 control-label">添加图片</label>
+        		<div class="col-md-10">
+          			<input type='file' name='file' class='btn blue' id='fileField'>
+        		</div>
+       </div>
+        <!--基本信息-->
+      </div>
+  </div>
+</div>
+<div class="modal fade modal-scroll bs-modal-lg" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">报名信息管理</h4>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer display-hide">
+          <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--内容-->
+<script>
+//上传文件
+/* 初始化上传插件 */
+$("#fileField").uploadify({
+	"swf"             : "{_TEMP_PUBLIC_}/plugins/uploadify/uploadify.swf",
+	"fileObjName"     : "file",
+	'cancelImg'		  : '{_TEMP_PUBLIC_}/plugins/uploadify/cancel.png',
+	"buttonText"      : "添加图片",
+	"uploader"        : "/public/uploadPhoto.json",
+	"width"           : 80,
+	"height"          : 34,
+	'removeTimeout'   : 1,
+	'onInit'		  : init,
+	'multi'			  : true,
+	"onUploadSuccess" : uploadSuccess,
+	'onFallback' : function() {
+        alert('未检测到兼容版本的Flash.');
+    }
+});
+function init(){
+	$('#upload-file, #upload-file-queue').css('display','inline-block');
+}
+
+/* 文件上传成功回调函数 */
+function uploadSuccess(file, data){
+	console.log(file);
+	var data = $.parseJSON(data);
+	console.log(data);return false;
+	$("input[name='video']").val(file.name);
+	var domain = '<replace value="domain">{domain}</replace>';
+	$('#videoAddr').val('http://' + domain + '/' + file.name);
+	
+	//console.log(data);
+	if(data.id == '1001'){
+		bootbox.alert(data.msg, function() {
+			$('#openVideo').attr('href', data.info).removeClass('hide');
+			//$("input[name='video']").val(data.info);
+		});
+	} else {
+		bootbox.alert(data.info);
+	}
+}
+</script>
+<replace value="code">
+<script type="text/javascript">
+  urhere({code});
+</script>
+</replace>

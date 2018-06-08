@@ -1,0 +1,65 @@
+<!--=============================================================================
+#     FileName: studentAttendance.html
+#         Desc: 学员签到列表
+#       Author: Wuyuanhang
+#        Email: QQ:554119220
+#   LastChange: 2016-10-14 17:23:52
+#      History:
+#      Paramer: 
+=============================================================================-->
+<replace value="clID|courseList">
+<form class="form-inline" method="POST" action="#" data-action="/classManage/attendanceList.json?clID={clID}" data-reload="false" name="filter-attendanceListTable" id="filter-attendanceListTable">
+  <div class="form-body clearfix"><!--form-body start-->
+    <table class="table responsive-form-table">
+      <tbody>
+        <tr class="table-row">
+          <th class="hidden-sm col-md-2 borderd">学员姓名</th>
+          <td class="col-sm-12 col-md-2 borderd" data-title="学员姓名">
+            <div class="input-group input-group-sm">
+              <input name="trueName" type="text" placeholder="请输入学员姓名" class="form-control form-filter">
+            </div>
+          </td>
+          <th class="hidden-sm col-md-2 borderd">请选择签到课程</th>
+          <td class="col-sm-12 col-md-2 borderd" data-title="请选择签到课程">
+            <div class="input-group input-group-sm">
+              <select class="form-control form-filter input-sm" name="courseID">
+                <option value="">--全部--</option>
+                {courseList};
+              </select>
+              <span class="input-group-btn">
+                <button class="btn blue btn-search filter-submit" type="submit" data-field='1'>
+                  <i class="fa fa-search"></i> 查询
+                </button>
+              </span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> <!--form-body end-->
+</form>
+</replace>
+<!--table list start-->
+<div class="dataTables_wrapper dataTables_extended_wrapper table-responsive no-footer">
+  <table id="attendanceListTable" class="table table-striped table-bordered table-hover dataTable no-footer">
+    <thead>
+      <tr>
+        <th data-dt="DT_RowId" data-sort="1" data-hide="1"></th>
+        <th data-dt="username">学员账号</th>
+        <th data-dt="truename">学员姓名</th>
+        <th data-dt="createTime">签到时间</th>
+        <!--<th data-dt="createTime">签退时间</th>-->
+        <th data-dt="co_name">签到课程</th>
+        <th data-dt="startTime">课程时间</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<!--table list end-->
+<script src="{_TEMP_ACTION_}/scripts/attendanceList.js" type="text/javascript"></script>
+<replace value="clID">
+<script language="javascript" type="text/javascript">
+  var clID = "{clID}";
+grid = attendanceList.init(clID);
+</script>
+</replace>

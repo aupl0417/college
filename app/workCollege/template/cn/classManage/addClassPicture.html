@@ -1,0 +1,90 @@
+<script type="text/javascript" src="{_TEMP_PUBLIC_}/plugins/uploadify/jquery.uploadify.min.js"></script>
+<link href="{_TEMP_PUBLIC_}/plugins/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
+<link href="{_TEMP_PUBLIC_}/plugins/uploadify/common.css" rel="stylesheet" type="text/css" />
+
+<!--内容-->
+<div class="portlet light">
+  <div class="portlet-title">
+  	<div class="caption"><input type='file' name='file' class='btn blue' id='fileField'></div>
+  </div>
+  <div class="portlet-body">
+      <div class="form-body clearfix">
+      	<form action="/classManage/addClassPicture.json" id="form_edit" class="form-horizontal form-row-seperated" method="post">
+        <!--基本信息-->
+        <div class="form-group form-md-line-input">
+        	<label class="col-md-2 control-label">图片列表</label>
+       		<div class="col-md-10 imgList">
+         		
+       		</div>
+       </div>
+       <div class="form-actions">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-9">
+                	<replace value="classId">
+                    	<input type="hidden" name="classId" id="formhtml" value="{classId}"/>
+                    </replace>
+                    <button type="submit" class="btn blue" id="subBtn">提交</button>
+                    <button type="button" class="btn default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+        </form>
+        <!--基本信息-->
+      </div>
+  </div>
+</div>
+<!--内容-->
+<script>
+//上传文件
+/* 初始化上传插件 */
+var random = Math.random();
+var PHPSESSID = '<replace value="PHPSESSID">{PHPSESSID}</replace>';
+$("#fileField").uploadify({
+	"swf"             : "{_TEMP_PUBLIC_}/plugins/uploadify/uploadify.swf?ver=" + random,
+	"fileObjName"     : "file",
+	'cancelImg'		  : '{_TEMP_PUBLIC_}/plugins/uploadify/cancel.png',
+	"buttonText"      : "添加图片",
+	"uploader"        : "/public/uploadPhoto.json?type=image&ver=" + random,
+	"width"           : 80,
+	"height"          : 34,
+	'removeTimeout'   : 1,
+	'formData'        : {'PHPSESSID': PHPSESSID},
+	'onInit'		  : init,
+	'multi'			  : true,
+	"onUploadSuccess" : uploadSuccess,
+	'onFallback' : function() {
+        alert('未检测到兼容版本的Flash.');
+    },
+    'onUploadError'   : function(file, errorCode, errorMsg, errorString) {
+        alert('The file ' + file.name + ' could not be uploaded: ' + errorString);
+    }
+});
+function init(){
+	$('#upload-file, #upload-file-queue').css('display','inline-block');
+}
+
+/* 文件上传成功回调函数 */
+function uploadSuccess(file, data){
+	var data = $.parseJSON(data);
+	var html = '';
+	if(data.status == 'success'){
+		html += "<div style='float:left;'>";
+		html +=		"<div style='margin:10px;' class='image'>";
+		html +=			"<a href='" + data.filename + "' alt='" + data.name + "' target='_blank'><img class='img-reponsetive' src='" + data.filename + "' width='145px' height='100px'></a>";
+		html +=		'</div>';
+		html +=		"<div style='margin:10px;font-size:16px;'>";
+		html +=			"<span class='title'><input type='text' name='title[]' class='form-control input-sm' placeholder='照片描述'></span>";
+		html +=			"<input type='hidden' name='filename[]' value='" + data.savename + "'>";
+		html +=		'</div>';
+		html +=	'</div>';
+		$('.imgList').append(html);
+	}
+}
+</script>
+<replace value="code|classId">
+<script type="text/javascript">
+  urhere({code});
+  var classId = '{classId}';
+</script>
+</replace>
+<script src="{_TEMP_ACTION_}/scripts/addClassPicture.js" type="text/javascript"></script>

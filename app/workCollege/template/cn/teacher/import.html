@@ -1,0 +1,75 @@
+<!-- 内容-->
+<div class="portlet light ">
+	<div class="portlet-title">
+		<div class="caption caption-md"> <i class="fa fa-upgrade"></i>  学员列表</div>
+	</div>
+	<div class="portlet-body clearfix" id="contentTable"></div>
+</div>
+
+
+<!-- 学员列表操作 start-->
+<div class="portlet light">
+	<div class="portlet-title">
+		<div class="caption"> <i class="fa fa-search"></i>学员列表操作 </div>
+	</div>
+
+	<div class="portlet-body">
+		<!--搜索start-->
+		<div class="clearfix margin-bottom-20">
+			<form class="form-inline" action="#" data-action="/student/import.json" data-reload="false" id="filter-field-detail">
+				<div class="form-body">
+					<div class="form-group">
+						<label class="control-label">会员昵称</label>
+						<input type="text" name="username" id="fre_unick" class="form-control form-filter input-sm" placeholder="会员昵称">
+					</div>
+					<div class="form-group">
+						<label class="control-label">手机号码</label>
+						<input type="text" name="mobile" id="tel" class="form-control form-filter input-sm" placeholder="手机号码">
+					</div>
+					<div class="form-group">
+						<label class="control-label"></label>
+						<button class="btn btn-bg blue filter-submit margin-bottom"><i class="fa fa-search"></i> 查找</button>
+						<button class="btn btn-bg default filter-cancel"><i class="fa fa-times"></i> 重置</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!--搜索end-->
+		<!--table list start-->
+		<div class="dataTables_wrapper dataTables_extended_wrapper table-responsive no-footer">
+			<table aria-describedby="peopleList_info" id="field-detail" class="table table-striped table-bordered table-hover dataTable no-footer">
+				<thead>
+				<tr>
+					<th data-dt="DT_RowId" data-sort="1" data-hide="1"></th>
+					<th data-dt="username">会员昵称</th>
+					<th data-dt="email">邮箱</th>
+					<th data-dt="mobile">手机号码</th>
+					<th data-dt="branchName">所属学院</th>
+					<th data-dt="op">操作</th>
+				</tr>
+				</thead>
+			</table>
+		</div>
+		<!--table list end-->
+	</div>
+</div>
+<!-- 学员列表操作 end -->
+
+
+
+<div class="row margin-bottom-20">
+	<div class="col-md-6"> </div>
+	<div class="col-md-6"> </div>
+</div>
+
+<!-- <replace value="code"> -->
+<script>
+	$().ready(function(){
+		urhere({code});
+	});
+</script>
+<!-- </replace> -->
+
+<script>
+
+</script>

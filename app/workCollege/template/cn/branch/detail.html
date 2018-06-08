@@ -1,0 +1,47 @@
+<form id="formCourse" class="form-horizontal form-row-seperated">
+	<replace value="br_id|br_name|br_address|provinceList|cityList|contyList">
+	<div class="form-body clearfix">
+	    <div class="form-group">
+	      	<label class="control-label col-md-2">机构名</label>
+	      	<div class="col-md-10">
+	        	<input type="text" name="name" class="form-control" readonly value="{br_name}">
+	      	</div>
+	    </div>
+	    <div class="form-group"> 
+	    	<label class="control-label col-md-2">机构地区</label>
+	    	<div class="col-md-3">
+		      	<select class="form-control province" disabled="disabled" id='province'>
+		        	<option value="">--请选择--</option>
+		        	{provinceList}
+		      	</select>
+	      	</div>
+	      	<div class="col-md-3">
+		      	<select name='cityCode' class="form-control cityCode" disabled="disabled" id="cityCode">
+		        	<option value="">--请选择--</option>
+		        	{cityList}
+		      	</select>
+	      	</div>
+	      	<div class="col-md-3">
+		      	<select name='contyCode' class="form-control conty" disabled="disabled" id="conty">
+		        	<option value="">--请选择--</option>
+		        	{contyList}
+		      	</select>
+	      	</div>
+	    </div>
+	    <div class="form-group">
+	      	<label class="control-label col-md-2">机构地址</label>
+	      	<div class="col-md-10">
+	        	<input type="text" name="address" class="form-control" readonly value="{br_address}">
+	      	</div>
+	    </div>
+	</div>
+  	<div class="form-actions">
+    	<div class="row">
+      	<div class="col-md-offset-2 col-md-10">
+        	<button type="button" data-dismiss="modal" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+        	<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+      	</div>
+    	</div>
+  	</div>
+  	</replace>
+</form>

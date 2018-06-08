@@ -1,0 +1,88 @@
+<!--=============================================================================
+#     FileName: viewCourse.html
+#         Desc: 查看课程
+#       Author: Wuyuanhang
+#        Email: QQ:554119220
+#   LastChange: 2016-10-14 17:39:42
+#      History:
+#      Paramer:
+=============================================================================-->
+<replace value="tempId|studyDirection|jsData|stateList|grade">
+<form method="post" action="/courseManage/editCourse.json" id="formCourse" class="form-horizontal form-row-seperated">
+
+</form>
+<script id="{tempId}" type="text/html">
+  <div class="form-body clearfix">
+    <div class="form-group">
+      <label class="control-label col-md-2">课程名</label>
+      <div class="col-md-10">
+        <input type="text" name="name" class="form-control" value="{{co_name}}" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课程分类</label>
+      <div class="col-md-10">
+        <input type="text" name="sd_name" class="form-control" value="{{sd_name}}" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课程等级</label>
+      <div class="col-md-10">
+        <input type="text" name="grade_name" class="form-control" value="{{gr_name}}" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课程描述</label>
+      <div class="col-md-10">
+        <textarea class="form-control autosizeme" name="description" rows="3" readonly>{{co_description}}</textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课程说明</label>
+      <div class="col-md-10">
+        <textarea class="form-control autosizeme" name="content" rows="3" readonly>{{co_content}}</textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">学分</label>
+      <div class="col-md-10">
+        <input type="text" name="credit" class="form-control" value="{{co_credit}}" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">课时</label>
+      <div class="col-md-10">
+        <input type="text" name="hour" class="form-control" value="{{co_hour}}" readonly >
+      </div>
+    </div>
+    <div class="form-group form-md-line-input"><!--行 begin-->
+      <label class="col-md-2 control-label">上传课程LOGO</label>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 hiduploader">
+            <div data-provides="fileinput" class="fileinput">
+              <div class="thumbnail">
+                <img alt="课程Logo" src="{{logoUrl}}" class="img-reponsetive">
+              </div>
+            </div>
+          </div>
+        </div> <!--上传end-->
+      </div>
+    </div><!--行end-->
+  </div>
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+      </div>
+    </div>
+  </div>
+</script>
+<script>
+  var jsData = {jsData};
+  var tempId = {tempId};
+  template.config('escape', false);
+  var html = template('{tempId}', jsData);
+  $('#formCourse').html(html);
+</script>
+</replace>

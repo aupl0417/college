@@ -1,0 +1,79 @@
+<!-- 内容-->
+<script src="{_TEMP_PUBLIC_}/plugins/moment.min.js"></script>
+<link href="{_TEMP_PUBLIC_}/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{_TEMP_PUBLIC_}/plugins/bootstrap-fileinput/bootstrap-fileinput.js" ></script>
+
+<!-- end 功能模块的标题-->
+<!-- 内容-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN ALERTS PORTLET-->
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-pencil"></i>预览文档文件</div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form id="form_edit" class="form-horizontal form-row-seperated" method="post">
+                    <replace value="courseList|cr_id|cr_name|isShare|unShare|urlListString|crd_id">
+                    <div class="form-group">
+				      	<label class="control-label col-md-2">课件名称</label>
+				      	<div class="col-md-10">
+				        	<input type="text" name="name" class="form-control" value='{cr_name}'/>
+				      	</div>
+				    </div>
+				    <div class="form-group">
+				      	<label class="control-label col-md-2">所属课程</label>
+				      	<div class="col-md-10">
+			      			<select name='courseId' class="form-control">
+								<option value=''>--请选择--</option>
+								{courseList}
+							</select>
+				      	</div>
+				    </div>
+					<div class="form-group">
+				      	<label class="control-label col-md-2">是否共享</label>
+				      	<div class="col-md-10">
+			      			<input type='radio' name='isPublic' {isShare} value='1'/>是　<input type='radio' {unShare} name='isPublic' value='0'/>否
+				      	</div>
+				    </div>
+				    </replace>
+                    <loop data="fileUrl">
+                        <div class="form-group form-md-line-input">
+                            <label class="col-md-2 control-label">上传文件&nbsp;[<a href="javascript:void(0);" class="del-upload-row"><i class="fa fa-minus"></i></a>]</label>
+                            <div class="col-md-6">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <a class="fancybox-button" data-rel="fancybox-button"  data-ext-adadsa="true" target="_blank">{filename}</a>
+                                    <a class="fancybox-button download" data-rel="fancybox-button" data-href="{saveName}">　　【下载】</a>
+                                </div>
+                            </div>
+                        </div>
+                    </loop>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-9">
+                                <button type="button" class="btn blue" data-dismiss="modal" id="subBtn">确定</button>
+                                <button type="button" class="btn default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END ALERTS PORTLET-->
+    </div>
+</div>
+
+<replace value="code">
+    <script type="text/javascript">
+        $().ready(function () {
+        	var currentMenuId = '{code}';
+        });
+        $('.download').click(function(){
+        	var filename = $(this).data('href');
+        	var domain = window.location.host;
+        	window.location.href = 'http://' + domain + '/public/download?type=3&key=' + filename;
+        });
+    </script>
+</replace>

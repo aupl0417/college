@@ -1,0 +1,32 @@
+
+
+/* Block out what is behind the fixed column's header and footer */
+table.DTFC_Cloned thead,
+table.DTFC_Cloned tfoot {
+	background-color: white;
+}
+
+/* Block out the gap above the scrollbar on the right, when there is a fixed
+ * right column
+ */
+div.DTFC_Blocker {
+	background-color: white;
+}
+
+div.DTFC_LeftWrapper table.dataTable,
+div.DTFC_RightWrapper table.dataTable {
+	margin-bottom: 0;
+}
+
+div.DTFC_LeftWrapper table.dataTable.no-footer,
+div.DTFC_RightWrapper table.dataTable.no-footer {
+	border-bottom: none;
+}
+div.DTFC_LeftBodyWrapper tbody tr:first-child td {
+    /* border-top: solid #000000 3px!important; */
+}
+div.DTFC_LeftBodyWrapper{
+	/* top:2px!important; */
+	/* left:1px!important; */
+    /* border: solid #ddd 2px!important;; */
+}

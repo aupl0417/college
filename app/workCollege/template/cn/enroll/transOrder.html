@@ -1,0 +1,52 @@
+<form method="post" action="/enroll/transOrder.json" id="formOrder" class="form-horizontal form-row-seperated">
+
+  <div class="form-body clearfix">
+    <div class="form-group">
+      <label class="control-label col-md-2">报名人手机号</label>
+      <div class="col-md-4">
+        <input type="text" name="oriMobile" class="form-control form-filter input-sm" placeholder="请输入转让者手机号">
+      </div>
+      <label class="control-label col-md-2">报名人账号</label>
+      <div class="col-md-4">
+        <input type="text" name="oriUser" class="form-control form-filter input-sm" placeholder="请输入转让人用户名">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">报名人姓名</label>
+      <div class="col-md-10">
+        <input type="text" id="trueName" class="form-control form-filter input-sm" placeholder="真实姓名" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">报到人手机号</label>
+      <div class="col-md-4">
+        <input type="text" name="purMobile" class="form-control form-filter input-sm" placeholder="请输入被转让人手机号">
+      </div>
+      <label class="control-label col-md-2">报到人账号</label>
+      <div class="col-md-4 userInfo">
+        <input type="text" class="form-control form-filter input-sm" id="arraivalUserName" readonly placeholder="核实报到人账号">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">提示信息</label>
+      <div class="col-md-4" id='info'> </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-2">所在班级</label>
+      <div class="col-md-10">
+        <select name='classId' class="form-control classId">
+          <option value="">--请选择--</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+        <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+      </div>
+    </div>
+  </div>
+</form>
+<script src="{_TEMP_ACTION_}/scripts/transOrder.js" type="text/javascript"></script>

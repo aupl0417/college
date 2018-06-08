@@ -1,0 +1,88 @@
+
+<form method="post" action="/open/checkApplication.json" id="cheakApplications">
+	<div class="form-body clearfix">
+		<table class="table responsive-form-table">
+			<tr class="table-row">
+				<th class="hidden-sm col-md-3">审核</th>
+				<td class="col-sm-12 col-md-9" data-title="审核">
+					<select class="form-control form-filter input-sm" name="da_status">
+						<option value="2">审核通过</option>
+						<option value="3">审核拒绝</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="table-row">
+				<th class="hidden-sm col-md-3">备注</th>
+				<td class="col-sm-12 col-md-9" data-title="备注">
+					<textarea class="form-control autosizeme" name="da_mome" rows="3"></textarea>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="form-actions">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-offset-3 col-md-9">
+						<replace value="da_id">
+							<input type="hidden" name="da_id" value="{da_id}" >
+						</replace>
+						<button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+						<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6"> </div>
+		</div>
+	</div>
+</form>
+
+
+<script>
+
+	console.log('hahahha');
+
+	$('#cheakApplications').handleForm(
+			{
+				rules: {
+					'da_status':{
+						required: true,
+					},
+					'da_mome': {
+						required: true,
+					},
+				},
+				messages: {
+					'da_status':{
+						required: "标题必须填写",
+					},
+					'da_mome': {
+						required: "名称必须填写",
+					},
+				},
+				closest: 'td',
+			},
+			function(data, statusText){
+				if(data.id == '1001'){
+					bootbox.alert(data.msg, function() {
+						grid.getDataTable().ajax.reload(null, false);
+						$('#cheakApplication').modal('hide');
+					});
+				}
+				else{
+					data.msg = data.info || data.msg;
+					Global.alert( {
+						"container": "#form_cashout",
+						"place": "prepend",
+						"type": "warning",
+						"message": data.msg,
+						"close": true,
+						"reset": true,
+						"focus": true,
+						"closeInSeconds": "0",
+						"icon": "warning"
+					});
+				}
+			}
+	);
+</script>

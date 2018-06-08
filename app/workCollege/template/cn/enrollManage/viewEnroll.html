@@ -1,0 +1,148 @@
+<!--=============================================================================
+#     FileName: viewEnroll.html
+#         Desc: 查看报名发布信息
+#       Author: Wuyuanhang
+#        Email: QQ:2881319821
+#     HomePage:
+#      Version: 0.0.1
+#   LastChange: 2016-11-15 10:02:37
+#      History:
+
+=============================================================================-->
+<!--内容-->
+<!-- <replace value="tempId|jsData"> -->
+<script id="{tempId}" type="text/html">
+  <table class="table responsive-form-table table-responsive">
+    <tbody>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">名称 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "名称">
+          <input class="form-control" type="text" value="{{cl_name}}" readonly>
+        </td>
+        <th class="hidden-sm col-md-2 borderd">所属分院 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title="所属分院">
+          <input class="form-control" type="text" value="{{br_name}}" readonly>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd"> 报名开始时间 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "报名开始时间">
+          <input class="form-control" type="text" value="{{cl_enrollStartTime}}" readonly>
+        </td>
+        <th class="hidden-sm col-md-2 borderd"> 报名结束时间 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "报名结束时间">
+          <input class="form-control" type="text" value="{{cl_enrollEndTime}}" readonly>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd"> 课程开始时间 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "课程开始时间">
+          <input class="form-control" type="text" value="{{cl_startTime}}" readonly>
+        </td>
+        <th class="hidden-sm col-md-2 borderd"> 课程结束时间 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "课程结束时间">
+          <input class="form-control" type="text" value="{{cl_endTime}}" readonly>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">班主任 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "班主任">
+          <input class="form-control" type="text" value="{{trueName}}" readonly>
+        </td>
+        <th class="hidden-sm col-md-2 borderd"> 报名费 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "报名费">
+          <input class="form-control" type="text" value="{{cl_cost}}" readonly>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">住宿情况 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "住宿情况">
+          <input class="form-control" type="text" value="{{hostel}}" readonly>
+        </td>
+        <th class="hidden-sm col-md-2 borderd">餐饮情况 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "餐饮情况">
+          <input class="form-control" type="text" value="{{catering}}" readonly>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">会员要求</th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "会员要求">
+          <input class="form-control" type="text" value="{{levelCondition}}" readonly>
+        </td>
+        <th class="hidden-sm col-md-2 borderd">要求实名制</th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "要求实名制">
+          <input class="form-control" type="text" value="{{isAuthed}}" readonly>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">要求未学习过</th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "要求未学习过">
+          <input class="form-control" type="text" value="{{enrollEver}}" readonly>
+        </td>
+        <th class="hidden-sm col-md-2 borderd">要求非黑名单</th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "要求非黑名单">
+          <input class="form-control" type="text" value="{{isBlack}}" readonly>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd"> 本学期学员总数 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "本学期学员总数">
+          <input class="form-control" type="text" value="{{cl_allowableNumber}}" readonly>
+        </td>
+		<th class="hidden-sm col-md-2 borderd"> 已报名人数 </th>
+        <td class="col-sm-12 col-md-4 borderd" data-title = "已报名人数">
+          <input class="form-control" type="text" value="{{cl_enrolledCount}}" readonly>
+        </td>
+      </tr>
+      <!--<tr class="table-row">-->
+      <!--  <th class="hidden-sm col-md-2 borderd">学习前置条件 </th>-->
+      <!--  <td class="col-sm-12 col-md-4 borderd" colspan="5" data-title = "学习前置条件">-->
+      <!--    <input class="form-control" type="text" value="{{condition}}" readonly>-->
+      <!--  </td>-->
+      <!--</tr>-->
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">模板内容 </th>
+        <td class="col-sm-12 col-md-4 borderd" colspan="5" data-title = "模板内容">
+          <a href='https://wapcollege.dttx.com/classManage/classInfo?id={{cl_id}}' target="_blank">WAP预览班级详情内容</a>
+        </td>
+      </tr>
+      <tr class="table-row">
+        <th class="hidden-sm col-md-2 borderd">班级logo</th>
+        <td class="col-sm-12 col-md-1 borderd" data-title="班级logo">
+          <div class="input-small">
+            <div class="thumbnail">
+              <img class="img-reponsetive" src="{{cl_logo}}">
+            </div>
+          </div>
+        </td>
+        <td colspan="3" class="col-sm-12 col-md-3 borderd" colspan="2"></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-bordered table-hover table-striped table-classic">
+    <tbody>
+      <tr>
+        <th>课程</th> <th>课时(小时)</th> <th>学分</th>
+      </tr>
+      {{each course as value index}}
+      <tr>
+        <td>{{value.courseName}}</td>
+        <td>{{value.hour}}</td>
+        <td>{{value.credit}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</script>
+
+<script type="text/javascript">
+  var tempId = "{tempId}";
+var jsData = {jsData};
+var html = template(tempId,jsData);
+$('.modal-body').html(html);
+
+</script>
+<!--</replace>-->
+<script src="{_TEMP_ACTION_}/scripts/viewEnroll.js" type="text/javascript"></script>
+
+

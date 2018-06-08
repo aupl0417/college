@@ -1,0 +1,33 @@
+<body class="bg-color-f0f">
+		<div class="min-test" id="page">
+			<div class="overlay"></div>
+			<if $app == '0'>
+				{:includeTemplet('share/nav',0,['title'=>'签到记录-C+商业系统'])}
+				<div id="content" class="content pt45 mb60">
+			<else>
+				<div id="content" class="content mb60">
+			</if>
+				<div class="tang-sign-cont">
+					<loop data="attendanceList">
+						<div class="tang-sign-box">
+							<div class="tang-sign-title">
+								{date} {courseName}({tra_name})
+							</div>
+							<div class="tang-sign-time bg_white">
+								<ul class="list-unstyled tang-sign-ul over mb0">
+									<li>
+										<div class="time">{attendStartTime}</div>
+										<div class="text-center state c-2a8">签到</div>
+									</li>
+									<li>
+										<div class="time">{attendEndTime}</div>
+										<div class="text-center state c-2a8">退场</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</loop>
+				</div>
+			
+			</div>
+		

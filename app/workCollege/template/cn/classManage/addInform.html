@@ -1,0 +1,29 @@
+<!--=============================================================================
+#     FileName: addInform.html
+#         Desc: 添加课程
+#       Author: Wuyuanhang
+#        Email: QQ:2881319821
+#     HomePage:
+#      Version: 0.0.1
+#   LastChange: 2016-10-14 17:23:31
+#      History:
+=============================================================================-->
+<div class="alert alert-info"> <strong>发布通知</strong> 通知信息的内容将发送给该班级的所有学员！</div>
+<form method="post" action="/classManage/addInform.json" id="formCourse" class="form-horizontal form-row-seperated">
+  <div class="form-body clearfix">
+    <div class="form-group">
+      <label class="control-label col-md-2">通知内容</label>
+      <div class="col-md-10">
+        <textarea class="form-control autosizeme" name="inform" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+        <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+      </div>
+    </div>
+  </div>
+</form>

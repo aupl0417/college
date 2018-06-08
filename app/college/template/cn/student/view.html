@@ -1,0 +1,50 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	<h4 class="modal-title">查看站内信</h4>
+</div>
+<div class="modal-body">
+	<div class="form"> 
+	  <!-- BEGIN FORM-->
+	  <form action="#" class="form-horizontal form-row-seperated">
+		<div class="form-body clearfix">
+		  
+		  <table class="table responsive-form-table">
+			<tbody>
+			  <tr class="table-row">
+				<th class="hidden-sm col-md-3">标题</th>
+				<td class="col-sm-12 col-md-9" data-title="标题">
+					<p class="form-control-static">
+						 <replace value="title">{{title}}</replace>
+					</p>            
+				</td>
+				
+			  </tr>
+			  <tr class="table-row">
+				<th class="hidden-sm col-md-3">发送时间</th>
+				<td class="col-sm-12 col-md-9" data-title="发送时间">
+					<p class="form-control-static">
+						 <replace value="ctime">{{ctime}}</replace>
+					</p>            
+				</td>
+				
+			  </tr>
+			  <tr class="table-row">
+				<th class="hidden-sm col-md-3">内容</th>
+				<td class="col-sm-12 col-md-9" data-title="内容">
+					<p class="form-control-static">
+						 <replace value="content">{{content}}</replace>
+					</p>            
+				</td>
+				
+			  </tr>
+			</tbody>
+		  </table>
+		</div>
+		
+	  </form>
+	  <!-- END FORM--> 
+	</div>
+
+
+</div>
+<div class="modal-footer"></div>

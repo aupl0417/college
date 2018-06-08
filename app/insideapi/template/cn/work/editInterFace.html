@@ -1,0 +1,137 @@
+
+		<form method="post" action="/work/editInterFace.json" id="form_cashout">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="window.location.reload()">&times;</button>
+				<h4 class="modal-title">修改编辑</h4>
+			</div>
+			<div class="form-body clearfix">
+				<table class="table responsive-form-table">
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3 borderd">标题</th>
+						<replace value="il_title">
+							<td class="col-sm-12 col-md-9 borderd" data-title="标题"><input type="text" name="il_title" class="form-control" value="{il_title}"></td>
+						</replace>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">	接口名称</th>
+						<replace value="il_name">
+							<td class="col-sm-12 col-md-9" data-title="接口名称"><input type="text" name="il_name" class="form-control mask-date" value="{il_name}"></td>
+						</replace>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">路径</th>
+						<replace value="il_interface_url">
+							<td class="col-sm-12 col-md-9" data-title="路径"><input type="text" name="il_interface_url" class="form-control mask-date" value="{il_interface_url}"></td>
+						</replace>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">分类</th>
+						<td class="col-sm-12 col-md-9" data-title="分类">
+							<select class="form-control form-filter input-sm" name="il_ic_id">
+								<option value="">--接口分类--</option>
+								<replace value="il_ic_id">
+									{il_ic_id}
+								</replace>
+							</select>
+						</td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">示例</th>
+						<td class="col-sm-12 col-md-9" data-title="示例">
+							<replace value="il_example">
+								<textarea class="form-control autosizeme" name="il_example" rows="3">{il_example}</textarea>
+							</replace>
+						</td>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">描述</th>
+						<td class="col-sm-12 col-md-9" data-title="描述">
+							<replace value="il_description">
+								<textarea class="form-control autosizeme" name="il_description" rows="3">{il_description}</textarea>
+							</replace>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="form-actions">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<replace value="il_id">
+									<input type="hidden" name="id" value="{il_id}">
+								</replace>
+								<button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+								<button type="button" data-dismiss="modal" class="btn default" onclick="window.location.reload()"><i class="fa fa-rotate-left"></i> 关闭</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6"> </div>
+				</div>
+			</div>
+		</form>
+	<script>
+		$('#form_cashout').handleForm(
+			{
+				rules: {
+					'il_title':{
+						required: true,
+					},
+					'il_name': {
+						required: true,
+					},
+					'il_interface_url': {
+						required: true
+					},
+					'il_ic_id': {
+						required: true
+					},
+					'il_description': {
+						required: true
+					},
+				},
+				messages: {
+					'il_title':{
+						required: "标题必须填写",
+					},
+					'il_name': {
+						required: "名称必须填写",
+					},
+					'il_interface_url': {
+						required: "路径必须填写"
+					},
+					'il_ic_id': {
+						required: "必须选择分类"
+					},
+					'il_description': {
+						required: "必填描述"
+					}
+				},
+				closest: 'td',
+			},
+			function(data, statusText){
+				if(data.id == '1001'){
+					data.msg = '<p>修改成功!</p>';
+					bootbox.alert(data.msg, function() {
+						grid.getDataTable().ajax.reload(null, false);
+						$('#edit_interface').modal('hide');
+					});
+				}
+				else{
+					data.msg = data.info || data.msg;
+					Global.alert( {
+						"container": "#form_cashout",
+						"place": "prepend",
+						"type": "warning",
+						"message": data.msg,
+						"close": true,
+						"reset": true,
+						"focus": true,
+						"closeInSeconds": "0",
+						"icon": "warning"
+					});
+				}
+			}
+		);
+	</script>
+

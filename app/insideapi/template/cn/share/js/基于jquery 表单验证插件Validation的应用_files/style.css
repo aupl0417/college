@@ -1,0 +1,237 @@
+@charset "gb2312";
+/* CSS Document */
+html {overflow-y:scroll;}
+body {margin:0; padding:0; font:12px/1.5 Î¢ÈíÑÅºÚ,Arial,sans-serif;background:#ffffff;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;}
+table,td,tr,th{font-size:12px;}
+ol,ul {list-style:none;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+h1,h2,h3,h4,h5,h6{font-size:inherit; font-weight:normal;}
+address,cite,code,em,th,i{font-weight:normal; font-style:normal;}
+a{
+	color:#666666;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+div.top{
+	height:40px;
+	 background:#003466; 
+	/*
+	background: url(/statics/top/banner8159.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;*/
+	
+}
+div.top ul{
+	width:965px;
+	margin:0 auto;
+	position:relative;
+}
+div.top ul a.rss{
+	position:absolute;
+	right:10px;
+	top:10px;
+	color:#FFFFFF;
+	font-size:12px;
+}
+div.top ul a.rss img{
+	margin-top:3px;
+}
+div.top ul li{
+	width:90px;
+	text-align:center;
+	display:inline;
+	padding:11px 10px 10px 10px;
+}
+div.top ul li a{
+	color:#FDFFFE;
+	font-size:16px;
+	line-height:40px;
+	text-decoration:none;
+	font-weight:500;
+}
+div.sub{
+	height:40px;
+	background:#194876;
+	display:none;
+}
+div.sub ul{
+	width:965px;
+	margin:0 auto;
+}
+div.sub ul li{
+	width:90px;
+	text-align:center;
+	display:inline;
+	padding:11px 10px 10px 10px;
+}
+div.sub ul li a{
+	color:#FDFFFE;
+	font-size:16px;
+	line-height:40px;
+	text-decoration:none;
+	font-weight:500;
+}
+div.sub ul li a:hover{
+	color:#CCCCCC;
+}
+div.banner{
+	height:56px;
+	padding-top:12px;
+	background:#F8F8F8;
+	border-bottom:1px solid #E0E0E0;
+}
+div.banner .in{
+	width:965px;
+	margin:0 auto;
+	position:relative;
+}
+div.banner .in img{
+	display:block;
+	width:204px;
+	height:46px;
+	float:left;
+}
+div.banner .in  h3{
+	margin-left:30px;
+	width:430px;
+	height:45px;
+	float:left;
+	line-height:45px;
+	font-size:24px;
+	color:#aaa;
+}
+div.banner .in  h3 a{color:#aaa;}
+div.banner .in  h3 a:hover{color:#666;text-decoration:none;}
+div.banner .in  p{
+	margin-left:30px;
+	width:430px;
+	height:45px;
+	float:left;
+	line-height:26px;
+}
+div.banner .in  p strong{
+	color:#000000;
+	font-size:14px;
+}
+div.banner .in  p a{
+	color:#000000;
+	padding:0 6px;
+	font-size:14px;
+	text-decoration:none;
+}
+div.banner .in  p a:hover{
+	text-decoration:underline;
+}
+div.banner .in form {
+	position:absolute;
+	right:0px;
+	top:20px;
+}
+div.banner .in form input{
+	display:block;
+	float:left;
+}
+div.banner .in form .keywords{
+	width:200px;
+	height:18px;
+	border:1px solid #E0E0E0;
+	padding:5px;
+	line-height:18px;
+	border-right:0;
+	color:#CCCCCC;
+	font-size:14px;
+}
+div.banner .in form .sub{
+	width:60px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	margin:0;
+	color:#FFFFFF;
+	font-size:14px;
+	font-weight:500;
+	padding:0;
+	border:0;
+	background:#FF6600;
+
+}
+div.banner .in .ico{
+	position:absolute;
+	right:0;
+	top:-5px;
+	
+}
+div.banner .in .ico span{
+	line-height: 24px;
+	font-size: 14px;
+	color: #ced9e7;
+}
+div.banner .in .ico img{
+	width:98px;
+	height:16px;
+}
+
+div.footer{
+	height:200px;
+	clear:both;
+	background:#6E6E8A;
+	margin:0px auto 10px;
+}
+div.footer .about{
+	height:155px;
+	margin:0 auto;
+}
+div.footer .about .foot_adv{
+	width:965px;
+	height:155px;
+	margin:0 auto;
+}
+div.footer .about .foot_adv div.adv_p{
+	width:250px;
+	*width:255px;
+	margin-right:30px;
+	height:155px;
+	float:left;
+}
+div.footer .about .foot_adv div.adv_p h2{
+	color:#FFFFFF;
+	margin:10px 10px;
+	font-size:18px;
+}
+div.footer .about .foot_adv p{
+	margin-left:10px;
+	color:#FFFFFF;
+	line-height:24px;
+	
+}
+div.footer .about .foot_adv div.adv_pp{
+	width:180px;
+	*width:170px;
+	height:155px;
+	margin-right:20px;
+	float:left;
+}
+div.footer .about .foot_adv div.adv_pp a img.sina{
+	margin-top:48px;
+}
+div.footer .about .foot_adv div.adv_pp a img.weixin{
+	margin-top:15px;
+	margin-left:45px;	
+}
+div.footer .about .foot_adv div.adv_pp p{
+	color:#FFFFFF;
+	text-align:center;
+}
+div.footer .copy{
+	height:45px;
+	background:#000032;
+}
+div.footer .copy p{
+	text-align:center;
+	line-height:45px;
+	color:#FFFFFF;
+}

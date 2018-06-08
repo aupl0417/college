@@ -1,0 +1,107 @@
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">编辑返回参数</h4>
+			</div>
+			<div class="form-body clearfix">
+				<table class="table table-striped" id="returns">
+					<thead>
+						<tr>
+							<th data-dt="DT_RowId" data-sort="1" data-hide="1"></th>
+							<th data-dt="irf_db_field">字段名</th>
+							<th data-dt="irf_as_name">字段别名</th>
+							<th data-dt="irf_type">格式类型</th>
+							<th data-dt="irf_lenght">长度</th>
+							<th data-dt="irf_description">描述</th>
+							<th data-dt="op">操作</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="form-actions">
+				<div class="row">
+					<div class="col-md-12">
+						<replace value="id">
+							<a href="/work/addReturns?_ajax=1&id={id}" data-target="#addReturns" data-toggle="modal" class="fancybox-button btn blue"><i class="fa fa-plus"></i> 添加字段</a>
+						</replace>
+					</div>
+					<div class="col-md-6"> </div>
+				</div>
+			</div>
+
+
+
+
+		<replace value="id">
+		<script>
+			/**
+			 * @datatable 显示数据
+			 * @type {{initScoreList}}
+			 */
+			var Cash3 = function () {
+				var dataGrid3 = new Datatable();
+				return {
+					initScoreList: function () {
+						var table = $("#returns");
+						var columns = [];
+						$('thead > tr > th', table).each(function(){
+							!!$(this).data('dt') && columns.push({
+								"data" : $(this).data('dt'),
+								"sortable": !!$(this).data('sort'),
+								"visible": !$(this).data('hide')
+							});
+						});
+
+
+						dataGrid3.init({
+							src : table,
+							dataTable : {
+								"ajax" : {
+									"type" : "POST",
+									"url" : "/work/returns.json?id={id}"
+								},
+								"columns" :columns,
+								"order" : [
+									[0, "desc"]
+								]
+							}
+						});
+						return dataGrid3;
+					}
+
+				};
+			}();
+			var grid3 = Cash3.initScoreList();
+		</script>
+		</replace>
+
+
+			<script>
+				//删除
+				function deleterequest(id){
+					if(!id){
+						return false;
+					}
+					bootbox.confirm('确定删除吗?',function(res){
+						if(res){
+							$.ajax({
+								'url' : '/work/deleteReturns.json?id='+id,
+								'dataType' : 'JSON',
+								'success' : function(data){
+									if(data.id == '1001'){
+										/*bootbox.alert('操作成功!', function(){
+										 grid.getDataTable().ajax.reload(null, false);
+										 });*/
+										bootbox.alert(data.msg, function() {
+											grid3.getDataTable().ajax.reload(null, false);
+										});
+									}else{
+										var msg = data.info || data.msg;
+										bootbox.alert(msg);
+									}
+								}
+							});
+						}
+					});
+				}
+
+			</script>

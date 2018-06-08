@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTO", "MTO.csproj", "{C9BCCD18-3D7D-406F-AC3C-9FA6C0B008DF}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{0142870B-1772-48E4-9B52-2CB1E791CA67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9BCCD18-3D7D-406F-AC3C-9FA6C0B008DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9BCCD18-3D7D-406F-AC3C-9FA6C0B008DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9BCCD18-3D7D-406F-AC3C-9FA6C0B008DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9BCCD18-3D7D-406F-AC3C-9FA6C0B008DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0142870B-1772-48E4-9B52-2CB1E791CA67}.Debug|Any CPU.ActiveCfg = Debug
+		{0142870B-1772-48E4-9B52-2CB1E791CA67}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

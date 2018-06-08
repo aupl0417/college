@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>首页-唐人商学院</title>
+    <link rel="stylesheet" type="text/css" href="{_TEMP_SHARE_}/themes/default/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{_TEMP_SHARE_}/themes/default/css/style.css">
+    <script src="{_TEMP_SHARE_}/themes/default/js/jquery.min.js"></script>
+    <script src="{_TEMP_SHARE_}/themes/default/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{_TEMP_SHARE_}/themes/default/js/ZoomPic.js"></script>
+
+</head>
+
+<body>
+<div class="hearder-box">
+    <div class="hearder-top bg-blue">
+        <div class="c-white line28 cont12">
+            客服热线：95083
+            <div class="pull-right">
+                <if $isLogin == '0'>
+                    <a class="c-white unlogin">立即登录</a>
+                    <span class="pl5 pr5">|</span>
+                    <a class="c-white register">快速注册</a>
+                <else>
+                    欢迎：
+                    <replace value="userNick">
+                        <a href="https://www.dttx.com" class="c-white">{userNick}</a>
+                    </replace>
+                    <span class="pl5 pr5">|</span>
+                    <a href="{:U('college/logout/index')}" class="c-white">退出</a>
+                    <!--<a href="http://www.dterptest.com/logout" class="c-white">退出</a>-->
+                </if>
+                <span class="pl5 pr5">|</span>
+                <a href="https://www.dttx.com/news/notice" class="c-white">最新公告</a>
+                <span class="pl5 pr5">|</span>
+                <a href="https://www.dttx.com/appDownload" class="c-white">APP下载</a>
+            </div>
+        </div>
+    </div>
+    <div class="hearder-bar bg_fa">
+        <div class="cont12">
+            <a href="{:U('college/index/index')}">
+                <img src="{_TEMP_SHARE_}/themes/default/images/logon.png" alt="" style="padding-top:16px ;padding-bottom: 16px;">
+            </a>
+        </div>
+
+    </div>
+    <div class="hearder-bar bg-white">
+        <div class="cont12">
+            <div class="over">
+                <ul class="list-unstyled over nav">
+                    <li id="index"><a href="/index/about">唐人商学院概况</a></li>
+                    <li id="class"><a href="/class/index">全部班级</a></li>
+                    <li id="teacher" class="active"><a href="/teacher/index">名师风采</a></li>
+                    <li id="glimpse"><a href="/glimpse/index">学员风采</a></li>
+                    <li id="download"><a href="/download/">视频课件</a></li>
+                    <li id="dttx"><a href="https://www.dttx.com">大唐天下</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部结束-->
+<script>
+    $(function(){
+        var menu = '<replace value="menu">{menu}</replace>';
+        $('.nav li').each(function(){
+            var id   = $(this).attr('id');
+            if(id == menu){
+                $(this).addClass('active');
+            }else {
+                $(this).removeClass('active');
+            }
+        });
+
+        var domain = '<replace value="domain">{domain}</replace>';
+        $('.unlogin').attr('href', 'http://u' + domain + '/login');
+        $('.register').attr('href', 'http://u' + domain + '/register/index');
+    });
+</script>

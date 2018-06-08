@@ -1,0 +1,63 @@
+<!--=============================================================================
+#     FileName: editTeam.html
+#         Desc: 
+#       Author: Wuyuanhang
+#        Email: QQ:554119220
+#   LastChange: 2016-11-01 13:50:27
+#      History:
+#      Paramer: 
+=============================================================================-->
+<!--添加新请求字段模态框-->
+<replace value="id|team|className|trueName|clID|username"> 
+<form action="/enrollManage/editTeam.json" method="post" class="form-horizontal form-row-seperated" id="formTeam">
+  <div class="form-body clearfix">
+    <table class="table responsive-form-table table-responsive">
+      <tbody>
+        <tr class="table-row">
+          <th class="hidden-sm col-md-2 borderd">班级名称</th>
+          <td class="col-sm-12 col-md-4 borderd" data-title="班级名称">
+            <input type="text" class="form-control" value="{className}" readonly>
+          </td>
+        </tr>
+        <tr class="table-row">
+          <th class="hidden-sm col-md-2 borderd">学员姓名</th>
+          <td class="col-sm-12 col-md-4 borderd" data-title="学员姓名">
+            <input type="text" class="form-control" value="{trueName}" readonly>
+          </td>
+        </tr>
+        <tr class="table-row">
+          <th class="hidden-sm col-md-2 borderd">会员账号</th>
+          <td class="col-sm-12 col-md-4 borderd" data-title="会员账号">
+            <input type="text" class="form-control" value="{username}" readonly>
+          </td>
+        </tr>
+        <tr class="table-row">
+          <th class="hidden-sm col-md-2 borderd">分组</th>
+          <td class="col-sm-12 col-md-4 borderd" data-title="分组">
+            <div class="input-group input-group-sm">
+              <span class="input-group-addon">第</span>
+              <input name="team" type="number" class="form-control" value="{team}">
+              <span class="input-group-addon">组</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-9">
+            <button type="submit" class="btn blue"><i class="fa fa-check"></i> 提交</button>
+            <input name="id"  type="hidden" value="{id}" />
+            <input name="clID"  type="hidden" value="{clID}" />
+            <button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 返回</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</replace>
+<script src="{_TEMP_ACTION_}/scripts/editTeam.js" type="text/javascript"></script>

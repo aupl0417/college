@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://www.php100.com/html/program/jquery/2013/0905/5869.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<meta charset="gbk">
+  <title>基于jquery 表单验证插件Validation的应用</title>
+  <meta name="description" content="文章详细的讲解了基于jquery 表单验证插件Validation的应用方法，如果有不懂的朋友可以联系我哦，我可以给你完整实例，好了有需要的朋友可以参考下。Validation，现在结合实际情况，我把项目中经常要用到的验证   ">
+  <meta name="keywords" content="基于,jquery,表单">
+  <link rel="stylesheet" type="text/css" href="./基于jquery 表单验证插件Validation的应用_files/style.css">
+  <script async="" type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/ca-pub-5869528727059635.js"></script><script language="javascript" type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/jquery.js"></script>
+  <script language="javascript" type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/header.js"></script>
+  <script language="javascript" type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/checklogin.js"></script>
+<script type="text/javascript" async="" src="./基于jquery 表单验证插件Validation的应用_files/embed.js" charset="UTF-8"></script><link href="./基于jquery 表单验证插件Validation的应用_files/bdsstyle.css" rel="stylesheet" type="text/css"><script src="./基于jquery 表单验证插件Validation的应用_files/logger.js"></script><link type="text/css" rel="stylesheet" href="./基于jquery 表单验证插件Validation的应用_files/embed.default.css"></head>
+<body><iframe frameborder="0" style="display: none;"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_bdysc bdysc">百度云收藏</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_renren rrw">人人网</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_douban db">豆瓣网</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_thx thx">和讯微博</a></li><li><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="bds_more">更多...</a></li></ul><p><a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" class="goWebsite">百度分享</a></p></div></div></div>
+<div class="top">
+	<ul>
+		<li class="nav"><a href="http://www.php100.com/index.html">网站首页</a></li>
+		<li class="nav"><a href="http://www.php100.com/html/it/">互联网大小事</a></li>
+		<li class="nav"><a href="http://www.php100.com/html/php/">PHP技术</a></li>
+		<li class="nav"><a href="http://www.php100.com/html/program/">相关技术</a></li>
+		<li class="nav"><a href="http://www.php100.com/html/shipinjiaocheng/">PHP视频教程</a></li>
+		<li class="nav"><a href="http://www.php100.com/html/plugin/">工具素材</a></li>
+		<li class="nav"><a onclick="alert(&#39;我跟我们的小伙伴努力开发中&#39;)">悬赏状</a></li>
+		<li class="nav"><a href="http://bbs.php100.com/">论坛</a></li>
+		<a class="rss" href="http://www.php100.com/index.php?m=content&c=rss&siteid=1"><img src="./基于jquery 表单验证插件Validation的应用_files/rss_y.gif">&nbsp;RSS</a>
+	</ul>
+</div>
+<div class="sub">
+	<ul>
+		<li></li>
+		<li><a href="http://www.php100.com/html/it/focus/">热点关注</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp; <a href="http://www.php100.com/html/it/mobile/">移动互联网</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/it/work/">创业与职业</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/it/update/">发布与更新</a></li>
+		<li style="margin-left:100px"><a href="http://www.php100.com/html/php/rumen/">PHP入门</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/php/hanshu/">PHP函数</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/php/lei/">PHP框架与应用</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/php/api/">开放接口</a></li>
+		<li><a href="http://www.php100.com/html/program/html/">HTML</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/program/divcss/">DIVCSS</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/program/html5/">HTML5</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/program/xml/">XML</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/program/apache/">Apache</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/program/nginx/">Nginx</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/program/linux/">Linux</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/program/mysql/">MySQL</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/program/javascript/">JavaScript</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/program/jquery/">JQuery</a></li>
+		<li style="margin-left:280px"><a href="http://www.php100.com/html/shipinjiaocheng/old/">php100经典教程</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/shipinjiaocheng/newz/">php100新版视频</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/shipinjiaocheng/other/">php100其他教程</a></li>
+		<li><a href="http://www.php100.com/html/plugin/dev/">开发工具</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/ser/">服务器工具</a>&nbsp;&nbsp;|
+		&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/pic/">图片图表素材</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/html/">HTML模板</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/js/">javascript控件</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/jq/">jquery插件</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/html5/">HTML5素材</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/phpcode/">php源码类</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/linux/">linux组件</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/android/">ANDROID控件</a>&nbsp;&nbsp;
+		|&nbsp;&nbsp;<a href="http://www.php100.com/html/plugin/other/">其他相关</a></li>
+		<li></li>
+	</ul>
+</div>
+<div class="banner">
+	<div class="in">
+	<img src="./基于jquery 表单验证插件Validation的应用_files/logo.gif" alt="php100-logo">
+		<h3><a href="http://www.php100.com/html/program/">相关技术频道</a> &gt; <a href="http://www.php100.com/html/program/jquery/">JQuery</a> &gt; </h3>
+	<form action="http://www.php100.com/index.php" method="get" onsubmit="return check_search();">
+	<input type="text" name="q" class="keywords" value="请输入关键字">
+	<input type="submit" class="sub" value="搜索">
+	<input type="hidden" name="m" value="search">
+	<input type="hidden" name="c" value="index">
+	<input type="hidden" name="a" value="init">
+	<input type="hidden" name="typeid" value="1" id="typeid">
+	<input type="hidden" name="siteid" value="1" id="siteid">
+	</form>
+	<div class="ico"><a href="http://bbs.php100.com/login.php">登陆</a> | <a href="http://bbs.php100.com/zhuce.php">注册</a></div>
+	
+	</div>
+</div>
+<link rel="stylesheet" type="text/css" href="./基于jquery 表单验证插件Validation的应用_files/newsview.css">
+<script type="text/javascript">
+$(function(){
+  $('dl.special dd:even').css('marginRight','15px');
+  $('dl.special dd:odd').css('marginBottom','15px');
+  $('dl.video dd:odd').css('marginRight','0px');
+  
+});
+$(window).load(function(){  
+	$(".newsContent img").each(function(){
+		if($(this).width()>640){
+			var bl=$(this).width()/640;
+			var hh=$(this).height();
+			$(this).width(640);
+			$(this).height(hh/bl);
+		}
+	})
+	});
+	function add_favorite(title) {
+		$.getJSON('http://www.php100.com/api.php?op=add_favorite&title='+encodeURIComponent(title)+'&url='+encodeURIComponent(location.href)+'&'+Math.random()+'&callback=?', function(data){
+			if(data.status==1)	{
+				//$("#favor_trigger").removeClass("soft_collect");
+				$("#favor_trigger").addClass("soft_collected");
+				$("#favor_trigger").html("成功");
+			} else {
+				alert('请登录');
+			}
+		});
+	}
+</script>
+<script type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/shCore.js"></script>
+	<script type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/shBrushCss.js"></script>
+	<script type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/shBrushJava.js"></script>
+	<script type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/shBrushJScript.js"></script>
+	<script type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/shBrushPhp.js"></script>
+	<script type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/shBrushSql.js"></script>
+	<script type="text/javascript" src="./基于jquery 表单验证插件Validation的应用_files/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="./基于jquery 表单验证插件Validation的应用_files/shCore.css">
+	<link type="text/css" rel="stylesheet" href="./基于jquery 表单验证插件Validation的应用_files/shThemeDefault.css">
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = 'http://www.php100.com/statics/js//php100/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+<!-- 主题内容开始 --> 
+<div id="content">
+<!-- 列表页左侧 -->
+<div class="listsLeft">
+<p class="tags"><a href="">JQuery</a></p>
+<div class="newsContent">
+<h1>基于jquery 表单验证插件Validation的应用</h1>
+<span class="author">来源：&nbsp;&nbsp;&nbsp;时间：2013-09-05 20:24:35&nbsp;&nbsp;&nbsp;阅读数：<span id="hits">10846</span> </span><span> <!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_qzone" title="分享到QQ空间" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#"></a>
+<a class="bds_tsina" title="分享到新浪微博" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#"></a>
+<a class="bds_tqq" title="分享到腾讯微博" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#"></a>
+<a class="bds_renren" title="分享到人人网" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#"></a>
+<a class="shareCount" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" title="累计分享3次">3</a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0" src="./基于jquery 表单验证插件Validation的应用_files/bds_s_v2.js"></script>
+
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END --></span>
+
+<p class="description">
+	<font color="#000000"><strong>[导读]</strong></font> 文章详细的讲解了基于jquery 表单验证插件Validation的应用方法，如果有不懂的朋友可以联系我哦，我可以给你完整实例，好了有需要的朋友可以参考下。
+Validation，现在结合实际情况，我把项目中经常要用到的验证   </p>
+<div class="p_content">
+	文章详细的讲解了基于jquery 表单验证插件Validation的应用方法，如果有不懂的朋友可以联系我哦，我可以给你完整实例，好了有需要的朋友可以参考下。
+<p><img height="265" alt="\" src="./基于jquery 表单验证插件Validation的应用_files/20130905082436706.gif" width="559"></p><p>Validation，现在结合实际情况，我把项目中经常要用到的验证整理成一个实例DEMO，本文就是通过讲解这个实例来理解Validation的应用。</p><table width="620" align="center" border="0" cellpadding="1" cellspacing="1" style="background:#FB7">	  <tbody><tr>		<td width="464" height="27" bgcolor="#FFE7CE">&nbsp;代码如下</td>		<td width="109" align="center" bgcolor="#FFE7CE" style="cursor:pointer;" onclick="doCopy(&#39;copy3191&#39;)">复制代码</td>	  </tr>	  <tr>		<td height="auto" colspan="2" valign="top" bgcolor="#FFFFFF" style="padding:10px;" class="copyclass" id="copy3191"><p>&lt;script type="text/<a href="http://www.php100.com/js_a/js.html" target="_blank">javascript</a>" src="js/jquery.js"&gt;&lt;/script&gt; <br>&lt;script type="text/javascript" src="js/jquery.validate.js"&gt;&lt;/script&gt;</p></td>	  </tr>	</tbody></table><p>准备CSS样式</p><p>页面样式我不再详述，大家可以自己写个样式，也可以参看DEMO的页面源代码。这里要强调的关键样式是要显示验证信息的样式</p><p>&nbsp;</p><table width="620" align="center" border="0" cellpadding="1" cellspacing="1" style="background:#FB7">	  <tbody><tr>		<td width="464" height="27" bgcolor="#FFE7CE">&nbsp;代码如下</td>		<td width="109" align="center" bgcolor="#FFE7CE" style="cursor:pointer;" onclick="doCopy(&#39;copy3613&#39;)">复制代码</td>	  </tr>	  <tr>		<td height="auto" colspan="2" valign="top" bgcolor="#FFFFFF" style="padding:10px;" class="copyclass" id="copy3613">label.error{color:#ea5200; margin-left:4px; padding:0px 20px;&nbsp; <br>background:url(images/unchecked.gif) no-repeat 2px 0 } <br>label.right{margin-left:4px; padding-left:20px; background: <br>url(images/checked.gif) no-repeat 2px 0} </td>	  </tr>	</tbody></table><p>XHTML</p><table width="620" align="center" border="0" cellpadding="1" cellspacing="1" style="background:#FB7">	  <tbody><tr>		<td width="464" height="27" bgcolor="#FFE7CE">&nbsp;代码如下</td>		<td width="109" align="center" bgcolor="#FFE7CE" style="cursor:pointer;" onclick="doCopy(&#39;copy2120&#39;)">复制代码</td>	  </tr>	  <tr>		<td height="auto" colspan="2" valign="top" bgcolor="#FFFFFF" style="padding:10px;" class="copyclass" id="copy2120">&lt;form id="myform" action="#" method="post"&gt;&nbsp;&nbsp;&nbsp; <br>&lt;table width="100%" border="0" cellspacing="0" cellpadding="0" class="mytable"&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp; &lt;tr class="table_title"&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;td colspan="2"&gt;jquery.validation 表单验证&lt;/td&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp; &lt;/tr&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp; &lt;tr&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;td width="22%" align="right"&gt;用户名：&lt;/td&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="user" id="user" class="input required" /&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;p&gt;用户名为3-16个字符，可以为数字、字母、下划线以及中文&lt;/p&gt;&lt;/td&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp; &lt;/tr&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp; &lt;tr&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;密码：&lt;/td&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="password" name="pass" id="pass" class="input required" /&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;p&gt;最小长度:6 最大长度:16&lt;/p&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;/td&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp; &lt;/tr&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp; &lt;tr&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;确认密码：&lt;/td&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="password" name="repass" class="input required" /&gt;&lt;/td&gt;&nbsp;&nbsp;&nbsp; <br>&nbsp; &lt;/tr&gt;&nbsp;&nbsp;&nbsp; <br>&lt;/table&gt;&nbsp;&nbsp;&nbsp; <br>&lt;/form&gt;&nbsp; </td>	  </tr>	</tbody></table><p>限于篇幅，本文的只截取了实例中HTML代码的一小部分，详细XHTML代码可参看页面DEMO源代码。值得一提的是，我在给了标签一个“required”类样式，下文将会提到它的作用。</p><p>4、应用Validation插件</p><p>调用Validation插件的方法：</p><p>&nbsp;</p><table width="620" align="center" border="0" cellpadding="1" cellspacing="1" style="background:#FB7">	  <tbody><tr>		<td width="464" height="27" bgcolor="#FFE7CE">&nbsp;代码如下</td>		<td width="109" align="center" bgcolor="#FFE7CE" style="cursor:pointer;" onclick="doCopy(&#39;copy6530&#39;)">复制代码</td>	  </tr>	  <tr>		<td height="auto" colspan="2" valign="top" bgcolor="#FFFFFF" style="padding:10px;" class="copyclass" id="copy6530">$(function(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; var validate = $("#myform").validate({ <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rules:{ //定义验证规则 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...... <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; messages:{ //定义提示信息 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...... <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>&nbsp;&nbsp;&nbsp; }) <br>});</td>	  </tr>	</tbody></table><p>rules:定义验证规则，key:value的形式，key是要验证的元素,value可以是字符串或对象。比如验证用户名的长度和不允许为空：</p><table width="620" align="center" border="0" cellpadding="1" cellspacing="1" style="background:#FB7">	  <tbody><tr>		<td width="464" height="27" bgcolor="#FFE7CE">&nbsp;代码如下</td>		<td width="109" align="center" bgcolor="#FFE7CE" style="cursor:pointer;" onclick="doCopy(&#39;copy6867&#39;)">复制代码</td>	  </tr>	  <tr>		<td height="auto" colspan="2" valign="top" bgcolor="#FFFFFF" style="padding:10px;" class="copyclass" id="copy6867"><p>rules:{ <br>&nbsp; user:{ <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; required:true, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maxlength:16, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minlength:3 <br>&nbsp; }, <br>&nbsp; ...... <br>}</p></td>	  </tr>	</tbody></table><p>其实我们在XHTML代码中可以直接指定input的class属性为required，作用是不允许为空，这样在JS部分就不用重复写了。同样的验证email等，直接设置input的class属性为email。</p><p>messages:定义提示信息，key:value的形式key是要验证的元素,值是字符串或函数，当验证不通过时提示的信息。</p><p>&nbsp;</p><table width="620" align="center" border="0" cellpadding="1" cellspacing="1" style="background:#FB7">	  <tbody><tr>		<td width="464" height="27" bgcolor="#FFE7CE">&nbsp;代码如下</td>		<td width="109" align="center" bgcolor="#FFE7CE" style="cursor:pointer;" onclick="doCopy(&#39;copy5223&#39;)">复制代码</td>	  </tr>	  <tr>		<td height="auto" colspan="2" valign="top" bgcolor="#FFFFFF" style="padding:10px;" class="copyclass" id="copy5223">messages:{ <br>&nbsp; user:{ <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; required:"用户名不能为空！", <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; remote:"该用户名已存在，请换个其他的用户名！" <br>&nbsp; }, <br>&nbsp; ...... <br>} </td>	  </tr>	</tbody></table><p>本例中涉及的验证JS就是按照上面的规则进行编写的，Validation插件封装了好多基本的验证方式，如下：</p><p><br>required:true 必须有值，不能为空<br>remote:url 可以用于判断用户名等是否已经存在,服务器端输出true,表示验证通过<br>minlength:6 最小长度为6<br>maxlength:16 最大长度为16<br>rangelength:长度范围<br>range:[10,20] 数值范围在10-20之间<br>email:true 验证邮件<br>url:true 验证URL网址<br>dateISO:true 验证日期格式'yyyy-mm-dd'<br>digits:true 只能为数字<br>accept:'gif|jpg' 只接受gif或jpg为后缀的图片。常用于验证文件的扩展名<br>equalTo:'#pass' 与哪个表单字段的值相等，常用于验证重复输入密码</p><p>此外，我还根据项目实际情况扩展了几个验证，验证的代码在validate-ex.js，使用前需要先加载这个JS。它能提供以下验证：</p><p>userName:true 用户名只能包括中文字、英文字母、数字和下划线<br>isMobile:true 手机号码验证<br>isPhone:true 大陆手机号码验证<br>isZipCode:true 邮政编码验证<br>isIdCardNo:true 大陆身份证号码验证<br>ip:true IP地址验证</p><p>完整实例</p><p>&nbsp;</p><table width="620" align="center" border="0" cellpadding="1" cellspacing="1" style="background:#FB7">	  <tbody><tr>		<td width="464" height="27" bgcolor="#FFE7CE">&nbsp;代码如下</td>		<td width="109" align="center" bgcolor="#FFE7CE" style="cursor:pointer;" onclick="doCopy(&#39;copy2029&#39;)">复制代码</td>	  </tr>	  <tr>		<td height="auto" colspan="2" valign="top" bgcolor="#FFFFFF" style="padding:10px;" class="copyclass" id="copy2029"><p>&lt;link rel="stylesheet" type="text/<a href="http://www.php100.com/cssdiv/css.html" target="_blank">css</a>" href="../Css/main.css" /&gt;<br>&lt;style type="text/css"&gt;<br>.demo{width:850px; margin:10px auto; padding:20px; background:#fff; color:#333}<br>.input{width:220px; height:18px; padding:2px 2px 0 2px; border:1px solid #ccc}<br>.btn{width:68px; height:22px; border:none; background:url(Images/btn.gif) no-repeat; cursor:pointer}<br>.mytable{width:760px; margin:20px auto; border:2px solid #ccc}<br>.mytable td{padding:4px 6px; border-bottom:1px dotted #d3d3d3; color:#333}<br>.mytable td p{line-height:16px; color:#999}<br>.table_title{height:30px; line-height:30px; background:#f7f7f7; font-weight:bold; font-size:14px}</p><p>label.error{color:#ea5200; margin-left:4px; padding:0px 20px; background:url(Images/unchecked.gif) no-repeat 2px 0 }<br>label.right{margin-left:4px; padding-left:20px; background:url(Images/checked.gif) no-repeat 2px 0}<br>&lt;/style&gt;<br>&lt;script type="text/javascript" src="../Script/jquery.js"&gt;&lt;/script&gt;<br>&lt;script type="text/javascript" src="./Script/jquery.validate.js"&gt;&lt;/script&gt;<br>&lt;script type="text/javascript" src="./Script/validate-ex.js"&gt;&lt;/script&gt;<br>&lt;script type="text/javascript"&gt;<br>$(function(){&nbsp;&nbsp;&nbsp; <br>&nbsp;var validate = $("#myform").validate({<br>&nbsp;&nbsp;rules:{<br>&nbsp;&nbsp;&nbsp;user:{<br>&nbsp;&nbsp;&nbsp;&nbsp;maxlength:16,<br>&nbsp;&nbsp;&nbsp;&nbsp;minlength:3,<br>&nbsp;&nbsp;&nbsp;&nbsp;userName:true,<br>&nbsp;&nbsp;&nbsp;&nbsp;remote: { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url: "chk_user.<a href="http://www.php100.com/phper/php.html" target="_blank">php</a>", <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type: "post", <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data: { user: function() { return encodeURIComponent($("#user").val());}} <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;pass:{<br>&nbsp;&nbsp;&nbsp;&nbsp;maxlength:16,<br>&nbsp;&nbsp;&nbsp;&nbsp;minlength:6<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;repass:{<br>&nbsp;&nbsp;&nbsp;&nbsp;maxlength:16,<br>&nbsp;&nbsp;&nbsp;&nbsp;minlength:6,<br>&nbsp;&nbsp;&nbsp;&nbsp;equalTo:"#pass"<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;sex:"required",<br>&nbsp;&nbsp;&nbsp;email:{email:true},<br>&nbsp;&nbsp;&nbsp;tel:{isTel:true},<br>&nbsp;&nbsp;&nbsp;phone:{isMobile:true},<br>&nbsp;&nbsp;&nbsp;url:{url:true},<br>&nbsp;&nbsp;&nbsp;birthday:"dateISO",<br>&nbsp;&nbsp;&nbsp;years:{<br>&nbsp;&nbsp;&nbsp;&nbsp;digits:true,<br>&nbsp;&nbsp;&nbsp;&nbsp;range:[1,40]<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;idcard:"isIdCardNo",<br>&nbsp;&nbsp;&nbsp;zipcode:"isZipCode",<br>&nbsp;&nbsp;&nbsp;photo:{<br>&nbsp;&nbsp;&nbsp;&nbsp;accept:"gif|jpg|png"<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;serverIP:"ip",<br>&nbsp;&nbsp;&nbsp;captcha:{<br>&nbsp;&nbsp;&nbsp;&nbsp;remote:"process.php"<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;messages:{<br>&nbsp;&nbsp;&nbsp;user:{<br>&nbsp;&nbsp;&nbsp;&nbsp;remote:"该用户名已存在，请换个其他的用户名！"<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;repass:{<br>&nbsp;&nbsp;&nbsp;&nbsp;equalTo:"两次密码输入不一致！"<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;sex:"请选择性别！",<br>&nbsp;&nbsp;&nbsp;birthday:{<br>&nbsp;&nbsp;&nbsp;&nbsp;dateISO:"日期格式不对!"<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;years:{<br>&nbsp;&nbsp;&nbsp;&nbsp;number:"工作年限必须为数字！"<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;address:"请选择地区",<br>&nbsp;&nbsp;&nbsp;photo:{<br>&nbsp;&nbsp;&nbsp;&nbsp;accept:"头像图片格式不对！"<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;captcha:{<br>&nbsp;&nbsp;&nbsp;&nbsp;remote:"验证码错误！"<br>&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;low:" "<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;errorPlacement: function(error, element) {<br>&nbsp;&nbsp;&nbsp;if ( element.is(":radio") )<br>&nbsp;&nbsp;&nbsp;&nbsp;error.appendTo ( element.parent() );<br>&nbsp;&nbsp;&nbsp;else if ( element.is(":<a href="http://www.php100.com/tags.php/checkbox">checkbox</a>") )<br>&nbsp;&nbsp;&nbsp;&nbsp;error.appendTo ( element.parent() );<br>&nbsp;&nbsp;&nbsp;else if ( element.is("input[name=captcha]") )<br>&nbsp;&nbsp;&nbsp;&nbsp;error.appendTo ( element.parent() );<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;error.insertAfter(element);<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp; success: function(label) {<br>&nbsp;&nbsp;&nbsp;&nbsp; label.html("&amp;nbsp;").addClass("right");<br>&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;});&nbsp;<br>&nbsp;<br>&nbsp;$("#getcode").click(function(){<br>&nbsp;&nbsp;$imgstr="getcode.php?randcode="+Math.random();<br>&nbsp;&nbsp;$(this).attr("src",$imgstr);<br>&nbsp;});<br>&nbsp;$("input:reset").click(function(){<br>&nbsp;&nbsp;validate.resetForm();<br>&nbsp;});<br>});<br>&lt;/script&gt;<br>&lt;/head&gt;</p><p>&lt;body&gt;</p><p>&nbsp;&nbsp; &lt;div class="demo"&gt;<br>&lt;p&gt;注：以下表单仅供学习和交流，Shuro's Blog网站不会记录用户输入的信息，请放心使用。&lt;/p&gt;<br>&lt;form id="myform" action="#" method="post"&gt;<br>&lt;table width="100%" border="0" cellspacing="0" cellpadding="0" class="mytable"&gt;<br>&nbsp; &lt;tr class="table_title"&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td colspan="2"&gt;jquery.validation 表单验证&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td width="22%" align="right"&gt;用户名：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="user" id="user" class="input required" /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;p&gt;用户名为3-16个字符，可以为数字、字母、下划线以及中文&lt;/p&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;密码：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="password" name="pass" id="pass" class="input required" /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;p&gt;最小长度:6 最大长度:16&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;确认密码：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="password" name="repass" class="input required" /&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;性别：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="radio" name="sex" value="1" /&gt; 男 &lt;input type="radio" name="sex" value="0" /&gt; 女&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;E-mail：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="email" class="input required" /&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;固定电话：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="tel" class="input required" /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;p&gt;格式如：021-12345678&lt;/p&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;手机号码：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="phone" class="input required" /&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;网站：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="url" class="input required" value="http://" /&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;出生日期：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="birthday" class="input required" /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;p&gt;格式如：1990-10-01&lt;/p&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;工作年限：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="years" class="input required" /&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;身份证号码：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="idcard" class="input required" /&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;地区：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;<a href="http://www.php100.com/tags.php/select">select</a> name="address" class="required"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value=""&gt;请选择&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value="1"&gt;北京市&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value="2"&gt;上海市&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value="3"&gt;广州市&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value="4"&gt;深圳市&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/select&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;邮政编码：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="zipcode" class="input required" /&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;上传头像：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="file" name="photo" class="required" /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;p&gt;头像为jpg,gif或者png格式的图片&lt;/p&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;服务器IP：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="serverIP" class="input required" /&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;&amp;nbsp;&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="checkbox" name="low"&nbsp; class="required" /&gt; 我已阅读并接受用户协议<br>&nbsp;&nbsp;&nbsp; &lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td align="right"&gt;验证码：&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="text" name="captcha" class="input required" style="width:80px;" /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;img src="getcode.php" id="getcode"&nbsp; alt="看不清，点击换一张" align="absmiddle" style="cursor:pointer" /&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td height="42"&gt;&amp;nbsp;&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;input type="submit" class="btn" value="提 交" /&gt; &amp;nbsp; &lt;input type="reset" class="btn" value="重 置" /&gt;&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&lt;/table&gt;<br>&lt;/form&gt;<br>&lt;/div&gt;<br>&lt;/div&gt;</p></td>	  </tr>	</tbody></table><p>&nbsp;</p>	  		<br>
+	<div class="pages"></div>
+</div>
+<a href="http://www.php100.com/index.php?m=content&c=tag&a=lists&tag=%BB%F9%D3%DA" class="tags">基于</a>
+<a href="http://www.php100.com/index.php?m=content&c=tag&a=lists&tag=jquery" class="tags">jquery</a>
+<a href="http://www.php100.com/index.php?m=content&c=tag&a=lists&tag=%B1%ED%B5%A5" class="tags">表单</a>
+<div class="copy">
+<img src="./基于jquery 表单验证插件Validation的应用_files/copy.png">
+<p>除非特别声明，PHP100新闻均为原创或投稿报道，转载请注明作者及原文链接<br>原文地址：<a href="http://www.php100.com/html/program/jquery/2013/0905/5869.html###">
+<script>document.write(document.location)</script>http://www.php100.com/html/program/jquery/2013/0905/5869.html
+</a></p>
+</div>
+<div class="button">
+<div id="toolbar_wrapper">
+	<div class="toolbar">
+		<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_qzone" title="分享到QQ空间" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#"></a>
+<a class="bds_tsina" title="分享到新浪微博" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#"></a>
+<a class="bds_tqq" title="分享到腾讯微博" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#"></a>
+<a class="bds_renren" title="分享到人人网" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#"></a>
+<a class="bds_t163" title="分享到网易微博" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#"></a>
+<a class="shareCount" href="http://www.php100.com/html/program/jquery/2013/0905/5869.html#" title="累计分享3次">3</a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0"></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+		
+		<div class="favorite">
+		<a title="收藏此新闻" id="favor_trigger" class="soft_collect " href="javascript:;" onclick="add_favorite(&#39;基于jquery 表单验证插件Validation的应用&#39;);">收藏</a>
+		</div>
+	</div>
+</div>
+</div>
+ <p class="f14 sx">
+	<strong>上一篇：</strong><a href="http://www.php100.com/html/program/jquery/2013/0905/5868.html">基于jquery 密码强度检测插件</a><br>
+	<strong>下一篇：</strong><a href="http://www.php100.com/html/program/jquery/2013/0905/5870.html">分享jquery Dialog - 弹出窗插件 </a>
+</p>
+
+<!-----百度广告 
+<script type="text/javascript">
+/*640*60，创建于2013-9-5*/
+var cpro_id = "u1362333";
+</script>
+<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+----->
+
+
+<div style="margin-top:10px"></div>
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread" data-category="$catid" data-thread-key="content_28-5869-1" data-title="基于jquery 表单验证插件Validation的应用" data-author-key="" data-url="" id="ds-thread"><div id="ds-reset"><div class="ds-meta"><a href="javascript:void(0)" class="ds-like-thread-button ds-rounded"><span class="ds-icon ds-icon-heart"></span> <span class="ds-thread-like-text">喜欢</span><span class="ds-thread-cancel-like">取消喜欢</span></a><span class="ds-like-panel"></span></div><a name="respond"></a><div class="ds-toolbar"><div class="ds-account-control"><span class="ds-icon ds-icon-settings"></span> <span>帐号管理</span><ul><li><a class="ds-bind-more" href="javascript:void(0);" style="border-top: none">绑定更多</a></li><li><a target="_blank" href="http://duoshuo.com/settings/">设置</a></li><li><a rel="nofollow" href="http://php100.duoshuo.com/logout/" style="border-bottom: none">登出</a></li></ul></div><div class="ds-visitor"><span class="ds-visitor-name">职导网-陈</span><a class="ds-unread-comments-count" href="javascript:void(0);" title="你没有新回复" style="display: none;">0</a></div></div><div class="ds-replybox"><a class="ds-avatar" href="http://duoshuo.com/settings/avatar/" target="_blank" title="设置头像"><img src="./基于jquery 表单验证插件Validation的应用_files/50" alt="职导网-陈"></a><form method="post"><input type="hidden" name="thread_id" value="1172221232209200536">
+<input type="hidden" name="parent_id" value="">
+<input type="hidden" name="nonce" value="5482a353b1c27"><div class="ds-textarea-wrapper ds-rounded-top"><textarea name="message" title="Ctrl+Enter快捷提交" placeholder="说点什么吧…"></textarea><pre class="ds-hidden-text"></pre></div><div class="ds-post-toolbar"><div class="ds-post-options ds-gradient-bg"><span class="ds-sync"><input id="ds-sync-checkbox" type="checkbox" name="repost" checked="checked" value="qqt,qzone"> <label for="ds-sync-checkbox">分享到:</label><a href="javascript:void(0)" class="ds-service-icon ds-qqt" data-service="qqt" title="腾讯微博"></a><a href="javascript:void(0)" class="ds-service-icon ds-qzone" data-service="qzone" title="QQ空间"></a></span></div><button class="ds-post-button" type="submit">发布</button><div class="ds-toolbar-buttons"><a class="ds-toolbar-button ds-add-emote" title="插入表情"></a></div></div></form></div><div class="ds-comments-info"><div class="ds-sort"><a class="ds-order-desc ds-current">最新</a><a class="ds-order-asc">最早</a><a class="ds-order-hot">最热</a></div><ul class="ds-comments-tabs"><li class="ds-tab"><a class="ds-comments-tab-duoshuo ds-current" href="javascript:void(0);"><span class="ds-highlight">2</span>条评论</a></li><li class="ds-tab"><a class="ds-comments-tab-weibo" href="javascript:void(0);"><span class="ds-highlight">1</span>条新浪微博</a></li></ul></div><ul class="ds-comments"><li class="ds-post" data-post-id="1172221232209221239"><div class="ds-post-self" data-post-id="1172221232209221239" data-thread-id="1172221232209200536" data-root-id="0" data-source="duoshuo"><div class="ds-avatar" data-user-id="3456989"><a rel="nofollow author" target="_blank" href="http://yanhaijing.com/" onclick="this.href=&#39;http://php100.duoshuo.com/user-url/?user_id=3456989&#39;;" title="颜海镜"><img src="./基于jquery 表单验证插件Validation的应用_files/1" alt="颜海镜"></a></div><div class="ds-comment-body"><div class="ds-comment-header"><a class="ds-user-name ds-highlight" data-qqt-account="" href="http://yanhaijing.com/" onclick="this.href=&#39;http://php100.duoshuo.com/user-url/?user_id=3456989&#39;;" rel="nofollow" target="_blank" data-user-id="3456989">颜海镜</a></div><p>赞</p><div class="ds-comment-footer ds-comment-actions"><span class="ds-time" datetime="2014-11-25T09:59:11+08:00" title="2014年11月25日 上午9:59:11">11月25日</span><a class="ds-post-reply" href="javascript:void(0);"><span class="ds-icon ds-icon-reply"></span>回复</a><a class="ds-post-likes" href="javascript:void(0);"><span class="ds-icon ds-icon-like"></span>顶</a><a class="ds-post-repost" href="javascript:void(0);"><span class="ds-icon ds-icon-share"></span>转发</a><a class="ds-post-report" href="javascript:void(0);"><span class="ds-icon ds-icon-report"></span>举报</a></div></div></div></li><li class="ds-post" data-post-id="1172221232209221181"><div class="ds-post-self" data-post-id="1172221232209221181" data-thread-id="1172221232209200536" data-root-id="0" data-source="duoshuo"><div class="ds-avatar" data-user-id="9476530"><a rel="nofollow author" target="_blank" href="http://weibo.com/3873309405" onclick="this.href=&#39;http://php100.duoshuo.com/user-url/?user_id=9476530&#39;;" title="记忆的珍藏"><img src="./基于jquery 表单验证插件Validation的应用_files/1(1)" alt="记忆的珍藏"></a></div><div class="ds-comment-body"><div class="ds-comment-header"><a class="ds-user-name ds-highlight" data-qqt-account="" href="http://weibo.com/3873309405" onclick="this.href=&#39;http://php100.duoshuo.com/user-url/?user_id=9476530&#39;;" rel="nofollow" target="_blank" data-user-id="9476530">记忆的珍藏</a></div><p>可以给我一份实例吗？邮箱136802833@qq.com</p><div class="ds-comment-footer ds-comment-actions"><span class="ds-time" datetime="2014-10-30T11:09:38+08:00" title="2014年10月30日 上午11:09:38">10月30日</span><a class="ds-post-reply" href="javascript:void(0);"><span class="ds-icon ds-icon-reply"></span>回复</a><a class="ds-post-likes" href="javascript:void(0);"><span class="ds-icon ds-icon-like"></span>顶</a><a class="ds-post-repost" href="javascript:void(0);"><span class="ds-icon ds-icon-share"></span>转发</a><a class="ds-post-report" href="javascript:void(0);"><span class="ds-icon ds-icon-report"></span>举报</a></div></div></div></li></ul><div class="ds-paginator" style="display: none;"><div class="ds-border"></div><a data-page="1" href="javascript:void(0);" class="ds-current">1</a></div><p class="ds-powered-by"><a href="http://duoshuo.com/" target="_blank" rel="nofollow">多说</a></p></div></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"php100"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+
+</div>	
+</div>
+<!-- 列表页右侧 -->
+  <div class="listsRight">
+<!-- 新闻页AD -->
+<script async="" src="./基于jquery 表单验证插件Validation的应用_files/adsbygoogle.js"></script>
+<!-- 文章页1 -->
+<ins class="adsbygoogle" style="display:inline-block;width:250px;height:250px" data-ad-client="ca-pub-5869528727059635" data-ad-slot="5241970521" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px;background-color:transparent"><iframe width="250" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script async="" src="./基于jquery 表单验证插件Validation的应用_files/adsbygoogle.js"></script>
+<!-- 文章页1 -->
+<ins class="adsbygoogle" style="display:inline-block;width:250px;height:250px" data-ad-client="ca-pub-5869528727059635" data-ad-slot="5241970521" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px;background-color:transparent"><iframe width="250" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!----
+	<div class="c_adv">
+	<a href="http://www.php100.com/go.php?url=http://www.enkj.com" target="_blank">
+	<img src="http://www.php100.com/statics/sem/yien.jpg"></a>
+	</div>
+	<div class="c_adv">
+	<a href="http://www.chuangen.com" target="_blank">
+	<img src="http://www.php100.com/statics/sem/chuangen.gif"></a>
+	</div>
+	<div class="c_adv2">
+	<script type="text/javascript">
+	/*自定义标签云，创建于2013-8-31*/
+	var cpro_id = "u1358428";
+	</script>
+	<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+	</div>
+	<div class="c_adv2">
+	<a href="http://union.dangdang.com/transfer.php?sys_id=1&ad_type=10&from=P-268047&backurl=http%3A%2F%2Fproduct.dangdang.com%2Fproduct.aspx%3Fproduct_id%3D22635645" target="_blank">
+	<img src="http://www.php100.com/statics/sem/php100_book.png"></a>
+	</div>
+	<div class="c_adv3">
+	<a href="http://bbs.php100.com" target="_blank">
+	<img src="http://www.php100.com/statics/sem/weixin.png"></a>
+	</div>
+    
+    --->
+<!-- 热门频道 -->
+  <dl class="hot">
+    <dt>延伸阅读 More</dt>
+                  <dd>
+	<a href="http://www.php100.com/html/program/jquery/2013/0905/5571.html">基于jquery的超简单上下翻</a>
+	<p>haowubai&nbsp;&nbsp;2013/09/05</p>
+	</dd>
+	                  <dd>
+	<a href="http://www.php100.com/html/program/jquery/2013/0905/5830.html">基于jQuery IE6下PNG图片背景透明问题解决方法</a>
+	<p>haowubai&nbsp;&nbsp;2013/09/05</p>
+	</dd>
+	                  <dd>
+	<a href="http://www.php100.com/html/program/jquery/2013/0905/5833.html">基于jquery显示隐藏按钮实现代码</a>
+	<p>haowubai&nbsp;&nbsp;2013/09/05</p>
+	</dd>
+	                  <dd>
+	<a href="http://www.php100.com/html/program/jquery/2013/0905/5835.html">基于jquery select各种操作详解</a>
+	<p>haowubai&nbsp;&nbsp;2013/09/05</p>
+	</dd>
+	                  <dd>
+	<a href="http://www.php100.com/html/program/jquery/2013/0905/5841.html">基于JQuery取得checkbox value值的方法</a>
+	<p>haowubai&nbsp;&nbsp;2013/09/05</p>
+	</dd>
+	          
+  </dl>
+<!-- 视频教程 -->
+  <dl class="video">
+    <dt>视频教程 Video</dt>
+    
+    <dd><a href="http://www.php100.com/html/shipinjiaocheng/old/2013/0830/1.html">
+    	<img src="./基于jquery 表单验证插件Validation的应用_files/thumb_120_90_20130830051255141.jpg" alt="PHP100视频教程1：环境配置与代码调试"></a></dd>	
+    <dd style="margin-right: 0px;"><a href="http://www.php100.com/html/shipinjiaocheng/old/2013/0904/10.html">
+    	<img src="./基于jquery 表单验证插件Validation的应用_files/thumb_120_90_20130904032559173.jpg" alt="PHP100视频教程5：PHP循环语句的介绍与应用"></a></dd>	
+    <dd><a href="http://www.php100.com/html/shipinjiaocheng/old/2013/0905/100.html">
+    	<img src="./基于jquery 表单验证插件Validation的应用_files/thumb_120_90_20130905093052784.jpg" alt="PHP100视频教程44：PHP中MVC学习之ThinkPHP（下）"></a></dd>	
+    <dd style="margin-right: 0px;"><a href="http://www.php100.com/html/shipinjiaocheng/old/2013/0905/101.html">
+    	<img src="./基于jquery 表单验证插件Validation的应用_files/thumb_120_90_20130905093215353.jpg" alt="PHP100视频教程45：如何用PHP开发一个完整的网站"></a></dd>	
+   
+
+  </dl>
+</div> 
+
+</div>
+<script language="JavaScript" src="./基于jquery 表单验证插件Validation的应用_files/api.php"></script>
+<div class="footer">
+<div class="about">
+	<div class="foot_adv">
+		<div class="adv_p">
+			<h2>广告服务：</h2>
+			<p>售前咨询 : 021-61190281，QQ:613936661
+			<br>工作日 : 9:00-18:00
+			<br>售后支持 : 021-61190282，QQ:925939
+			<br>7×24小时
+			</p>
+		</div>
+		<div class="adv_p">
+			<h2>网站服务：</h2>
+			<p>专题合作 : alan@php100.net
+			<br>用户问题 : QQ 613936661
+			<br>友情链接 : QQ 925939
+			<br>网站投稿 : <a style="color:orange;" href="http://www.php100.com/index.php?m=member&c=index&a=login" target="_blank">发布文章或软件</a>
+			</p>
+		</div>
+		<div class="adv_pp">
+			<a href="http://www.weibo.com/phpe" target="_blank"><img class="sina" src="./基于jquery 表单验证插件Validation的应用_files/sina.png"></a>
+			<p>@php100官方</p>
+		</div>
+		<div class="adv_pp">
+			<a><img class="weixin" src="./基于jquery 表单验证插件Validation的应用_files/weixin.png"></a>
+			<p>php100官方微信</p>
+		</div>
+	</div>
+
+</div>
+<div class="copy">
+<p>Copyright (C) 2007-2014 PHP100.com, All Rights Reserved 版权所有 上海创恩信息技术有限公司. 沪ICP备11048882号</p>
+</div>
+</div>
+
+
+<div style="display:none">
+<script src="./基于jquery 表单验证插件Validation的应用_files/stat.php" language="JavaScript" charset="gb2312"></script><script src="./基于jquery 表单验证插件Validation的应用_files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=1668579" target="_blank" title="站长统计">站长统计</a>
+</div>
+<div id="ds-notify" style="top: 24px; right: 24px; display: none;"><div id="ds-reset"><a class="ds-logo" href="http://duoshuo.com/" target="_blank" title="多说"></a><ul class="ds-notify-unread"><li style="display:none;"><a data-type="unread-comments" href="javascript:void(0);">你有undefined条新回复</a></li><li style="display:none;"><a data-type="unread-notifications" href="javascript:void(0);">你有undefined条系统消息</a></li></ul></div></div></body></html>

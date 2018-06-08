@@ -1,0 +1,229 @@
+
+<div class="page-bar margin-bottom-20">
+	<!-- 导航 -->
+	<ul class="page-breadcrumb">
+		<li> <i class="fa fa-home"></i> <a href="/">管理控制台 </a> <i class="fa fa-angle-right"></i> </li>
+		<li> <a href="/open/interfaceList">开发平台</a> <i class="fa fa-angle-right"></i> </li>
+		<li> 接口列表 </li>
+	</ul>
+	<!-- end 导航 -->
+</div>
+
+
+<div class="portlet light">
+	<div class="portlet-title">
+		<div class="caption"> <i class="fa fa-search"></i>接口管理 </div>
+		<div style="float: right">
+			<a href="/open/addInterFace?_ajax=1" data-target="#add_interface" data-toggle="modal" class="fancybox-button btn btn-sm blue"><i class="fa fa-plus"></i> 发布接口</a>
+		</div>
+	</div>
+
+    <div class="portlet-body">
+		<form class="form-inline " action="#" data-action="/open/interfaceList.json" data-reload="false" name="filter-awardDetail" id="filter-detail">
+
+			<div class="form-group">
+				<select class="form-control form-filter input-sm" name="il_ic_id">
+					<option value="">--接口分类--</option>
+					<!-- <loop data="categoryData"> -->
+					<option value="{ic_id}">{ic_name}</option>
+					<!-- </loop> -->
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label></label>
+				<button class="btn btn-sm blue filter-submit margin-bottom"><i class="fa fa-search"></i> 查找asdasdas</button>
+				<button class="btn btn-sm default filter-cancel"><i class="fa fa-times"></i> 重置</button>
+			</div>
+		</form>
+
+		<table class="table table-striped" id="detail">
+			<thead>
+				<tr>
+					<th data-dt="DT_RowId" data-sort="1" data-hide="1"></th>
+					<th data-dt="il_id" data-sort="1">编号</th>
+					<th data-dt="il_create_time">创建时间</th>
+					<th data-dt="il_name">接口名称</th>
+					<th data-dt="il_title">标题</th>
+					<th data-dt="il_interface_url">路径</th>
+					<th data-dt="il_ic_id">分类</th>
+					<th data-dt="il_status">运行</th>
+					<th data-dt="il_level">等级</th>
+					<th data-dt="il_is_free">免费</th>
+					<th data-dt="il_is_useful">有用系数</th>
+					<th data-dt="il_usage_amount">请求总数</th>
+					<th data-dt="op">操作</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+
+
+<!--添加新接口模态框-->
+<div class="modal fade modal-scroll bs-modal-lg" id="add_interface" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="temp-modal-power-title">发布接口</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer display-hide"></div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+</div>
+sdfsdfsdf
+<!--修改接口模态框-->
+<div class="modal fade modal-scroll bs-modal-lg" id="edit_interface" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">修改编辑</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer display-hide"></div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+</div>
+
+<!--请求参数模态框-->
+<div class="modal fade modal-scroll bs-modal-lg" id="request-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">编辑请求参数</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer display-hide"></div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+</div>
+
+<!--返回参数模态框-->
+<div class="modal fade modal-scroll bs-modal-lg" id="return-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">编辑返回参数</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer display-hide"></div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+</div>
+
+
+
+<!--添加新请求字段模态框-->
+<div class="modal fade modal-scroll bs-modal-lg" id="addRequest" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="false">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">添加请求字段</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer display-hide"></div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+</div>
+
+<!--添加新返回参数字段模态框-->
+<div class="modal fade modal-scroll bs-modal-lg" id="addReturns" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace="false">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">添加返回字段</h4>
+			</div>
+			<div class="modal-body"></div>
+			<div class="modal-footer display-hide"></div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+</div>
+
+<script>
+	/**
+	 * @datatable 显示数据
+	 * @type {{initScoreList}}
+	 */
+
+	var Cash = function () {
+		var dataGrid = new Datatable();
+		return {
+			initScoreList: function () {
+				var table = $("#detail");
+				var columns = [];
+				$('thead > tr > th', table).each(function(){
+					!!$(this).data('dt') && columns.push({
+						"data" : $(this).data('dt'),
+						"sortable": !!$(this).data('sort'),
+						"visible": !$(this).data('hide')
+					});
+				});
+
+
+				dataGrid.init({
+					src : table,
+					dataTable : {
+						"ajax" : {
+							"type" : "POST",
+							"url" : "/open/interfaceList.json"//jsData.action//
+						},
+						"columns" :columns,
+						"order" : [
+							[0, "desc"]
+						]
+					}
+				});
+				return dataGrid;
+			}
+
+		};
+	}();
+	var grid = Cash.initScoreList();
+</script>
+
+
+
+
+<script>
+	//删除
+	function complete(id){
+		if(!id){
+			return false;
+		}
+		bootbox.confirm('确定删除吗?',function(res){
+			if(res){
+				$.ajax({
+					'url' : '/open/deleteInterFace.json?id='+id,
+					'dataType' : 'JSON',
+					'success' : function(data){
+						if(data.id == '1001'){
+							/*bootbox.alert('操作成功!', function(){
+								grid.getDataTable().ajax.reload(null, false);
+							});*/
+							bootbox.alert(data.msg, function() {
+								grid.getDataTable().ajax.reload(null, false);
+							});
+						}else{
+							var msg = data.info || data.msg;
+							bootbox.alert(msg);
+						}
+					}
+				});
+			}
+		});
+	}
+
+</script>

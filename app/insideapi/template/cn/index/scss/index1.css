@@ -1,0 +1,504 @@
+/*蓝色那一块的样式*/
+.header2-bg {
+	background: #0182C1;
+}
+.header2-bg .row .col-xs-8 {
+	margin-top: 80px;
+}
+.header2-bg .row .col-xs-8 h2 {
+	color: #EFECEC;
+}
+.header2-bg .row .col-xs-8 h5 {
+	color: #EFECEC;
+}
+.header2-bg .col-xs-4 .col-xs-12 {
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+.header2-bg .container .row {
+	margin: 0;
+	background-color: #0182C1;
+}
+.header2-bg .container .row >ul {
+	padding-left: 0;
+}
+.header2-bg .container .row >ul>li {
+	display: inline-block;
+	float: left;
+}
+.header2-bg .container .row >ul>li a {
+	display: inline-block;
+	padding: 10px 15px;
+}
+.header2-bg .container .row >ul>li a:hover {
+	color: white;
+}
+.header2-bg .container .row >ul>li.active a {
+	border-bottom: white 3px solid;
+	color: white;
+}
+/*蓝色那一块的样式*/
+/*轮播三个div*/
+.qb-content .hida {
+	display: none;
+}
+/*轮播三个div*/
+
+
+/*轮播块的样式*/
+.mb60 {
+	margin-bottom: 60px;
+}
+.qb-box .col-xs-4>p {
+	margin: 0;
+	padding: 20px 0;
+	border-bottom: #DDDDDD 1px solid;
+}
+/*轮播块的样式*/
+
+.common-right {
+	margin-left: 15px;
+}
+.common-right h3 {
+	margin-top: 0;
+}
+.common-right table {
+	width: 100%;
+}
+.common-right table thead {
+	background: #666666;
+	color: white;
+}
+.common-right table thead>tr>th {
+	background: #666666;
+	color: white;
+	height: 30px;
+	line-height: 30px;
+	padding: 4px 9px;
+	font-size: 12px;
+}
+.common-right table tbody>tr {
+	height: 30px;
+	line-height: 30px;
+}
+.common-right table tbody>tr>td {
+	word-break: break-all;
+	word-wrap: break-word;
+	padding: 5px 10px;
+}
+.common-right table tbody>tr>td.free {
+	color: #009944;
+}
+.common-right table tbody>tr>td.pay {
+	color: #EE3E01;
+}
+/*detail*/
+body {
+}
+/*内容区开始*/
+/*右*/
+.common-right {
+	margin-left: 15px;
+}
+.common-right>h3 {
+	margin-top: 0;
+}
+.common-right h3 span {
+	color: #80808F;
+}
+.common-right .row .col-xs-12 h4 {
+	padding: 12px 12px;
+	margin-top: 25px;
+	margin-bottom: 0;
+	border-bottom: #DDDDDD 1px solid;
+}
+.common-right .row .col-xs-12 h4:hover {
+	background: #F5F5F5;
+	cursor: pointer;
+}
+/**/
+.J_sCon table {
+	margin-top: 30px;
+	width: 100%;
+	font-size: 12px;
+}
+.J_sCon table thead th {
+	background: #666666;
+	color: white;
+	height: 30px;
+	line-height: 30px;
+	padding: 4px 9px;
+	font-size: 12px;
+}
+.J_sCon table tr {
+	height: 30px;
+	line-height: 30px;
+}
+.J_sCon table tbody tr td {
+	word-break: break-all;
+	word-wrap: break-word;
+	padding: 5px 10px;
+}
+/*右*/
+/*内容区结束*/
+
+/*tab插件*/
+.nTab {
+	display: block;
+	float: left;
+	margin: 0 auto;
+	margin-bottom: 2px;
+	width: 100%;
+}
+.nTab .TabTitle {
+	clear: both;
+	height: 38px;
+	overflow: hidden;
+}
+.nTab .TabTitle ul {
+	margin: 0;
+	padding: 0;
+	margin-top: 10px;
+}
+.nTab .TabTitle li {
+	float: left;
+	width: 60px;
+	cursor: pointer;
+	padding-top: 6px;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 7px;
+	list-style-type: none;
+	border-top: #DDDDDD 1px solid;
+	border-left: #DDDDDD 1px solid;
+	border-right: #DDDDDD 1px solid;
+	margin: 0 5px;
+	text-align: center;
+	background: #F5F5F5;
+}
+.nTab .TabTitle .active {
+	background: #FFFFFF;
+}
+.nTab .TabContent {
+	background: #fff;
+	margin: 0px auto;
+	padding: 10px 0 0 0;
+}
+.nTab .TabContent .row {
+	background: #F5F5F5;
+	margin-left: 5px;
+}
+.nTab .TabContent .row .col-xs-1 {
+	line-height: 20px;
+	background: #EEEEEE;
+	text-align: center;
+}
+.none {
+	display: none;
+}
+/*tab插件*/
+
+/*侧边栏  监听栏*/
+
+.sidebar {
+	position: fixed;
+	right: 169px;
+	top: 343px;
+}
+.sidebar ul {
+}
+.sidebar ul li {
+	padding-left: 10px;
+	border-left: #DDDDDD 2px solid;
+}
+.sidebar ul li a {
+	color: #777;
+}
+.sidebar ul li:hover {
+	border-left: #0089CD 2px solid;
+	color: #0089CD;
+}
+.sidebar ul li:hover a {
+	color: #0089CD;
+}
+.sidebar ul li.active {
+	border-left: #0089CD 2px solid;
+	color: #0089CD;
+}
+.sidebar ul li.active a {
+	color: #0089CD;
+}
+/*侧边栏  监听栏*/
+
+
+
+
+
+
+/*detail*/
+
+/*protocolList*/
+
+
+.hide {
+	display: none;
+}
+.ml-4 {
+	margin-left: -4px;
+}
+.mt20 {
+	margin-top: 20px;
+}
+.mt40 {
+	margin-top: 40px;
+}
+.fs12 {
+	font-size: 12px;
+}
+.fs14 {
+	font-style: 14px;
+}
+.clear {
+	clear: both;
+}
+/*蓝色公共部分开始*/
+.bg-0182C1 {
+	background: #0182C1;
+}
+.bg-0182C1 .container .row .col-xs-3 p {
+	margin: 0;
+	padding: 36px 15px;
+	color: white;
+}
+.bg-0182C1 .container .row .col-xs-3 p a {
+	color: white;
+}
+.bg-0182C1 .container .row .col-xs-4 .col-xs-12 {
+	padding: 30px 0;
+}
+.bg-0182C1 .container .row .col-xs-4 .col-xs-12 .form-group {
+	margin-bottom: 0;
+}
+/*蓝色公共部分结束*/
+
+/*左边这一块新的*/
+.common-left {
+	background: #F5F5F5;
+}
+.common-left h4 {
+	margin: 0;
+	padding: 20px 15px;
+	border-bottom: #DDDDDD 1px solid;
+}
+/*第一个ul*/
+.common-left > ul {
+	list-style: none;
+	padding: 0;
+}
+.common-left > ul > li {
+}
+.common-left > ul > li > a {
+	padding: 7px 15px;
+	display: block;
+	color: #333;
+}
+.common-left > ul > li > a:hover {
+	background: #DDECF4;
+}
+/*第二个ul*/
+.common-left > ul > li > ul {
+	list-style: none;
+	padding-left: 0;
+}
+.common-left > ul > li > ul > li {
+}
+.common-left > ul > li > ul > li > a {
+	padding: 7px 15px;
+	padding-left: 30px;
+	display: block;
+	color: #333;
+}
+.common-left > ul > li > ul > li > a:hover {
+	background: #DDECF4;
+}
+/*第三个ul*/
+.common-left > ul > li > ul > li > ul {
+	list-style: none;
+	padding-left: 0;
+}
+.common-left > ul > li > ul > li > ul > li {
+}
+.common-left > ul > li > ul > li > ul > li > a {
+	padding: 7px 15px;
+	padding-left: 45px;
+	display: block;
+	color: #333;
+}
+.common-left > ul > li > ul > li > ul > li > a:hover {
+	background: #DDECF4;
+}
+.common-left > ul > li > ul > li > ul > li > a.active {
+	background: #DDECF4;
+}
+/*右边内容区*/
+
+/*大唐商务大系统合作伙伴协议*/
+.common-right-page p {
+	line-height: 30px;
+}
+.common-right-page small {
+	line-height: 30px;
+	font-size: 14px;
+}
+.common-right-page h5 {
+	padding-left: 30px;
+}
+/*大唐商务大系统合作伙伴协议*/
+/*protocolList*/
+
+/*应用接口规范*/
+
+.hide{
+	display: none; 
+}
+.ml-4{
+	margin-left: -4px;
+}
+.mt20{
+	margin-top: 20px;
+}
+.mt40{
+	margin-top: 40px;
+}
+.fs12{
+	font-size: 12px;
+}
+.fs14{
+	font-style: 14px;
+}
+.clear{
+	clear: both;
+}
+
+
+/*蓝色公共部分开始*/
+.bg-0182C1{
+	background: #0182C1;
+}
+.bg-0182C1 .container .row .col-xs-3 p{
+	margin: 0;
+	padding: 36px 15px;
+	color: white;
+}
+.bg-0182C1 .container .row .col-xs-3 p a{
+	color: white;
+}
+.bg-0182C1 .container .row .col-xs-4 .col-xs-12{
+
+	padding: 30px 0;
+}
+.bg-0182C1 .container .row .col-xs-4 .col-xs-12 .form-group{
+	margin-bottom: 0;
+}
+/*蓝色公共部分结束*/
+
+/*左边这一块新的*/
+.common-left{
+	background: #F5F5F5;
+	min-width: 260px;
+    position: fixed;
+}
+.common-left h4{
+	margin: 0;
+	padding: 20px 15px;
+	border-bottom: #DDDDDD 1px solid;
+}
+/*第一个ul*/
+.common-left > ul{
+	list-style: none;
+	padding: 0;
+}
+
+.common-left > ul > li{
+
+}
+.common-left > ul > li > a{
+	padding: 7px 15px;
+	display: block;
+	color: #333;
+}
+.common-left > ul > li > a:hover{
+	background: #DDECF4;
+}
+
+/*第二个ul*/
+.common-left > ul > li > ul{
+	list-style: none;
+	padding-left: 0;
+}
+.common-left > ul > li > ul > li{
+
+}
+.common-left > ul > li > ul > li > a{
+	padding: 7px 15px;
+	padding-left: 30px;
+	display: block;
+	color: #333;
+}
+.common-left > ul > li > ul > li > a:hover{
+	background: #DDECF4;
+}
+
+/*第三个ul*/
+.common-left > ul > li > ul > li > ul{
+	list-style: none;
+	padding-left: 0;
+}
+.common-left > ul > li > ul > li > ul > li{
+
+}
+.common-left > ul > li > ul > li > ul > li > a{
+	padding: 7px 15px;
+	padding-left: 45px;
+	display: block;
+	color: #333;
+}
+.common-left > ul > li > ul > li > ul > li > a:hover{
+	background: #DDECF4;
+}
+.common-left > ul > li > ul > li > ul > li > a.active{
+	background: #DDECF4;
+}
+
+/*右边内容区*/
+
+.doc-detail-bd p{
+	line-height: 26px;
+}
+.doc-detail-bd td{
+	border: 1px solid #DDDDDD;
+	padding-left: 15px;
+}
+.common-right-page p{
+	line-height: 30px;
+}
+.common-right-page small{
+	line-height: 30px;
+	font-size: 14px;
+}
+.common-right-page h5 {
+	padding-left: 30px;
+}
+td{
+	border: 1px solid #DDDDDD;
+	padding-left: 15px;
+}
+
+/*应用接口规范*/
+
+
+
+
+
+
+

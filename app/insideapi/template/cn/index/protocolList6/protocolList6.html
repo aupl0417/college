@@ -1,0 +1,302 @@
+<!-- common开始 -->
+<div class="container mt40">
+  <div class="row">
+    <!-- 左边这一块的模板开始 -->
+    <div class="col-xs-3">
+      <div class="common-left">
+        <h4>所有类目</h4>
+        <ul>
+          <li> <a href="javascript:;"><i class="fa fa-caret-right"></i> 规则中心</a>
+            <ul>
+              <li> <a href="javascript:;"><i class="fa fa-caret-right"></i> 平台协议</a>
+                <ul>
+                  <li><a id="page1" href="/index/protocolList">合作伙伴开发协议</a></li>
+                  <li><a id="page2" href="/index/protocolList2">技术服务协议</a></li>
+                  <li><a id="page3" href="/index/protocolList3">合作伙伴行为准则</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:;"><i class="fa fa-caret-right"></i> 开发入门</a>
+                <ul>
+                  <li><a id="page" href="/index/protocolList11">新手指南</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:;"><i class="fa fa-caret-right"></i> 开放平台基础规范</a>
+                <ul>
+                  <li><a id="page4" href="/index/protocolList4">应用接入规范</a></li>
+                  <li><a id="page5" href="/index/protocolList5">应用API流量规则</a></li>
+                  <li><a id="page6" href="/index/protocolList6">应用授权规则</a></li>
+                  <li><a id="page7" href="/index/protocolList7">开放平台违规处理规范</a></li>
+                  <li><a id="page8" href="/index/protocolList8">技术服务费规则</a></li>
+                  <li><a id="page9" href="/index/protocolList9">服务费欠费处理规则</a></li>
+                  <li><a id="page10" href="/index/protocolList10">订单全链路优惠政策</a></li>
+                </ul>
+              </li>
+              <li><a href="javascript:;"><i class="fa fa-caret-right"></i> 卖家服务商规则</a>
+                <ul>
+                  <!--                      <li><a id="page" href="/api/protocolList/?id=11">合作伙伴开发协议</a></li>
+                      -->
+                </ul>
+              </li>
+              <li><a href="javascript:;"><i class="fa fa-caret-right"></i> 后服务市场服务商规则</a>
+                <ul>
+                  <!--
+                      <li><a id="page" href="/api/protocolList/?id=12">合作伙伴开发协议</a></li>
+                      -->
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 右边这一块的模板开始 -->
+    <div class="col-xs-9" style="min-height: 820px">
+      <div class="common-right-page">
+        <!---->
+        <div class="content-header">
+          <div class="header-section">
+            <h2> 应用授权规则<br>
+              <small>更新日期：2016年4月15日</small> </h2>
+          </div>
+          <div class="block">
+            <div class="block-title"  style="border-bottom: solid 1px #dedede;margin-bottom: 5px">
+              <h4>一、应用access_token (SessionKey)授权时间</h4>
+            </div>
+            <h5 class="sub-header" style="line-height: 25px">
+              <br>1、授权获得的access_token有效时长（expires_in ）和标签类型（如IT工具、商家后台系统等）、状态（如正式环境、上线等）相关如下。注：实际api调用时，对应用授权时长做了更精确的控制，具体可参考（2、安全等级说明）；另像“第三方IT工具”类应用开发上线后都是发布在xxx.ylh.com上，卖家需要订购使用，相应授权时长会和订购时长相同，如购买1个月，则取得的access_token有效时长1个月。
+              <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                <tbody>
+                  <tr>
+                    <th width="30%" rowspan="2"><strong>业务类别</strong></th>
+                    <th width="30%" rowspan="2"><strong>应用标签</strong></th>
+                    <th width="20%"><strong>正式环境测试中</strong></th>
+                    <th width="20%"><strong>上线运行中</strong></th>
+                  </tr>
+                  <tr>
+                    <th><strong>SessionKey授权时间</strong></th>
+                    <th><strong>SessionKey授权时间</strong></th>
+                  </tr>
+                <tr>
+                  <td rowspan="3">APP移动应用</td>
+                  <td>Web应用</td>
+                  <td rowspan="10">24小时</td>
+                  <td>24小时</td>
+                </tr>
+                  <tr>
+                    <td>Android、iPhone、Window Phone</td>
+                    <td>4320小时</td>
+                  </tr>
+                  <tr>
+                    <td>windows</td>
+                    <td>同订购关系</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="3">Web网页应用</td>
+                    <td>Web应用</td>
+                    <td>24小时</td>
+                  </tr>
+                  <tr>
+                    <td>Android、iPhone、Window Phone</td>
+                    <td>4320小时</td>
+                  </tr>
+                  <tr>
+                    <td>windows</td>
+                    <td>同订购关系</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="3">硬件接入应用</td>
+                    <td>Web应用</td>
+                    <td>24小时</td>
+                  </tr>
+                  <tr>
+                    <td>Android、iPhone、Window Phone</td>
+                    <td>4320小时</td>
+                  </tr>
+                  <tr>
+                    <td>windows</td>
+                    <td>同订购关系</td>
+                  </tr>
+                </tbody>
+              </table>
+            </h5>
+          </div>
+          <div class="block" style="margin-top: 20px">
+            <div class="block-title" style="border-bottom: solid 1px #dedede;margin-bottom: 5px">
+              <h4>二、应用安全等级</h4>
+            </div>
+            <h5 class="sub-header" style="line-height: 25px">
+              <br>1、为了更加灵活的对大唐天下开放平台开放的数据进行安全管控，降低用户数据泄露或者被恶意修改的风险，推出了安全等级（详细说明点 这里）的概念。即大唐天下开放平台对API（或者API字段）及应用分别打了r1、r2、w1、w2和0,1,2,3四种安全级别的标记。与r1、r2、w1、w2对应的是在accesstoken（sessionkey）颁发时增加了4个过期时间：r1_expires_in、r2_expires_in、w1_expires_in、w2_expires_in。这4个值分别用来表示此accesstoken调用各级别API（或字段）的有效期,如下。受安全等级限制的应用有：在线订购应用、第三方IT工具、服务商后台系统、店铺模块后台这4类应用；商家后台系统和新业务这类卖家自用型应用暂不受影响。
+              <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                <tbody>
+                  <tr>
+                    <th width="15%"><strong>安全等级</strong></th>
+                    <th width="15%"><strong>API级别</strong></th>
+                    <th width="15%"><strong>正式环境测试中</strong></th>
+                    <th width="20%"><strong>上线运行中</strong></th>
+                    <th width="15%"><strong>是否可刷新</strong></th>
+                    <th width="20%"><strong>Refresh刷新时长</strong></th>
+                  </tr>
+                  <tr>
+                    <td rowspan="4">3级</td>
+                    <td>R1</td>
+                    <td>24小时</td>
+                    <td>同订购时长</td>
+                    <td>是</td>
+                    <td rowspan="4">已上线应用与订购时长一致，正式环境测试24小时有效</td>
+                  </tr>
+                  <tr>
+                    <td>R2</td>
+                    <td>24小时</td>
+                    <td>同订购时长</td>
+                    <td>是</td>
+                  </tr>
+                  <tr>
+                    <td>W1</td>
+                    <td>24小时</td>
+                    <td>同订购时长</td>
+                    <td>是</td>
+                  </tr>
+                  <tr>
+                    <td>W2</td>
+                    <td>24小时</td>
+                    <td>同订购时长</td>
+                    <td>是</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="4">2级</td>
+                    <td>R1</td>
+                    <td>24小时</td>
+                    <td>同订购时长</td>
+                    <td>是</td>
+                    <td rowspan="4">已上线应用与订购时长一致，正式环境测试24小时有效</td>
+                  </tr>
+                  <tr>
+                    <td>R2</td>
+                    <td>24小时</td>
+                    <td>72小时</td>
+                    <td>是</td>
+                  </tr>
+                  <tr>
+                    <td>W1</td>
+                    <td>24小时</td>
+                    <td>同订购时长</td>
+                    <td>是</td>
+                  </tr>
+                  <tr>
+                    <td>W2</td>
+                    <td>30分钟</td>
+                    <td>30分钟</td>
+                    <td>否</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="4">1级</td>
+                    <td>R1</td>
+                    <td>24小时</td>
+                    <td>同订购时长</td>
+                    <td>是</td>
+                    <td rowspan="4">已上线应用与订购时长一致，正式环境测试24小时有效</td>
+                  </tr>
+                  <tr>
+                    <td>R2</td>
+                    <td>24小时</td>
+                    <td>24小时</td>
+                    <td>否</td>
+                  </tr>
+                  <tr>
+                    <td>W1</td>
+                    <td>24小时</td>
+                    <td>同订购时长</td>
+                    <td>是</td>
+                  </tr>
+                  <tr>
+                    <td>W2</td>
+                    <td>5分钟</td>
+                    <td>5分钟</td>
+                    <td>否</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>1）注：第三方IT工具包括但不限于以下发布到服务市场应用标签（订单付费，互动应用，电商财务，图片/视频工具，快递运输应用，行业/店铺分析，商品管理，客服应用，促销管理，客户关系管理，ERP/进销存软件，订单管理，DMP人群营销，协同办公）
+            </h5>
+          </div>
+          <div class="block" style="margin-top: 20px;margin-bottom: 30px">
+            <div class="block-title" style="border-bottom: solid 1px #dedede;margin-bottom: 5px">
+              <h4>三、应用授权个数</h4>
+            </div>
+            <h5 class="sub-header" style="line-height: 25px">
+              <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                <tbody>
+                  <tr>
+                    <th width="30%" rowspan="2"><strong>业务类别</strong></th>
+                    <th width="20%" rowspan="2"><strong>应用标签</strong></th>
+                    <th width="25%"><strong>正式环境测试中</strong></th>
+                    <th width="25%"><strong>上线运行中</strong></th>
+                  </tr>
+                  <tr>
+                    <th colspan="2"><strong>授权数量（个）</strong></th>
+                  </tr>
+                  <tr>
+                    <td rowspan="3">APP移动应用</td>
+                    <td>Web应用</td>
+                    <td rowspan="3">10</td>
+                    <td>不限</td>
+                  </tr>
+                  <tr>
+                    <td>Android、iPhone、Window Phone</td>
+                    <td>不限</td>
+                  </tr>
+                  <tr>
+                    <td>windows</td>
+                    <td>不限</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="3">Web网页应用</td>
+                    <td>Web应用</td>
+                    <td rowspan="3">10</td>
+                    <td>不限</td>
+                  </tr>
+                  <tr>
+                    <td>Android、iPhone、Window Phone</td>
+                    <td>不限</td>
+                  </tr>
+                  <tr>
+                    <td>windows</td>
+                    <td>不限</td>
+                  </tr>
+                  <tr>
+                    <td rowspan="3">硬件接入应用</td>
+                    <td>Web应用</td>
+                    <td rowspan="3">10</td>
+                    <td>不限</td>
+                  </tr>
+                  <tr>
+                    <td>Android、iPhone、Window Phone</td>
+                    <td>不限</td>
+                  </tr>
+                  <tr>
+                    <td>windows</td>
+                    <td>不限</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>1）商家后台系统默认授权个数为5个，如果商家有多个店铺需要绑定，可以访问支持中心提交申请：//open.ylh.com
+
+              <br>2）注：第三方IT工具包括但不限于以下发布到服务市场应用标签（订单付费，互动应用，电商财务，图片/视频工具，快递运输应用，行业/店铺分析，商品管理，客服应用，促销管理，客户关系管理，ERP/进销存软件，订单管理，DMP人群营销，协同办公）
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
+<!-- BEGIN FOOTER -->
+<div class="footer wow fadeIn" data-wow-duration="1s">
+  <div class="container">
+    <ul class="">
+      <li><a href="https.//open.999qf.cn" title=""><i class="open-iconfont open-portal-icon-mail"></i>开放平台合作 open.999qf.cn</a></li>
+      <li><span>Copyright © 2016 湖南大唐天下网络科技有限公司  版权所有</span></li>
+    </ul>
+  </div>
+</div>
+<!-- END FOOTER -->

@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/template/share/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="/template/share/js/main.js"></script>
+
+        <style>
+
+        </style>
+        <script>
+            var i = 60;
+            var id;
+            function getcode(o) {
+                $(o).attr("disabled","true");
+                $.post("/?model=sms&do=getRundCode",function(data){
+                    if (data.key === '000000'){
+                        alert('您没有预留手机');
+                    }else{
+                        alert(data.key);
+                    }
+                },"json");
+                return;
+                $(o).after('<span>验证码已经发送倒</span>');
+                i = 60;
+                id = setInterval("close()",1000);
+            }
+            function close(){
+                i--;
+                var obj = $("#getcode");
+                obj.html(i + "秒后可以再次发送");
+                if (i <= 0) {
+                    clearInterval(id);
+                    obj.removeAttr("disabled");
+                    obj.html("获取手机验证码");
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <input id="phone" name="phone" type="text" value="" />
+        <button id="getcode" onclick="getcode(this)">获取手机验证码</button>
+        <input id="code" name="code" type="text" value="" style="display:none" />
+        <input id="index" name="index" type="hidden" value="" />
+    </body>
+</html>

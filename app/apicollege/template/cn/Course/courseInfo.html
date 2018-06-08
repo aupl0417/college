@@ -1,0 +1,83 @@
+<body class="bg-color-f0f">
+		<div class="min-test" id="page">
+			<div class="overlay"></div>
+			<if $app == '0'>
+				{:includeTemplet('share/nav',0,['title'=>'课程详情-C+商业系统'])}
+				<div id="content" class="content pt45 mb60">
+			<else>
+				<div id="content" class="content mb60">
+			</if>
+				<replace value="cl_name|enrollInfo">
+				<!--banner S-->
+				<div class="tang-details-banner">
+					<div class="tang-details-banner-title">
+						{cl_name}
+					</div>
+					<div class="tang-details-banner-title">
+						<img src="{_TEMP_SHARE_}/assets/images/tang-people-icon.png" alt="" class="tang-li-icon mb4" width="22">
+						{enrollInfo}
+					</div>
+				</div>
+				<!--banner E-->
+			
+				<!--content S-->
+				<div class="tang-details-content">
+					<div class="tang-details-notice solid-b bg_white">
+						{cl_name}
+					</div>
+				</replace>
+					<div class="tang-details-cont">
+						<div class="panel-group" id="accordion">
+							<loop data="courseList">
+							<div class="panel panel-default bor_no">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion"
+										   href="#collapseOne">
+											<div class="tang-cont-title">
+											{co_name}
+											</div>
+											<div class="tang-cont-time">
+												{cta_startTime}-{cta_endTime}
+											</div>
+										</a>
+									</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<ul class="tang-details-ul list-unstyled">
+											<li>
+												<div class="tang-details-li-title">
+													课程描述
+												</div>
+												<div class="tang-details-li-time">
+													{co_description}
+												</div>
+											</li>
+											<li>
+												<div class="tang-details-li-title">
+													教师
+												</div>
+												<div class="tang-details-li-time">
+													{username}
+												</div>
+											</li>
+											<li>
+												<div class="tang-details-li-title">
+													上课地址
+												</div>
+												<div class="tang-details-li-time">
+													{tra_address}
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							</loop>
+						</div>
+					</div>
+				</div>
+				<!--content E-->
+				
+			</div>

@@ -1,0 +1,111 @@
+<!-- 树状菜单 -->
+<link rel="stylesheet" type="text/css" href="{_TEMP_PUBLIC_}/plugins/jstree/dist/themes/default/style.min.css"/>
+
+<script type="text/javascript" src="{_TEMP_PUBLIC_}/plugins/jstree/dist/jstree.min.js"></script>
+<!-- 树状菜单 end -->
+
+<!-- <replace value="jsData|powerList|allPowerList|level|id"> -->
+  <div class="clearfix form"> 
+    <!-- BEGIN FORM-->
+    <form action="/power/powerMember.json" class="form-horizontal" id="formPower">
+      <div class="form-body">
+        <div class="form-group">
+          <div class="col-md-12">
+			<div id="powerlistTree"></div>
+		  </div>
+        </div>
+
+      </div>
+      <div class="form-actions">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-9">
+			<button type="submit" class="btn blue" id="subfrm"><i class="fa fa-check"></i> 提交修改 </button>
+			<input type="hidden" name="level" value="{level}">	
+			<input type="hidden" name="id" value="{id}">		
+			<input type="hidden" name="power" id="power" value="{powerlist}">				
+			&nbsp;&nbsp;				
+			<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- END FORM--> 
+  </div>
+
+
+<script>
+$(function(){
+	$('#temp-modal-power-title').html('权限管理');
+
+	var jsData = {jsData};
+	var powerList = '{powerList}';
+	var allPowerList = {allPowerList};
+	$('#powerlistTree').jstree({
+		'plugins': ["wholerow", "checkbox", "types"],
+		'core': {
+			"themes" : {
+				"responsive": true
+			},    
+			'data': allPowerList
+		},
+		"types" : {
+			"default" : {
+				"icon" : "fa fa-folder icon-state-warning icon-lg"
+			},
+			"file" : {
+				"icon" : "fa fa-file icon-state-warning icon-lg"
+			}
+		}
+	})
+/*.on('loaded.jstree', function() {
+	$('#powerlistTree').jstree('open_all');
+})*/;
+
+
+	$('#subfrm').on('click', function(e){
+		e.preventDefault();
+		$('#powerlistTree').jstree('open_all');
+		var selected = [];
+		$('.jstree-checkbox.jstree-undetermined, .jstree-wholerow.jstree-wholerow-clicked').each(function(){
+			selected.push($(this).closest('li').attr('id'));
+		});
+		console.log(selected);
+		$('#power').val(selected.join(','));	
+		$('#formPower').submit();
+	});
+	$('#formPower').handleForm(
+		{
+			ass: {
+				
+			}
+		},
+		function(data, statusText){
+			console.log(data);
+			if(data.id == '1001'){
+				bootbox.alert(data.msg, function() {	
+					$('#temp-modal-power').on('hidden', function(){
+						$(this).data('modal', null);
+					});						
+					$('#temp-modal-power').modal('hide');					
+				});
+			}else{
+				var msg = data.info || data.msg;
+				Global.alert( {
+				  "container": "#formPower",
+				  "place": "prepend",
+				  "type": "warning",
+				  "message": msg,
+				  "close": true,
+				  "reset": true,
+				  "focus": true,
+				  "closeInSeconds": "0",
+				  "icon": "warning"
+				});			
+			}				
+		}
+	);
+});
+
+</script>  
+
+<!-- </replace> -->

@@ -1,0 +1,152 @@
+
+		<form method="post" action="/open/editdevelop.json" id="form_cashout">
+			<div class="form-body clearfix">
+				<table class="table responsive-form-table">
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3 borderd">用户ID</th>
+						<replace value="dp_uid">
+							<td class="col-sm-12 col-md-9 borderd" data-title="标题"><input type="text" name="dp_uid" class="form-control" value="{dp_uid}" readonly></td>
+						</replace>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">	开发者联系人</th>
+						<replace value="dp_contact">
+							<td class="col-sm-12 col-md-9" data-title="接口名称"><input type="text" name="dp_contact" class="form-control mask-date" value="{dp_contact}"></td>
+						</replace>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">邮箱</th>
+						<replace value="dp_email">
+							<td class="col-sm-12 col-md-9" data-title="路径"><input type="text" name="dp_email" class="form-control mask-date" value="{dp_email}"></td>
+						</replace>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">电话</th>
+						<replace value="dp_tel">
+							<td class="col-sm-12 col-md-9" data-title="路径"><input type="text" name="dp_tel" class="form-control mask-date" value="{dp_tel}"></td>
+						</replace>
+					</tr>
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">状态</th>
+						<td class="col-sm-12 col-md-9" data-title="状态">
+							<select class="form-control form-filter input-sm" name="dp_status">
+								<option value="">--接口状态--</option>
+								<if $dp_status == 0>
+									<option value="0" selected>待审核</option>
+									<option value="1">正常</option>
+									<option value="2">冻结</option>
+									<option value="3">禁用</option>
+									<option value="4">拒绝</option>
+								</if>
+								<if $dp_status == 1>
+									<option value="0">待审核</option>
+									<option value="1" selected>正常</option>
+									<option value="2">冻结</option>
+									<option value="3">禁用</option>
+									<option value="4">拒绝</option>
+								</if>
+								<if $dp_status == 2>
+									<option value="0">待审核</option>
+									<option value="1">正常</option>
+									<option value="2" selected>冻结</option>
+									<option value="3">禁用</option>
+									<option value="4">拒绝</option>
+								</if>
+								<if $dp_status == 3>
+									<option value="0">待审核</option>
+									<option value="1">正常</option>
+									<option value="2">冻结</option>
+									<option value="3" selected>禁用</option>
+									<option value="4">拒绝</option>
+								</if>
+								<if $dp_status == 4>
+									<option value="0">待审核</option>
+									<option value="1">正常</option>
+									<option value="2">冻结</option>
+									<option value="3">禁用</option>
+									<option value="4" selected>拒绝</option>
+								</if>
+							</select>
+						</td>
+					</tr>
+
+					<tr class="table-row">
+						<th class="hidden-sm col-md-3">备注</th>
+						<td class="col-sm-12 col-md-9" data-title="备注">
+							<replace value="dp_mome">
+								<textarea class="form-control autosizeme" name="dp_mome" rows="3">{dp_mome}</textarea>
+							</replace>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="form-actions">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<replace value="dp_id">
+									<input type="hidden" name="dp_id" value="{dp_id}">
+								</replace>
+								<button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+								<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6"> </div>
+				</div>
+			</div>
+		</form>
+
+	<script>
+		$('#form_cashout').handleForm(
+			{
+				rules: {
+					'dp_uid':{
+						required: true,
+					},
+					'dp_status': {
+						required: true
+					},
+					'dp_mome': {
+						required: true
+					},
+				},
+				messages: {
+					'dp_uid':{
+						required: "标题必须填写",
+					},
+					'dp_status': {
+						required: "选择接口状态"
+					},
+					'dp_mome': {
+						required: "选择接口等级"
+					},
+				},
+				closest: 'td',
+			},
+			function(data, statusText){
+				if(data.id == '1001'){
+					data.msg = '<p>修改成功!</p>';
+					bootbox.alert(data.msg, function() {
+						grid.getDataTable().ajax.reload(null, false);
+						$('#edit_develop').modal('hide');
+					});
+				}
+				else{
+					data.msg = data.info || data.msg;
+					Global.alert( {
+						"container": "#form_cashout",
+						"place": "prepend",
+						"type": "warning",
+						"message": data.msg,
+						"close": true,
+						"reset": true,
+						"focus": true,
+						"closeInSeconds": "0",
+						"icon": "warning"
+					});
+				}
+			}
+		);
+	</script>

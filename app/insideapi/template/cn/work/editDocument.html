@@ -1,0 +1,170 @@
+
+<div class="page-bar margin-bottom-20">
+	<!-- 导航 -->
+	<ul class="page-breadcrumb">
+		<li> <i class="fa fa-home"></i> <a href="/">管理控制台 </a> <i class="fa fa-angle-right"></i> </li>
+		<li> <a href="/open/faq">开发平台</a> <i class="fa fa-angle-right"></i> </li>
+		<li> 文档修改 </li>
+	</ul>
+	<!-- end 导航 -->
+</div>
+
+
+<div class="portlet light">
+
+	<div class="portlet-body">
+
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BEGIN ALERTS PORTLET-->
+				<div class="portlet light">
+					<div class="portlet-body">
+						<form method="post" action="/open/editDocument.json" id="form_cashout">
+							<div class="form-body clearfix">
+								<table class="table responsive-form-table">
+									<tr class="table-row">
+										<th class="hidden-sm col-md-3 borderd">标题</th>
+										<replace value="dl_title">
+											<td class="col-sm-12 col-md-9 borderd" data-title="标题"><input type="text" name="dl_title" class="form-control" value="{dl_title}"></td>
+										</replace>
+									</tr>
+									<tr class="table-row">
+										<th class="hidden-sm col-md-3">	发布者</th>
+										<replace value="dl_author">
+											<td class="col-sm-12 col-md-9" data-title="发布者"><input type="text" name="dl_author" class="form-control mask-date" value="{dl_author}"></td>
+										</replace>
+									</tr>
+									<tr class="table-row">
+										<th class="hidden-sm col-md-3">版本号</th>
+										<replace value="dl_version">
+											<td class="col-sm-12 col-md-9" data-title="版本号"><input type="text" name="dl_version" class="form-control mask-date" value="{dl_version}"></td>
+										</replace>
+									</tr>
+									<!--<tr class="table-row">
+										<th class="hidden-sm col-md-3">分类</th>
+										<td class="col-sm-12 col-md-9" data-title="分类">
+											<select class="form-control form-filter input-sm" name="il_ic_id">
+												<option value="">&#45;&#45;文档分类&#45;&#45;</option>
+												<replace value="dl_dc_id">
+													{dl_dc_id}
+												</replace>
+											</select>
+										</td>
+									</tr>-->
+
+									<tr class="table-row">
+										<th class="hidden-sm col-md-2 borderd">内容 <span class="required"> * </span> </th>
+										<td class="col-sm-12 col-md-10 borderd" data-title="内容">
+											<replace value="dl_content">
+												<textarea name="content" id="content" class="ueditor">{dl_content}</textarea>
+											</replace>
+											<script type="text/javascript" src="{_TEMP_PUBLIC_}/assets/global/plugins/ueditor/ueditor.config.js"></script>
+											<script type="text/javascript" src="{_TEMP_PUBLIC_}/assets/global/plugins/ueditor/ueditor.all.js"></script>
+											<script type="text/javascript">
+												$(function(){
+													if(typeof ueditors === 'undefined' ){
+														ueditors = {};
+													}
+													ueditors.content = UE.getEditor('content', {
+														UEDITOR_HOME_URL : '{_TEMP_PUBLIC_}/assets/global/plugins/ueditor/',
+														serverUrl: "{_TEMP_PUBLIC_}/assets/global/plugins/ueditor/php/controller.php"
+													});
+												});
+
+											</script>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="form-actions">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-offset-3 col-md-9">
+												<replace value="dl_id">
+													<input type="hidden" name="id" value="{dl_id}">
+												</replace>
+												<button type="submit" class="btn btn-default blue"><i class="fa fa-check"></i> 提交</button>
+												<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6"> </div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- END ALERTS PORTLET-->
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<script>
+	$('#form_cashout').handleForm(
+			{
+				rules: {
+					'dl_title':{
+						required: true,
+					},
+					'dl_author': {
+						required: true,
+					},
+					'dl_version': {
+						required: true
+					},
+					'content': {
+						required: true
+					},
+				},
+				messages: {
+					'dl_title':{
+						required: "标题必须填写",
+					},
+					'dl_author': {
+						required: "名称必须填写",
+					},
+					'dl_version': {
+						required: "路径必须填写"
+					},
+					'content': {
+						required: "必须选择分类"
+					},
+				},
+				closest: 'td',
+			},
+			function(data, statusText){
+				if(data.id == '1001'){
+					data.msg = '<p>修改成功!</p>';
+					bootbox.alert(data.msg, function() {
+						Global.ajaxify('/open/documentList');//或者使用这个方法跳转页面,参数为链接地址
+					});
+				}
+				else{
+					data.msg = data.info || data.msg;
+					Global.alert( {
+						"container": "#form_cashout",
+						"place": "prepend",
+						"type": "warning",
+						"message": data.msg,
+						"close": true,
+						"reset": true,
+						"focus": true,
+						"closeInSeconds": "0",
+						"icon": "warning"
+					});
+				}
+			}
+	);
+</script>
+
+
+
+

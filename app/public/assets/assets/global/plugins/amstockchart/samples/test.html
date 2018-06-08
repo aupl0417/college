@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>amStock Example</title>
+		<link rel="stylesheet" href="../amcharts/style.css" type="text/css">
+
+		<script src="../amcharts/amcharts.js" type="text/javascript"></script>
+		<script src="../amcharts/serial.js" type="text/javascript"></script>
+		<script src="../amcharts/amstock.js" type="text/javascript"></script>
+		<script src="../amcharts/lang/zh.js" type="text/javascript"></script>
+
+		<script>
+			var chartData = [];
+			
+
+			function generateChartData11() {
+				var chartData = [];
+				var firstDate = new Date(2015, 0, 1);
+				firstDate.setDate(firstDate.getDate() - 10);
+				firstDate.setHours(0, 0, 0, 0);
+
+				for (var i = 0; i < 1000; i++) {
+					var newDate = new Date(firstDate);
+					newDate.setHours(0, i, 0, 0);
+
+					var a = Math.round(Math.random() * (400000000 + i)) + 100 + i;
+					var b = Math.round(Math.random() * 1000);
+					var c = Math.round(Math.random() * 1000);
+
+					chartData.push({
+						date: newDate,
+						value: a,
+						volume: b,
+						asd: c
+					});
+				}
+				return chartData;
+			}
+			generateChartData();
+			
+
+			function generateChartData() {
+				var firstDate = new Date();
+				firstDate.setHours(0, 0, 0, 0);
+				firstDate.setDate(firstDate.getDate() - 2000);
+
+				for (var i = 0; i < 2000; i++) {
+					var newDate = new Date(firstDate);
+
+					newDate.setDate(newDate.getDate() + i);
+
+					var open = Math.round(Math.random() * (30) + 100);
+					var close = open + Math.round(Math.random() * (15) - Math.random() * 10);
+
+					var low;
+					if (open < close) {
+						low = open - Math.round(Math.random() * 5);
+					} else {
+						low = close - Math.round(Math.random() * 5);
+					}
+
+					var high;
+					if (open < close) {
+						high = close + Math.round(Math.random() * 5);
+					} else {
+						high = open + Math.round(Math.random() * 5);
+					}
+
+					var volume = Math.round(Math.random() * (1000000000 + i)) + 100 + i;
+
+					var value = Math.round(Math.random() * (30000) + 100);
+					
+					var asd = Math.round(Math.random() * 1000);
+
+					chartData[i] = ({
+						date: newDate,
+						open: open,
+						close: close,
+						high: high,
+						low: low,
+						volume: volume,
+						value: value,
+						asd: asd
+					});
+				}
+			}
+
+			var chart = AmCharts.makeChart("chartdiv", {
+
+					type: "stock",
+					language: "zh",
+					categoryAxesSettings: {
+						minPeriod: "mm"
+					},
+
+					dataSets: [{
+						color: "#4884b8",
+						fieldMappings: [{
+							fromField: "value",
+							toField: "value"
+						}, {
+							fromField: "volume",
+							toField: "volume"
+						}, {
+							fromField: "asd",
+							toField: "asd"
+						}],
+
+						dataProvider: chartData,
+						categoryField: "date"
+					}],
+
+
+					panels: [{
+							showCategoryAxis: false,
+							title: "Value",
+							percentHeight: 30,
+
+							valueAxes:[{
+									id:"v1"
+								}
+							],
+
+							stockGraphs: [{
+								id: "g1",
+								valueField: "value",
+								type: "smoothedLine",
+								lineThickness: 2,
+								bullet: "round"
+							}],
+
+							stockLegend: {
+								valueTextRegular: " ",
+								markerType: "none"
+							}
+						},
+
+
+
+						{
+							title: "Volume",
+							percentHeight: 30,
+
+							stockGraphs: [{
+								valueField: "volume",
+								type: "column",
+								cornerRadiusTop: 2,
+								fillAlphas: 1
+							}],
+
+							stockLegend: {
+								valueTextRegular: " ",
+								markerType: "none"
+							}
+						},
+
+
+
+						{
+							title: "asd",
+							percentHeight: 30,
+
+							stockGraphs: [{
+								valueField: "asd",
+								type: "smoothedLine",
+								lineThickness: 2,
+								bullet: "round"
+							}],
+
+							stockLegend: {
+								valueTextRegular: " ",
+								markerType: "none"
+							}
+						}
+					],
+
+					chartScrollbarSettings: {
+						graph: "g1",
+						usePeriod: "10mm",
+						position: "bottom",
+						updateOnReleaseOnly:false
+					},
+
+					chartCursorSettings: {
+						valueBalloonsEnabled: true,
+						valueLineBalloonEnabled:true,
+						valueLineEnabled:true,
+						pan : true
+					},
+
+					periodSelector: {
+						position: "bottom",
+						dateFormat: "YYYY-MM-DD",
+						inputFieldWidth: 150,
+						periods: [{
+							period: "DD",
+							count: 7,
+							label: "最近一周",
+							selected: true
+
+						}, {
+							period: "MM",
+							count: 1,
+							label: "最近一月"
+						}, {
+							period: "Y",
+							count: 1,
+							label: "最近一年"
+						}, {
+							period: "MAX",
+							label: "全部"
+						}]
+					},
+
+					panelsSettings: {
+						usePrefixes: true
+					}
+				});
+
+		</script>
+	</head>
+	<body style="background-color:#FFFFFF">
+		<div id="chartdiv" style="width:100%; height:600px;"></div>
+	</body>
+
+</html>

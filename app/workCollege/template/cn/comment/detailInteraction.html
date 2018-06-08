@@ -1,0 +1,113 @@
+<link href="{_TEMP_PUBLIC_}/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+<script src="{_TEMP_PUBLIC_}/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+<form class="form-horizontal form-row-seperated" id="transfer_detail">
+	<div class="form-body clearfix">
+		<replace value="username|id|courseName|createTime|isShare|unShare|content|title|replyCount">
+			<div class="form-group">
+		      	<label class="control-label col-md-2">提问编号</label>
+		      	<div class="col-md-4">
+		        	<label style='line-height:24px;'>{id}</label>
+		      	</div>
+		      	<label class="control-label col-md-2">所属课程</label>
+		      	<div class="col-md-4">
+		        	<label style='line-height:24px;'>{courseName}</label>
+		      	</div>
+		    </div>
+		    <div class="form-group">
+		      	<label class="control-label col-md-2">提问人</label>
+		      	<div class="col-md-4">
+		        	<label style='line-height:24px;'>{username}</label>
+		      	</div>
+		      	<label class="control-label col-md-2">提问时间</label>
+		      	<div class="col-md-4">
+		        	<label style='line-height:24px;'>{createTime}</label>
+		      	</div>
+		    </div>
+		    <div class="form-group">
+		      	<label class="control-label col-md-2">提问标题</label>
+		      	<div class="col-md-4">
+		        	<label style='line-height:24px;'>{title}</label>
+		      	</div>
+		      	<label class="control-label col-md-2">回复数</label>
+		      	<div class="col-md-4">
+		        	<label style='line-height:24px;'>{replyCount}</label>
+		      	</div>
+		    </div>
+		    <div class="form-group">
+		      	<label class="control-label col-md-2">提问内容</label>
+		      	<div class="col-md-4">
+		        	<label style='line-height:24px;'>{content}</label>
+		      	</div>
+		    </div>
+		    <div class="form-group">
+		      	<label class="control-label col-md-2">是否共享</label>
+		      	<div class="col-md-10">
+	      			<label style='line-height:24px;'><input type='radio' {unShare} name='isPublic' value='0'/>否　<input type='radio' name='isPublic' {isShare} value='1'/>是</label>
+		      	</div>
+		    </div>
+	    </replace>
+		<div class="form-group">
+	      	<label class="control-label col-md-2">回复内容</label>
+	    </div>
+	    <div class="form-group">
+	    	<loop data="replyData">
+	      	<label class="control-label col-md-2"></label>
+	      	<div class="col-md-10" style='border:1px dashed gray;width:600px;height:auto;margin-top:10px;'>
+	      		<div class='row'>
+	      			<div class='col-md-10' style='margin-top:30px;margin-bottom:30px;'>
+	      				{tsi_content}
+	      			</div>
+	      			<div class='col-md-10'>
+	      				<label></label>{username}</label><label style="margin-left:50px;">{tsi_createTime}</label>
+	      				<label style="margin-left:150px;"><button type="button" class="btn blue showHide" value='{id}' index={state}><i class="fa"></i>{stateMsg}</button></label>
+	      			</div>
+      			</div>
+	      	</div>
+	      	</loop>
+	    </div>
+	    <div class="form-actions">
+		    <div class="row">
+		      	<div class="col-md-offset-2 col-md-10">
+					<button type="button" data-dismiss="modal" class="btn blue"><i class="fa fa-check"></i> 确认 </button>
+					<button type="button" data-dismiss="modal" class="btn default"><i class="fa fa-rotate-left"></i> 关闭</button>
+		      	</div>
+		    </div>
+		</div>
+	</div>
+	
+</form>
+<script>
+	$(function(){
+		$('.showHide').on('click', function(){
+			var $obj = $(this);
+			var state = $obj.attr('index');
+			var id = $obj.val();
+			
+			$.ajax({
+    			data:{
+    				'id': id,
+    				'state' : state,
+    			},
+    			type:'get',
+    			url:'/comment/changeStatus.json',
+    			dataType:'json',
+    			success:function(data){
+    				console.log(data);
+    				/* var msg = '';
+    				if(state == 0){
+    					msg = '显示';
+    					$obj.attr('index', '1');
+    				}else if(state == 1){
+    					msg = '隐藏';
+    					$obj.attr('index', '0');
+    				} */
+    				
+    				var html = '<i class="fa"></i>' + data.info.msg;
+    				$obj.attr('index', data.info.state);
+    				$obj.html(html);
+    			}
+    		});
+		});
+	});
+</script>

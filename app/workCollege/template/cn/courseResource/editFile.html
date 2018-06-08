@@ -1,0 +1,110 @@
+<!-- 内容-->
+<script src="{_TEMP_PUBLIC_}/plugins/moment.min.js"></script>
+<link href="{_TEMP_PUBLIC_}/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{_TEMP_PUBLIC_}/plugins/bootstrap-fileinput/bootstrap-fileinput.js" ></script>
+
+<!-- end 功能模块的标题-->
+<!-- 内容-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN ALERTS PORTLET-->
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-pencil"></i>添加学员风采</div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="/courseResource/edit.json" id="form_edit" class="form-horizontal form-row-seperated" method="post">
+                    <replace value="type|courseList|cr_id|cr_name|isShare|unShare|urlListString|crd_id">
+                    <div class="form-group">
+				      	<label class="control-label col-md-2">课件名称</label>
+				      	<div class="col-md-10">
+				        	<input type="text" name="name" class="form-control" value='{cr_name}'/>
+				      	</div>
+				    </div>
+				    <div class="form-group">
+				      	<label class="control-label col-md-2">所属课程</label>
+				      	<div class="col-md-10">
+			      			<select name='courseId' class="form-control">
+								<option value=''>--请选择--</option>
+								{courseList}
+							</select>
+				      	</div>
+				    </div>
+					<div class="form-group">
+				      	<label class="control-label col-md-2">是否共享</label>
+				      	<div class="col-md-10">
+			      			<input type='radio' name='isPublic' {isShare} value='1'/>是　<input type='radio' {unShare} name='isPublic' value='0'/>否
+				      	</div>
+				    </div>
+				    </replace>
+                    <div class="form-body clearfix upload">
+                        <div class="form-group form-md-line-input upload-row-hide display-hide">
+                            <label class="col-md-2 control-label">上传文件&nbsp;[<a href="javascript:void(0);" class="add-upload-row display-hide"><i class="fa fa-plus"></i></a><a href="javascript:void(0);" class="del-upload-row display-hide"><i class="fa fa-minus"></i></a>]</label>
+                            <div class="col-md-4">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="caption">
+                                        <span class="btn blue btn-xs btn-file">
+                                            <i class="fa fa-upload"></i>
+                                            <span class="fileinput-new"> 选择文件 </span>
+                                            <span class="fileinput-exists"> 重新选择 </span>
+                                            <input type="file" name="upload[]" onchange="PreviewImage(this);">
+                                        </span>
+                                        <span class="fileinput-filename"> </span> &nbsp;
+                                        <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <loop data="fileUrl">
+                        <div class="form-group form-md-line-input">
+                            <label class="col-md-2 control-label">上传文件&nbsp;[<a href="javascript:void(0);" class="del-upload-row"><i class="fa fa-minus"></i></a>]</label>
+                            <div class="col-md-6">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <a class="fancybox-button" data-rel="fancybox-button"  data-ext-adadsa="true" target="_blank" href="{fileUrl}">{filename}
+                                    </a>
+                                    <div class="caption">
+                                        <input type="hidden" name="filename[]" value='{filename}'>
+                                        <input type="hidden" name="fileUrl[]" value='{fileUrl}'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </loop>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-9">
+                            	<replace value="cr_id|crd_id|type">
+                                	<input type="hidden" name="type" value="{type}">
+                                	<input type="hidden" name="id" value="{cr_id}">
+	        						<input type="hidden" name="cid" value="{crd_id}">
+                                </replace>
+                                <button type="submit" class="btn blue" id="subBtn">提交</button>
+                                <button type="button" class="btn default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END ALERTS PORTLET-->
+    </div>
+</div>
+
+<replace value="code">
+    <script type="text/javascript">
+        $().ready(function () {
+            urhere({code});
+        });
+    </script>
+</replace>
+
+<script src="{_TEMP_ACTION_}/scripts/addFile.js" type="text/javascript"></script>
+
+<!-- end 内容-->
+<script>
+    Global.initAjax($('#add-flow-modal'));
+</script>
+

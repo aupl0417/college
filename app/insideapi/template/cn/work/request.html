@@ -1,0 +1,108 @@
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">编辑请求参数</h4>
+			</div>
+			<div class="form-body clearfix">
+				<table class="table table-striped" id="request">
+					<thead>
+						<tr>
+							<th data-dt="DT_RowId" data-sort="1" data-hide="1"></th>
+							<th data-dt="iqf_il_name">字段名</th>
+							<th data-dt="iqf_il_is_public">公共参数</th>
+							<th data-dt="iqf_il_type">格式</th>
+							<th data-dt="iqf_il_required">必填</th>
+							<th data-dt="iqf_il_default">默认值</th>
+							<th data-dt="iqf_il_description">描述</th>
+							<th data-dt="op">操作</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="form-actions">
+				<div class="row">
+					<div class="col-md-12">
+						<replace value="id">
+							<a href="/work/addRequest?_ajax=1&id={id}" data-target="#addRequest" data-toggle="modal" class="fancybox-button btn blue"><i class="fa fa-plus"></i> 添加字段</a>
+						</replace>
+					</div>
+					<div class="col-md-6"> </div>
+				</div>
+			</div>
+
+
+
+
+		<replace value="id">
+		<script>
+			console.log('111');
+			/**
+			 * @datatable 显示数据
+			 * @type {{initScoreList}}
+			 */
+			var Cash2 = function () {
+				var dataGrid2 = new Datatable();
+				return {
+					initScoreList: function () {
+						var table = $("#request");
+						var columns = [];
+						$('thead > tr > th', table).each(function(){
+							!!$(this).data('dt') && columns.push({
+								"data" : $(this).data('dt'),
+								"sortable": !!$(this).data('sort'),
+								"visible": !$(this).data('hide')
+							});
+						});
+
+						dataGrid2.init({
+							src : table,
+							dataTable : {
+								"ajax" : {
+									"type" : "POST",
+									"url" : "/work/request.json?id={id}"
+								},
+								"columns" :columns,
+								"order" : [
+									[0, "desc"]
+								]
+							}
+						});
+						return dataGrid2;
+					}
+
+				};
+			}();
+			var grid2 = Cash2.initScoreList();
+		</script>
+		</replace>
+
+
+			<script>
+				//删除
+				function deleterequest(id){
+					if(!id){
+						return false;
+					}
+					bootbox.confirm('确定删除吗?',function(res){
+						if(res){
+							$.ajax({
+								'url' : '/work/deleteRequest.json?id='+id,
+								'dataType' : 'JSON',
+								'success' : function(data){
+									if(data.id == '1001'){
+										/*bootbox.alert('操作成功!', function(){
+										 grid.getDataTable().ajax.reload(null, false);
+										 });*/
+										bootbox.alert(data.msg, function() {
+											grid2.getDataTable().ajax.reload(null, false);
+										});
+									}else{
+										var msg = data.info || data.msg;
+										bootbox.alert(msg);
+									}
+								}
+							});
+						}
+					});
+				}
+
+			</script>
